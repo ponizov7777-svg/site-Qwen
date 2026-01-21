@@ -1,78 +1,130 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+// pages/index.tsx
+import Head from 'next/head';
+import Link from 'next/link';
+import Breadcrumbs from '../components/Breadcrumbs'; // Импортируем компонент хлебных крошек
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+export default function HomePage() {
+  // Формируем данные для хлебных крошек на главной странице
+  // Даже для главной можно показать "Главная", или вообще не показывать (в Breadcrumbs.tsx это обрабатывается)
+  // Здесь передаём массив с одним элементом "Главная".
+  const breadcrumbsData = [
+    { label: 'Главная', href: '/' },
+  ];
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export default function Home() {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black`}
-    >
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <Head>
+        <title>Геомаркетинг и привлечение клиентов для офлайн-бизнеса</title>
+        <meta
+          name="description"
+          content="Помогаю офлайн-бизнесу стабильно привлекать клиентов через карты, рекламу и маркетинговые системы."
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the index.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs/pages/getting-started?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Убедитесь, что canonical URL не имеет лишних пробелов */}
+        <link rel="canonical" href="https://ponizov-marketing.ru/" />
+        <meta property="og:title" content="Геомаркетинг и привлечение клиентов для офлайн-бизнеса" />
+        <meta
+          property="og:description"
+          content="Помогаю офлайн-бизнесу стабильно привлекать клиентов через карты, рекламу и маркетинговые системы."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ponizov-marketing.ru/" />
+        <meta property="og:image" content="/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+
+      {/* Передаём данные в компонент Breadcrumbs */}
+      <Breadcrumbs items={breadcrumbsData} />
+
+      {/* Основной контент страницы */}
+      <main>
+        {/* Первый экран */}
+        <section
+          id="hero"
+          className="py-24 grid md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto px-4"
+        >
+          <div>
+            <h1 className="text-4xl md:text-5xl font-semibold leading-tight mb-6">
+              Геомаркетинг и привлечение клиентов
+              <br />
+              для офлайн-бизнеса
+            </h1>
+            <p className="text-lg text-gray-600 mb-8">
+              Помогаю бьюти, медицине и сервисным компаниям
+              стабильно привлекать клиентов через карты,
+              рекламу и системный маркетинг.
+            </p>
+            <div className="flex gap-4 flex-wrap">
+              <Link
+                href="/consultations"
+                className="px-6 py-3 bg-black text-white rounded-xl"
+              >
+                Бесплатный аудит бизнеса
+              </Link>
+              <Link
+                href="/services"
+                className="px-6 py-3 border rounded-xl"
+              >
+                Услуги и цены
+              </Link>
+            </div>
+          </div>
+          {/* Исправленный класс высоты */}
+          <div className="relative h-90 bg-gray-200 rounded-2xl flex items-center justify-center text-gray-500">
+            Фото будет добавлено
+          </div>
+        </section>
+
+        {/* Чем помогаю */}
+        <section className="py-20 border-t max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-semibold mb-10">С чем я помогаю</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-6 bg-white rounded-2xl shadow-sm">
+              <h3 className="font-semibold mb-2">Геосервисы</h3>
+              <p className="text-gray-600">
+                Яндекс Карты, Google Maps, 2ГИС — рост показов и заявок.
+              </p>
+            </div>
+            <div className="p-6 bg-white rounded-2xl shadow-sm">
+              <h3 className="font-semibold mb-2">Реклама</h3>
+              <p className="text-gray-600">
+                Контекстная и таргетированная реклама.
+              </p>
+            </div>
+            <div className="p-6 bg-white rounded-2xl shadow-sm">
+              <h3 className="font-semibold mb-2">Система</h3>
+              <p className="text-gray-600">
+                Стратегия, воронка, точки роста и масштабирование.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Формат работы */}
+        <section className="py-20 border-t max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-semibold mb-10">Формат работы</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-8 border rounded-2xl">
+              <h3 className="text-xl font-semibold mb-4">Бесплатный аудит</h3>
+              <p className="text-gray-600 mb-6">
+                15–20 минут. Разберём текущую ситуацию и выявим основные точки роста.
+              </p>
+              <Link href="/consultations" className="underline">
+                Подробнее →
+              </Link>
+            </div>
+            <div className="p-8 bg-black text-white rounded-2xl">
+              <h3 className="text-xl font-semibold mb-4">Платная консультация</h3>
+              <p className="text-gray-300 mb-6">
+                Глубокий разбор, стратегия и конкретный план действий под ваш бизнес.
+              </p>
+              <Link href="/consultations" className="underline">
+                Подробнее →
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
-    </div>
+    </>
   );
 }

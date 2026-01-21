@@ -1,0 +1,11 @@
+# robots.txt для https://ponizov-marketing.ru/
+
+User-agent: *
+Allow: /
+
+# Запретить индексацию следующих путей (если нужно, раскомментируйте)
+# Disallow: /private/
+# Disallow: /temp/
+
+# Указать местоположение sitemap
+Sitemap: https://ponizov-marketing.ru/sitemap.xml
