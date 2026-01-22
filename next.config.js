@@ -1,12 +1,16 @@
 // next.config.js
 /** @type {import('next').NextConfig} */
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+  openAnalyzer: false,
+  analyzerPort: 8889,
+});
 const nextConfig = {
   output: 'export',
   images: {
     unoptimized: true,
   },
   trailingSlash: true,
-  // Убедитесь, что здесь НЕТ 'plugins: []' или подобного
+  reactStrictMode: true,
 };
-
-module.exports = nextConfig;
+module.exports = withBundleAnalyzer(nextConfig);
