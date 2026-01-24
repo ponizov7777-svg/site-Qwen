@@ -1,40 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Понизов Андрей - Геомаркетинг для бизнеса
 
-## Getting Started
+Добро пожаловать на официальный репозиторий сайта Понизова Андрея, эксперта по геомаркетингу. Этот сайт представляет собой современное веб-приложение, созданное с использованием Next.js, и посвящено продвижению бизнеса через картографические сервисы и локальный поиск.
 
-First, run the development server:
+## 📋 Описание
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Сайт предоставляет информацию об услугах по настройке Яндекс.Карт, Google Maps, 2ГИС и оптимизации локального поиска. Цель проекта — привлечение потенциальных клиентов и демонстрация экспертизы автора в области геомаркетинга.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Особенности
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- **Статический экспорт**: Проект собран с использованием `output: 'export'`, что позволяет размещать его на любом статическом хостинге.
+- **Адаптивный дизайн**: Полностью адаптирован под мобильные устройства и планшеты.
+- **SEO-оптимизация**: Встроенные возможности для улучшения поисковой видимости.
+- **Быстрая загрузка**: Оптимизированная архитектура для минимального времени загрузки.
+- **Интеграция с аналитикой**: Подключены Yandex Metrika и Google Analytics.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 🛠️ Технологии
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+- [Next.js](https://nextjs.org/) — фреймворк для React-приложений.
+- [React](https://reactjs.org/) — библиотека для создания пользовательских интерфейсов.
+- [TypeScript](https://www.typescriptlang.org/) — строгая типизация для JavaScript.
+- [Tailwind CSS](https://tailwindcss.com/) — фреймворк для стилизации.
+- [Node.js](https://nodejs.org/) — среда выполнения JavaScript.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 📁 Структура проекта
+ponizov-pages-project/
+├── components/ # Переиспользуемые компоненты
+│ ├── Breadcrumbs.tsx
+│ ├── Footer.tsx
+│ └── Header.tsx
+├── pages/ # Страницы приложения (Pages Router)
+│ ├── index.tsx
+│ ├── about.tsx
+│ ├── articles.tsx
+│ ├── cases.tsx
+│ ├── consultations.tsx
+│ ├── contacts.tsx
+│ ├── geomarketing.tsx
+│ ├── services.tsx
+│ └── _app.tsx
+├── public/ # Статические файлы (изображения, иконки, etc.)
+├── styles/ # Глобальные стили
+│ └── globals.css
+├── utils/ # Вспомогательные функции (если есть)
+├── next.config.js # Конфигурация Next.js
+├── package.json # Зависимости и скрипты
+├── README.md # Документация (этот файл)
+└── tsconfig.json # Конфигурация TypeScript
