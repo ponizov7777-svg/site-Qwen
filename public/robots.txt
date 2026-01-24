@@ -1,11 +1,9 @@
-# robots.txt для https://ponizov-marketing.ru/
-
+$robots = @'
 User-agent: *
 Allow: /
 
-# Запретить индексацию следующих путей (если нужно, раскомментируйте)
-# Disallow: /private/
-# Disallow: /temp/
-
-# Указать местоположение sitemap
 Sitemap: https://ponizov-marketing.ru/sitemap.xml
+'@
+
+New-Item -ItemType Directory -Force public | Out-Null
+Set-Content -Path public\robots.txt -Value $robots -Encoding UTF8
