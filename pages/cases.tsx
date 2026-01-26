@@ -12,7 +12,7 @@ export default function CasesPage() {
   const cases = [
     {
       id: 1,
-      title: 'Увеличение客流 в салон красоты на 300%',
+      title: 'Увеличение потока клиентов в салон красоты на 300%',
       category: 'Beauty',
       results: 'Рост заявок с 5 до 35 в день',
       description: 'Комплексная настройка геомаркетинга и рекламы для сети салонов в Екатеринбурге',
@@ -70,34 +70,49 @@ export default function CasesPage() {
     <>
       <Head>
         <title>Кейсы | Андрей Понизов — результаты клиентов в геомаркетинге</title>
-        <meta name="description" content="Реальные кейсы по геомаркетингу и привлечению клиентов для офлайн-бизнеса. Салоны красоты, клиники, автосервисы — увеличение客流 на 200-300% за 3 месяца." />
+        <meta
+          name="description"
+          content="Реальные кейсы по геомаркетингу и привлечению клиентов для офлайн-бизнеса. Салоны красоты, клиники, автосервисы — рост клиентов на 200–300% за 3 месяца."
+        />
         <link rel="canonical" href="https://ponizov-marketing.ru/cases" />
       </Head>
 
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Хлебные крошки */}
         <Breadcrumbs items={breadcrumbsData} />
-        
+
         {/* Заголовок секции */}
         <section className="mb-12">
           <h1 className="text-3xl md:text-4xl font-semibold text-[#1A3A2E] mb-4">
             Реальные кейсы клиентов
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl">
-            Примеры успешного внедрения геомаркетинга и систем привлечения клиентов для офлайн-бизнеса. 
-            Результаты подтверждены аналитикой и отзывами.
+            Примеры внедрения геомаркетинга и систем привлечения клиентов для офлайн-бизнеса.
+            Результаты подтверждаю аналитикой и отзывами.
           </p>
         </section>
 
         {/* Фильтры и сортировка */}
         <div className="mb-12">
           <div className="flex flex-wrap gap-3 mb-6">
-            <span className="px-4 py-2 bg-[#F5C518]/20 text-[#1A3A2E] rounded-full font-medium">Все кейсы</span>
-            <button className="px-4 py-2 text-[#1A3A2E]/70 hover:text-[#1A3A2E] rounded-full hover:bg-gray-100">Beauty</button>
-            <button className="px-4 py-2 text-[#1A3A2E]/70 hover:text-[#1A3A2E] rounded-full hover:bg-gray-100">Медицина</button>
-            <button className="px-4 py-2 text-[#1A3A2E]/70 hover:text-[#1A3A2E] rounded-full hover:bg-gray-100">Автосервис</button>
-            <button className="px-4 py-2 text-[#1A3A2E]/70 hover:text-[#1A3A2E] rounded-full hover:bg-gray-100">Фитнес</button>
-            <button className="px-4 py-2 text-[#1A3A2E]/70 hover:text-[#1A3A2E] rounded-full hover:bg-gray-100">Ритейл</button>
+            <span className="px-4 py-2 bg-[#F5C518]/20 text-[#1A3A2E] rounded-full font-medium">
+              Все кейсы
+            </span>
+            <button className="px-4 py-2 text-[#1A3A2E]/70 hover:text-[#1A3A2E] rounded-full hover:bg-gray-100">
+              Beauty
+            </button>
+            <button className="px-4 py-2 text-[#1A3A2E]/70 hover:text-[#1A3A2E] rounded-full hover:bg-gray-100">
+              Медицина
+            </button>
+            <button className="px-4 py-2 text-[#1A3A2E]/70 hover:text-[#1A3A2E] rounded-full hover:bg-gray-100">
+              Автосервис
+            </button>
+            <button className="px-4 py-2 text-[#1A3A2E]/70 hover:text-[#1A3A2E] rounded-full hover:bg-gray-100">
+              Фитнес
+            </button>
+            <button className="px-4 py-2 text-[#1A3A2E]/70 hover:text-[#1A3A2E] rounded-full hover:bg-gray-100">
+              Ритейл
+            </button>
           </div>
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
             <p className="text-gray-600">Найдено {cases.length} кейсов</p>
@@ -115,13 +130,16 @@ export default function CasesPage() {
         {/* Список кейсов */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {cases.map((caseItem) => (
-            <article key={caseItem.id} className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+            <article
+              key={caseItem.id}
+              className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow"
+            >
               <div className="md:flex">
                 <div className="md:w-1/3 h-48 md:h-auto bg-gray-100 border-2 border-dashed rounded-l-xl flex items-center justify-center text-[#1A3A2E]/50">
                   {caseItem.image ? (
-                    <img 
-                      src={caseItem.image} 
-                      alt={caseItem.title} 
+                    <img
+                      src={caseItem.image}
+                      alt={caseItem.title}
                       className="w-full h-full object-cover rounded-l-xl"
                       loading="lazy"
                     />
@@ -129,6 +147,7 @@ export default function CasesPage() {
                     'Изображение кейса'
                   )}
                 </div>
+
                 <div className="p-6 md:w-2/3">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="px-3 py-1 bg-[#F5C518]/20 text-[#1A3A2E] text-sm font-medium rounded-full">
@@ -136,22 +155,22 @@ export default function CasesPage() {
                     </span>
                     <span className="text-[#E65C00] font-bold">{caseItem.results}</span>
                   </div>
+
                   <h2 className="text-xl font-semibold text-[#1A3A2E] mb-2 hover:text-[#E65C00] transition-colors">
-                    <Link href={caseItem.href}>
-                      {caseItem.title}
-                    </Link>
+                    <Link href={caseItem.href}>{caseItem.title}</Link>
                   </h2>
-                  <p className="text-gray-600 mb-4">
-                    {caseItem.description}
-                  </p>
+
+                  <p className="text-gray-600 mb-4">{caseItem.description}</p>
+
                   <div className="flex items-center justify-between">
-                    <Link 
+                    <Link
                       href={caseItem.href}
                       className="text-[#E65C00] font-medium hover:text-[#D65A31] transition-colors flex items-center gap-1"
                     >
                       Подробнее о кейсе →
                     </Link>
-                    <button 
+
+                    <button
                       className="text-gray-400 hover:text-[#E65C00] transition-colors"
                       aria-label="Добавить кейс в избранное"
                     >
@@ -169,11 +188,21 @@ export default function CasesPage() {
         {/* Пагинация */}
         <div className="flex justify-center mb-16">
           <div className="flex items-center gap-2">
-            <button className="px-4 py-2 border border-gray-300 rounded-lg text-gray-500 hover:bg-gray-50 disabled:opacity-50">Назад</button>
-            <button className="px-4 py-2 border border-[#E65C00] bg-[#FFF9E6] text-[#1A3A2E] rounded-lg font-medium hover:bg-[#F7D03A]">1</button>
-            <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">2</button>
-            <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">3</button>
-            <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">Вперед</button>
+            <button className="px-4 py-2 border border-gray-300 rounded-lg text-gray-500 hover:bg-gray-50 disabled:opacity-50">
+              Назад
+            </button>
+            <button className="px-4 py-2 border border-[#E65C00] bg-[#FFF9E6] text-[#1A3A2E] rounded-lg font-medium hover:bg-[#F7D03A]">
+              1
+            </button>
+            <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+              2
+            </button>
+            <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+              3
+            </button>
+            <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+              Вперед
+            </button>
           </div>
         </div>
 
@@ -182,12 +211,13 @@ export default function CasesPage() {
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
               <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-4 md:mb-0">
-                Кейс недели: Увеличение客流 в салон красоты
+                Кейс недели: Увеличение потока клиентов в салон красоты
               </h2>
               <span className="px-4 py-1 bg-[#E65C00] text-white rounded-full font-medium text-sm">
                 +300% за 2 месяца
               </span>
             </div>
+
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="bg-gray-100 border-2 border-dashed rounded-xl h-64 flex items-center justify-center text-[#1A3A2E]/50">
                 <div className="text-center p-4">
@@ -196,15 +226,17 @@ export default function CasesPage() {
                   <div className="text-gray-600">вместо 5 до начала работы</div>
                 </div>
               </div>
+
               <div>
                 <p className="text-gray-700 mb-4">
-                  Салон красоты в Екатеринбурге обратился с проблемой: при хорошем местоположении и качественном сервисе клиенты не находили их в поиске и на картах.
+                  Салон красоты в Екатеринбурге пришёл с проблемой: при хорошем местоположении и сильном сервисе
+                  клиенты почти не находили бизнес в поиске и на картах.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  Мы полностью перестроили геомаркетинг: настроили все карты, оптимизировали выдачу в поиске и запустили таргетированную рекламу для привлечения локальной аудитории.
+                  Я перестроил геомаркетинг: настроил ключевые карты, улучшил видимость и запустил рекламу на локальную аудиторию.
                 </p>
                 <p className="text-gray-700 mb-6">
-                  За 2 месяца удалось увеличить количество заявок с 5 до 35 в день при сохранении стоимости привлечения клиента на уровне 400 рублей.
+                  За 2 месяца я увеличил заявки с 5 до 35 в день, при этом стоимость привлечения держалась около 400 ₽.
                 </p>
                 <Link
                   href="/cases/salon-krasoty-ekb"
@@ -222,9 +254,12 @@ export default function CasesPage() {
           <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-8 text-center">
             Кейсы по отраслям
           </h2>
-          
+
           <div className="grid md:grid-cols-3 gap-6">
-            <Link href="/cases?category=beauty" className="block p-6 bg-white rounded-xl border border-gray-100 hover:border-[#E65C00] hover:shadow-md transition-all">
+            <Link
+              href="/cases?category=beauty"
+              className="block p-6 bg-white rounded-xl border border-gray-100 hover:border-[#E65C00] hover:shadow-md transition-all"
+            >
               <h3 className="text-xl font-medium text-[#1A3A2E] mb-2">Beauty и SPA</h3>
               <p className="text-gray-600 mb-3">Салоны красоты, барбершопы, SPA-центры</p>
               <div className="flex items-center justify-between">
@@ -234,8 +269,11 @@ export default function CasesPage() {
                 </span>
               </div>
             </Link>
-            
-            <Link href="/cases?category=medical" className="block p-6 bg-white rounded-xl border border-gray-100 hover:border-[#E65C00] hover:shadow-md transition-all">
+
+            <Link
+              href="/cases?category=medical"
+              className="block p-6 bg-white rounded-xl border border-gray-100 hover:border-[#E65C00] hover:shadow-md transition-all"
+            >
               <h3 className="text-xl font-medium text-[#1A3A2E] mb-2">Медицина</h3>
               <p className="text-gray-600 mb-3">Клиники, стоматологии, диагностические центры</p>
               <div className="flex items-center justify-between">
@@ -245,8 +283,11 @@ export default function CasesPage() {
                 </span>
               </div>
             </Link>
-            
-            <Link href="/cases?category=services" className="block p-6 bg-white rounded-xl border border-gray-100 hover:border-[#E65C00] hover:shadow-md transition-all">
+
+            <Link
+              href="/cases?category=services"
+              className="block p-6 bg-white rounded-xl border border-gray-100 hover:border-[#E65C00] hover:shadow-md transition-all"
+            >
               <h3 className="text-xl font-medium text-[#1A3A2E] mb-2">Услуги</h3>
               <p className="text-gray-600 mb-3">Автосервисы, фитнес-клубы, образование</p>
               <div className="flex items-center justify-between">
@@ -265,7 +306,7 @@ export default function CasesPage() {
             Хочу такой же результат для моего бизнеса
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            Запишитесь на бесплатную консультацию, и я покажу конкретные стратегии роста, которые подойдут именно вашему бизнесу.
+            Запишитесь на бесплатную консультацию, и я покажу стратегии роста, которые подойдут именно вашему бизнесу.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -290,24 +331,24 @@ export default function CasesPage() {
               Статистика моих кейсов
             </h2>
             <p className="text-gray-600 mb-8">
-              За 8 лет работы я помог более 150 бизнесам создать системы привлечения клиентов
+              За 8 лет работы я помог более ... бизнесам выстроить системы привлечения клиентов
             </p>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div>
-                <div className="text-4xl font-bold text-[#E65C00] mb-2">150+</div>
+                <div className="text-4xl font-bold text-[#E65C00] mb-2">кол-во</div>
                 <div className="text-gray-600">реализованных проектов</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-[#E65C00] mb-2">92%</div>
+                <div className="text-4xl font-bold text-[#E65C00] mb-2">...%</div>
                 <div className="text-gray-600">клиентов возвращаются</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-[#E65C00] mb-2">200+</div>
+                <div className="text-4xl font-bold text-[#E65C00] mb-2">кол-во</div>
                 <div className="text-gray-600">обученных предпринимателей</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-[#E65C00] mb-2">300%</div>
+                <div className="text-4xl font-bold text-[#E65C00] mb-2">прирост %</div>
                 <div className="text-gray-600">макс. рост клиентов</div>
               </div>
             </div>
@@ -318,10 +359,10 @@ export default function CasesPage() {
         <section className="text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-6">
-              Готов применить успешный опыт к вашему бизнесу
+              Готов применить мой опыт к вашему бизнесу
             </h2>
             <p className="text-gray-600 mb-8">
-              Проведу бесплатный аудит вашего маркетинга и покажу конкретные точки роста для привлечения клиентов через карты и рекламу.
+              Я проведу бесплатный аудит маркетинга и покажу точки роста для привлечения клиентов через карты и рекламу.
             </p>
             <Link
               href="/consultations"

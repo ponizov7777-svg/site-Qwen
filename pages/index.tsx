@@ -11,35 +11,35 @@ export default function HomePage() {
   // Данные для кейсов
   const cases = [
     {
-      title: 'Салон красоты в Екатеринбурге',
-      result: '+300%',
-      description: 'Рост заявок с 5 до 35 в день за 2 месяца'
+      title: '[[НУЖЕН ФАКТ: название кейса 1]]',
+      result: '[[НУЖЕН ФАКТ: результат кейса 1]]',
+      description: '[[НУЖЕН ФАКТ: описание/срок/метрика кейса 1]]'
     },
     {
-      title: 'Клиника в Челябинске',
-      result: '+120 заявок',
-      description: 'Новых пациентов в месяц на новую точку'
+      title: '[[НУЖЕН ФАКТ: название кейса 2]]',
+      result: '[[НУЖЕН ФАКТ: результат кейса 2]]',
+      description: '[[НУЖЕН ФАКТ: описание/срок/метрика кейса 2]]'
     },
     {
-      title: 'Автосервис',
-      result: '+75%',
-      description: 'Увеличение клиентов за 3 месяца после кризиса'
+      title: '[[НУЖЕН ФАКТ: название кейса 3]]',
+      result: '[[НУЖЕН ФАКТ: результат кейса 3]]',
+      description: '[[НУЖЕН ФАКТ: описание/срок/метрика кейса 3]]'
     }
   ];
 
   // Данные для преимуществ
   const advantages = [
     {
-      title: '8+ лет опыта',
+      title: '[[НУЖЕН ФАКТ: опыт в годах]]',
       description: 'Работаю с геомаркетингом с 2015 года'
     },
     {
-      title: '150+ проектов',
-      description: 'Реализованных для бизнеса в beauty, медицине, услугах'
+      title: '[[НУЖЕН ФАКТ: количество проектов]]',
+      description: '[[НУЖЕН ФАКТ: отрасли/ниши проектов (если нужно перечисление)]]'
     },
     {
-      title: '92% клиентов',
-      description: 'Возвращаются за дальнейшей помощью'
+      title: '[[НУЖЕН ФАКТ: доля клиентов в %]]',
+      description: '[[НУЖЕН ФАКТ: что означает % (повторные обращения/допродажи и т.д.)]]'
     }
   ];
 
@@ -49,14 +49,14 @@ export default function HomePage() {
         <title>Геомаркетинг для офлайн-бизнеса | Андрей Понизов</title>
         <meta
           name="description"
-          content="Геомаркетинг и привлечение клиентов для офлайн-бизнеса: beauty, медицина, автосервисы. Андрей Понизов помогает увеличить客流 через Яндекс.Карты, Google Maps и контекстную рекламу."
+          content="Геомаркетинг и привлечение клиентов для офлайн-бизнеса: beauty, медицина, автосервисы. Андрей Понизов помогает увеличить поток клиентов через Яндекс.Карты, Google Maps и контекстную рекламу."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://ponizov-marketing.ru/" />
         <meta property="og:title" content="Геомаркетинг и привлечение клиентов для офлайн-бизнеса" />
         <meta
           property="og:description"
-          content="Геомаркетинг и привлечение клиентов для офлайн-бизнеса: beauty, медицина, автосервисы. Увеличиваем客流 через правильную настройку карт и рекламы."
+          content="Геомаркетинг и привлечение клиентов для офлайн-бизнеса: beauty, медицина, автосервисы. Увеличиваем поток клиентов через правильную настройку карт и рекламы."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ponizov-marketing.ru/" />
@@ -65,7 +65,7 @@ export default function HomePage() {
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Геомаркетинг и привлечение клиентов для офлайн-бизнеса" />
-        <meta name="twitter:description" content="Геомаркетинг и привлечение клиентов для офлайн-бизнеса: beauty, медицина, автосервисы. Увеличиваем客流 через правильную настройку карт и рекламы." />
+        <meta name="twitter:description" content="Геомаркетинг и привлечение клиентов для офлайн-бизнеса: beauty, медицина, автосервисы. Увеличиваем поток клиентов через правильную настройку карт и рекламы." />
         <meta name="twitter:image" content="/og-image.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -101,7 +101,7 @@ export default function HomePage() {
               для офлайн-бизнеса
             </h1>
             <p className="text-lg text-gray-600 mb-8 max-w-xl">
-              Помогаю владельцам beauty, медицины и сервисных компаний стабильно привлекать клиентов через Яндекс.Карты, Google Maps и контекстную рекламу.
+              Помогаю владельцам beauty, медицины и сервисных компаний привлекать клиентов через Яндекс.Карты, Google Maps и контекстную рекламу.
             </p>
             <div className="flex gap-4 flex-wrap">
               <Link
@@ -120,9 +120,9 @@ export default function HomePage() {
           </div>
           <div className="relative h-[360px] md:h-[480px] bg-gray-100 border-2 border-dashed rounded-2xl flex items-center justify-center text-[#1A3A2E]/50">
             <div className="text-center p-4">
-              <div className="text-6xl font-bold text-[#E65C00] mb-2">35</div>
-              <div className="text-2xl font-semibold text-[#1A3A2E] mb-1">заявок в день</div>
-              <div className="text-gray-600">вместо 5 до начала работы</div>
+              <div className="text-6xl font-bold text-[#E65C00] mb-2">[[НУЖЕН ФАКТ: число для hero]]</div>
+              <div className="text-2xl font-semibold text-[#1A3A2E] mb-1">[[НУЖЕН ФАКТ: метрика hero (что именно в день)]]</div>
+              <div className="text-gray-600">[[НУЖЕН ФАКТ: сравнение до/после (что было до начала работы)]]</div>
             </div>
           </div>
         </section>
@@ -259,7 +259,7 @@ export default function HomePage() {
             </div>
             <div className="p-8 bg-gradient-to-r from-[#1A3A2E] to-[#255A40] text-white rounded-2xl">
               <span className="px-4 py-1 bg-[#E65C00]/20 text-white rounded-full font-medium mb-4 inline-block">
-                30 минут
+                1,5 - 2 часа
               </span>
               <h3 className="text-2xl font-semibold mb-4">Платная консультация</h3>
               <p className="text-gray-100 mb-6">
@@ -272,14 +272,14 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#F5C518] mr-2 mt-1">•</span>
-                  <span>Разработка стратегии на 3-6 месяцев</span>
+                  <span>[[НУЖЕН ФАКТ: срок стратегии (например 3-4 месяца)]]</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#F5C518] mr-2 mt-1">•</span>
                   <span>Создание системы отслеживания результатов</span>
                 </li>
               </ul>
-              <div className="text-2xl font-bold mb-2">10 000 ₽</div>
+              <div className="text-2xl font-bold mb-2">[[НУЖЕН ФАКТ: стоимость консультации]]</div>
               <Link
                 href="/consultations"
                 className="inline-block px-6 py-3 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-lg hover:bg-[#F7D03A] transition-colors"
@@ -311,7 +311,7 @@ export default function HomePage() {
               <p className="text-gray-600 italic mb-4">
                 "За месяц работы с Андреем количество заявок выросло со средних 5-7 в день до 25-30. Отлично разбирается в геомаркетинге и рекламе."
               </p>
-              <p className="font-medium text-[#1A3A2E]">Ольга, салон красоты в Екатеринбурге</p>
+              <p className="font-medium text-[#1A3A2E]">Имя, ниша в каком городе?</p>
             </div>
             <div className="bg-white p-6 rounded-xl border border-gray-100">
               <div className="flex items-center mb-4">
@@ -322,22 +322,22 @@ export default function HomePage() {
                 ))}
               </div>
               <p className="text-gray-600 italic mb-4">
-                "Андрей помог нам запустить сеть клиник в 3 новых городах. За 2 месяца вышли на окупаемость. Рекомендую как профессионала своего дела."
+                "Фактический отзыв"
               </p>
-              <p className="font-medium text-[#1A3A2E]">Максим, сеть стоматологических клиник</p>
+              <p className="font-medium text-[#1A3A2E]">Имя, ниша в каком городе?</p>
             </div>
             <div className="bg-white p-6 rounded-xl border border-gray-100">
               <div className="flex items-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-5 h-5 text-[#E65C00]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.898a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.898a1 1 0 00-1.176 0l-3.976 2.898c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.898c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.95-.69l1.519-4.674z" />
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.898a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.898a1 1 0 00-1.176 0l-3.976 2.898c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.898c-.784-.57-.38-1.81.588-1.81h4.914a 1 1 0 00.95-.69l1.519-4.674z" />
                   </svg>
                 ))}
               </div>
               <p className="text-gray-600 italic mb-4">
-                "Профессиональный подход и конкретные результаты. За три месяца увеличили客流 на 75% после кризиса. Спасибо за эффективную работу!"
+                "Профессиональный подход и конкретные результаты. [[НУЖЕН ФАКТ: отзыв (цифры/сроки/результаты)]]"
               </p>
-              <p className="font-medium text-[#1A3A2E]">Дмитрий, автосервис в Челябинске</p>
+              <p className="font-medium text-[#1A3A2E]">Имя, ниша в каком городе?</p>
             </div>
           </div>
         </section>
@@ -366,7 +366,7 @@ export default function HomePage() {
               </Link>
             </div>
             <p className="text-sm text-gray-600 mt-4">
-              Отвечаю в течение 24 часов. Консультация без обязательств.
+              [[НУЖЕН ФАКТ: SLA ответа]] [[НУЖЕН ФАКТ: условия/обязательства консультации]]
             </p>
           </div>
         </section>

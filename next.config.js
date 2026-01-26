@@ -1,82 +1,30 @@
 // next.config.js
-/** @type {import('next').NextConfig} */
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-  openAnalyzer: false,
-  analyzerPort: 8889,
-});
+const csp =
+  "default-src 'self'; " +
+  "script-src 'self' 'unsafe-inline' https://mc.yandex.ru https://www.googletagmanager.com https://www.google-analytics.com; " +
+  "style-src 'self' 'unsafe-inline' data: https://fonts.googleapis.com; " +
+  "img-src 'self' data: https: https://mc.yandex.ru https://www.google-analytics.com; " +
+  "font-src 'self' data: https: https://fonts.gstatic.com; " +
+  "connect-src 'self' https://mc.yandex.ru https://www.google-analytics.com https://api.vercel.com; " +
+  "frame-src 'self' https://www.google.com; " +
+  "object-src 'none'; " +
+  "base-uri 'self'; " +
+  "form-action 'self'; " +
+  "frame-ancestors 'none'; " +
+  "upgrade-insecure-requests";
 
-// Безопасные источники для статических файлов Next.js
-const SELF = "'self'";
-const UNSAFE_INLINE = "'unsafe-inline'";
-const UNSAFE_EVAL = "'unsafe-eval'"; // Только если абсолютно необходимо
-const DATA = "data:";
-const HTTPS = "https:";
-
-// Разрешенные домены для внешних ресурсов
-const YANDEX = "https://mc.yandex.ru";
-const GOOGLE_ANALYTICS = "https://www.google-analytics.com";
-const GOOGLE_TAG_MANAGER = "https://www.googletagmanager.com";
-const GOOGLE = "https://www.google.com";
-
-const nextConfig = {
-  output: 'export',
-  images: {
-    unoptimized: true,
-  },
-  trailingSlash: true,
-  reactStrictMode: true,
+module.exports = {
   async headers() {
     return [
       {
-        source: '/_next/static/(.*)',
+        source: "/(.*)",
         headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'Content-Security-Policy',
-            value: `
-              default-src ${SELF};
-              script-src ${SELF} ${UNSAFE_INLINE} ${YANDEX} ${GOOGLE_TAG_MANAGER} ${GOOGLE_ANALYTICS} 'sha256-4Su6mBWzEIFnH4pAGMOuaeZfYt34+hcG/4lhy6ZvPvI=';
-              style-src ${SELF} ${UNSAFE_INLINE} ${DATA};
-              img-src ${SELF} ${DATA} ${HTTPS} ${YANDEX} ${GOOGLE_ANALYTICS};
-              font-src ${SELF} ${DATA} ${HTTPS};
-              connect-src ${SELF} ${YANDEX} ${GOOGLE_ANALYTICS} https://api.vercel.com;
-              frame-src ${SELF} ${GOOGLE};
-              object-src 'none';
-              base-uri ${SELF};
-              form-action ${SELF};
-              frame-ancestors 'none';
-              upgrade-insecure-requests;
-            `.replace(/\s{2,}/g, ' ').trim()
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY'
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin'
-          }
+          { key: "Content-Security-Policy", value: csp },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
         ],
       },
     ];
   },
 };
-
-module.exports = withBundleAnalyzer(nextConfig);
