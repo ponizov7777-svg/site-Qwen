@@ -5,71 +5,105 @@ import Breadcrumbs from '../components/Breadcrumbs';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
-  { label: 'Геомаркетинг', href: '/geomarketing' }
+  { label: 'Геомаркетинг', href: '/geomarketing' },
 ];
 
 export default function GeomarketingPage() {
-  const services = [
+  const container = "max-w-7xl mx-auto px-4";
+  const section = "py-20 border-t border-gray-100";
+  const sectionHead = "text-center mb-16";
+
+  const h1 = "text-3xl md:text-4xl font-semibold text-[#1A3A2E] mb-4";
+  const h2 = "text-3xl font-semibold mb-4 text-[#1A3A2E]";
+  const h3 = "text-xl font-semibold mb-2 text-[#1A3A2E]";
+
+  const p = "text-gray-700";
+  const pMuted = "text-gray-600";
+  const lead = "text-lg text-gray-600 max-w-3xl";
+
+  const btnPrimary =
+    "px-8 py-4 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-xl hover:bg-[#F7D03A] transition-colors shadow-md " +
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E65C00] focus-visible:ring-offset-2";
+
+  const btnSecondary =
+    "px-8 py-4 border-2 border-[#E65C00] text-[#1A3A2E] font-medium rounded-xl hover:bg-[#FFF5E1] transition-colors " +
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E65C00] focus-visible:ring-offset-2";
+
+  const card =
+    "bg-white rounded-2xl border border-gray-100 p-8 hover:shadow-md transition-shadow";
+
+  const linkAccent =
+    "text-[#E65C00] font-medium hover:text-[#D65A31] transition-colors inline-flex items-center gap-1";
+
+  const blocks = [
     {
-      title: 'Яндекс.Карты',
-      description: 'Полная настройка организации, управление отзывами, работа с сервисами, продвижение в поиске и на картах.',
-      icon: '📱'
+      title: 'Яндекс Карты',
+      description:
+        'Карточка организации, услуги, фото, отзывы и структура — чтобы вас находили в локальном поиске и доверяли.',
+      num: '01',
     },
     {
       title: 'Google Maps',
-      description: 'Оптимизация бизнес-профиля, управление рейтингом и отзывами, интеграция с другими сервисами Google.',
-      icon: '📍'
+      description:
+        'Профиль и репутация в Google. Подходит не всем нишам, но когда нужно — подключаем и приводим в порядок.',
+      num: '02',
     },
     {
       title: '2ГИС',
-      description: 'Настройка карточки организации, управление контактами, продвижение в каталоге и на карте.',
-      icon: '🗺️'
+      description:
+        'Карточка и контакты, аккуратная упаковка и контроль качества — как отдельный источник обращений.',
+      num: '03',
     },
     {
-      title: 'Локальный поиск',
-      description: 'Оптимизация видимости в поисковых системах для локальных запросов, работа с картами и сниппетами.',
-      icon: '🔍'
-    }
+      title: 'Локальный спрос',
+      description:
+        'Собираем “где вас ищут” и “за что выбирают”, чтобы карточка и сайт отвечали на реальный запрос.',
+      num: '04',
+    },
   ];
 
-  const results = [
-    {
-      title: '[[НУЖЕН ФАКТ: результат (например +X%)]]',
-      description: '[[НУЖЕН ФАКТ: что именно измеряем (заявки/клиенты) и за какой период]]'
-    },
-    {
-      title: '[[НУЖЕН ФАКТ: заявок в день]]',
-      description: '[[НУЖЕН ФАКТ: для каких ниш/при каких условиях]]'
-    },
-    {
-      title: '[[НУЖЕН ФАКТ: стоимость привлечения]]',
-      description: '[[НУЖЕН ФАКТ: что включено в расчёт и для какой ниши]]'
-    },
-    {
-      title: '[[НУЖЕН ФАКТ: срок]]',
-      description: '[[НУЖЕН ФАКТ: до какого результата/метрики]]'
-    }
-  ];
-
+  // Только подтверждённые кейсы (Keisy.xlsx)
   const cases = [
     {
-      title: 'Ниша в городе Х',
-      result: '[[НУЖЕН ФАКТ: результат кейса 1]]',
-      description: '[[НУЖЕН ФАКТ: описание кейса 1 (цифры/сроки)]]',
-      href: '/cases/salon-krasoty-ekb'
+      title: 'Beauty, Санкт‑Петербург',
+      result: '2–3 → 15–20 клиентов/мес',
+      description:
+        'Яндекс Бизнес: упаковка профиля, система запроса отзывов, рекламная подписка. Период: 2018–2026.',
+      href: '/cases',
     },
     {
-      title: 'Ниша в городе Х',
-      result: '[[НУЖЕН ФАКТ: результат кейса 2]]',
-      description: '[[НУЖЕН ФАКТ: описание кейса 2 (цифры/сроки)]]',
-      href: '/cases/stomatologiya-network'
+      title: 'Медицина, Санкт‑Петербург',
+      result: 'Окупаемость 358%',
+      description:
+        'Пересборка сайта и кампаний. До этого тратили 300 000 ₽/мес без окупаемости (по кейсу). Период: сен 2024 – апр 2025.',
+      href: '/cases',
     },
     {
-      title: 'Ниша в городе Х',
-      result: '[[НУЖЕН ФАКТ: результат кейса 3]]',
-      description: '[[НУЖЕН ФАКТ: описание кейса 3 (цифры/сроки)]]',
-      href: '/cases/avtoservice-crisis'
-    }
+      title: 'HoReCa, Кострома',
+      result: '1300 подписчиков ВК',
+      description:
+        'Запуск: стратегия, исследование ЦА и конкурентов, сообщество ВК, профили в Картах и 2ГИС. Период: авг 2025 – дек 2025.',
+      href: '/cases',
+    },
+  ];
+
+  const faq = [
+    {
+      q: 'Это “настроить карточку” и забыть?',
+      a: 'Нет. Настройка — это база. Дальше важны отзывы, актуальность информации, фото/услуги, и регулярные выводы по цифрам: что сработало, что нет.',
+    },
+    {
+      q: 'Через сколько будет эффект?',
+      a: 'Зависит от исходной точки. Иногда быстрые правки дают движение за 1–2 недели, но устойчивый результат обычно появляется, когда всё измеримо и вы не пропускаете базу: карточка, отзывы, обработка заявок.',
+    },
+    {
+      q: 'Можно без рекламы, только карты?',
+      a: 'Да. Часто так и стартуем. Если нужно ускорение — подключаем трафик, но только когда понятно, что именно усиливаем и как это меряем.',
+    },
+    {
+      q: 'Что тебе нужно, чтобы сказать “почему тишина”?',
+      a: 'Скиньте ссылку на карточку/статистику/рекламу — я скажу, где отдаете клиентов конкурентам и что сделать первым шагом.',
+    },
   ];
 
   return (
@@ -78,383 +112,198 @@ export default function GeomarketingPage() {
         <title>Геомаркетинг для офлайн-бизнеса | Андрей Понизов</title>
         <meta
           name="description"
-          content="Геомаркетинг для офлайн-бизнеса: настройка Яндекс.Карт, Google Maps, 2ГИС. Привлечение клиентов через локальный поиск, увеличение видимости в картах для салонов красоты, клиник и сервисных компаний."
+          content="Геомаркетинг: заявки из карт и локального поиска. Упаковка карточки, отзывы, видимость и понятная аналитика — без тумана, по цифрам."
         />
         <link rel="canonical" href="https://ponizov-marketing.ru/geomarketing" />
       </Head>
 
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        {/* Хлебные крошки */}
+      <div className={`${container} py-12`}>
         <Breadcrumbs items={breadcrumbsData} />
 
-        {/* Заголовок секции */}
-        <section className="mb-12">
-          <h1 className="text-3xl md:text-4xl font-semibold text-[#1A3A2E] mb-4">
-            Геомаркетинг для офлайн-бизнеса
-          </h1>
-          <p className="text-lg text-gray-600 max-w-3xl">
-            Я выстраиваю системный подход к привлечению клиентов через карты и локальный поиск.
-            Я настраиваю, оптимизирую и продвигаю бизнес в Яндекс.Картах, Google Maps и 2ГИС, чтобы рост был стабильным.
+        {/* HERO */}
+        <section className="py-12 md:py-16">
+          <h1 className={h1}>Геомаркетинг для офлайн‑бизнеса</h1>
+          <p className={lead}>
+            Я помогаю получать заявки из карт и локального поиска. Без “магии”: привожу карточку в порядок,
+            настраиваю измеримость и дальше веду работу так, чтобы по цифрам было видно — что меняем и что это даёт.
+          </p>
+
+          <div className="mt-8 flex gap-4 flex-wrap">
+            <a
+              href="https://t.me/ponizovandrey"
+              target="_blank"
+              rel="noreferrer"
+              className={btnPrimary}
+            >
+              Скинуть скрин в Telegram
+            </a>
+            <Link href="/services" className={btnSecondary}>
+              Услуги и цены
+            </Link>
+          </div>
+
+          <p className="mt-6 text-sm text-gray-600">
+            Можно просто скинуть ссылку на карточку, статистику — я скажу, где вы теряете заявки и что подкрутить в первую очередь.
           </p>
         </section>
 
-        {/* Основное содержимое */}
-        <div className="grid md:grid-cols-2 gap-12 mb-20">
-          {/* Левая колонка: описание геомаркетинга */}
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-4">
-                Что такое геомаркетинг и зачем он нужен бизнесу
-              </h2>
-              <p className="text-gray-700 mb-4">
-                Геомаркетинг — это комплекс методов привлечения клиентов через локальные каналы: карты, локальный поиск, геотаргетированную рекламу.
-                Это не просто «настроить карты», а создать систему, которая стабильно приводит клиентов из вашего района или города.
-              </p>
-              <p className="text-gray-700">
-                [[НУЖЕН ФАКТ: статистика про поиск на картах]] [[НУЖЕН ФАКТ: статистика про потери клиентов без настройки]]
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-4">
-                Как работает моя система геомаркетинга
-              </h2>
-              <p className="text-gray-700 mb-4">
-                Я не просто настраиваю карты — я собираю систему привлечения клиентов:
-              </p>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="text-[#E65C00] mr-2 mt-1">•</span>
-                  <span><span className="font-medium">Аудит текущей ситуации:</span> анализ видимости в картах, отзывы, позиции в поиске</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#E65C00] mr-2 mt-1">•</span>
-                  <span><span className="font-medium">Настройка всех геосервисов:</span> Яндекс.Карты, Google Maps, 2ГИС с оптимизацией под ваш бизнес</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#E65C00] mr-2 mt-1">•</span>
-                  <span><span className="font-medium">Работа с репутацией:</span> управление отзывами, ответы на негатив, стимулирование позитивных отзывов</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#E65C00] mr-2 mt-1">•</span>
-                  <span><span className="font-medium">Интеграция с рекламой:</span> контекстная реклама с геотаргетингом для ускорения результатов</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#E65C00] mr-2 mt-1">•</span>
-                  <span><span className="font-medium">Аналитика и оптимизация:</span> отслеживание заявок, конверсий, роста видимости</span>
-                </li>
-              </ul>
-            </div>
+        {/* Что такое и зачем */}
+        <section className={section}>
+          <div className={sectionHead}>
+            <h2 className={h2}>Что я называю геомаркетингом</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Это не “сделать карточку и забыть”. Это система, которая соединяет спрос рядом, вашу упаковку и измеримость результата.
+            </p>
           </div>
 
-          {/* Правая колонка: статистика и результаты */}
-          <div className="space-y-8">
-            <div className="bg-gradient-to-r from-[#FFF9E6] to-[#FFF4D9] rounded-2xl p-6 border border-[#E65C00]/20">
-              <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-6 text-center">
-                Результаты моих клиентов
-              </h2>
-
-              <div className="grid grid-cols-2 gap-4">
-                {results.map((result, index) => (
-                  <div key={index} className="text-center p-4 bg-white rounded-lg border border-gray-100">
-                    <div className="text-2xl font-bold text-[#E65C00] mb-2">{result.title}</div>
-                    <div className="text-sm text-gray-600">{result.description}</div>
-                  </div>
-                ))}
-              </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className={card}>
+              <h3 className={h3}>Проблема, которую вижу чаще всего</h3>
+              <p className={`${pMuted} mt-2`}>
+                Карточка вроде есть, но она “пустая”: слабые фото, неясные услуги, нет отзывов или на негатив никто не отвечает.
+                В итоге рядом вас видят, но не выбирают.
+              </p>
             </div>
 
-            <div>
-              <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-4">
-                Почему стандартная настройка не работает
-              </h2>
-              <p className="text-gray-700 mb-4">
-                Чаще всего бизнес сталкивается с проблемами при самостоятельной настройке геомаркетинга:
+            <div className={card}>
+              <h3 className={h3}>Как я подхожу</h3>
+              <p className={`${pMuted} mt-2`}>
+                Сначала смотрю, как вас находят (и за что выбирают), потом навожу порядок в карточке и в измеримости,
+                и только после этого усиливаю то, что работает.
               </p>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="text-[#E65C00] mr-2 mt-1">•</span>
-                  <span><span className="font-medium">Неполная настройка:</span> только базовые поля, без оптимизации под алгоритмы карт</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#E65C00] mr-2 mt-1">•</span>
-                  <span><span className="font-medium">Отсутствие аналитики:</span> нет отслеживания, откуда приходят клиенты и какие действия работают</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#E65C00] mr-2 mt-1">•</span>
-                  <span><span className="font-medium">Игнорирование отзывов:</span> [[НУЖЕН ФАКТ: статистика про влияние негативных отзывов]]</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#E65C00] mr-2 mt-1">•</span>
-                  <span><span className="font-medium">Отсутствие системности:</span> работа только с одним сервисом (обычно Яндекс.Карты), игнорируя другие каналы</span>
-                </li>
-              </ul>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Услуги по геомаркетингу */}
-        <section className="mb-20">
-          <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-8 text-center">
-            Услуги по геомаркетингу
-          </h2>
+        {/* Что делаю */}
+        <section className={section}>
+          <div className={sectionHead}>
+            <h2 className={h2}>Что входит в работу</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Блоки ниже — это не “всё для всех”, а набор инструментов. Подбираю то, что реально нужно в вашей ситуации.
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
-              <div key={index} className="p-6 bg-white rounded-xl border border-gray-100 hover:border-[#E65C00] transition-all">
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-medium text-[#1A3A2E] mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <Link
-                  href="/consultations"
-                  className="text-[#E65C00] font-medium hover:text-[#D65A31] transition-colors flex items-center gap-1"
-                >
-                  Подробнее о настройке →
+            {blocks.map((b, i) => (
+              <div key={i} className="p-6 bg-white rounded-xl border border-gray-100 hover:shadow-md transition-shadow">
+                <div className="text-sm font-semibold tracking-widest text-[#1A3A2E]/60 mb-4">
+                  {b.num}
+                </div>
+                <h3 className="text-xl font-semibold text-[#1A3A2E] mb-3">{b.title}</h3>
+                <p className="text-gray-600 mb-4">{b.description}</p>
+                <Link href="/consultations" className={linkAccent}>
+                  Обсудить задачу →
                 </Link>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Процесс работы */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-4">
-              Как проходит работа по геомаркетингу
-            </h2>
+        {/* Процесс */}
+        <section className={section}>
+          <div className={sectionHead}>
+            <h2 className={h2}>Как выглядит работа</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Пошаговая система настройки и запуска геомаркетинга для вашего бизнеса
+              Я не делаю “просто отчёты”. Важно, чтобы было понятно, что делаем и почему.
             </p>
           </div>
 
-          <div className="relative">
-            {/* Линия процесса */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-[#E65C00]/30 transform -translate-x-1/2"></div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className={card}>
+              <div className="text-sm font-semibold tracking-widest text-[#1A3A2E]/60 mb-3">01</div>
+              <h3 className={h3}>Смотрю текущую картину</h3>
+              <p className={pMuted}>
+                Видимость, карточка, отзывы, конкуренты рядом, обработка заявок — где узкое место.
+              </p>
+            </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {[1, 2, 3, 4].map((step) => (
-                <div
-                  key={step}
-                  className={`relative ${step % 2 === 1 ? 'md:text-right' : 'md:text-left'}`}
-                >
-                  {/* Точка процесса */}
-                  <div className="absolute hidden md:block left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[#F5C518] border-4 border-white flex items-center justify-center text-[#1A3A2E] font-bold text-xl z-10">
-                    {step}
-                  </div>
+            <div className={card}>
+              <div className="text-sm font-semibold tracking-widest text-[#1A3A2E]/60 mb-3">02</div>
+              <h3 className={h3}>Навожу порядок</h3>
+              <p className={pMuted}>
+                Карточка, структура услуг/офферов, базовая измеримость — чтобы решения можно было проверять.
+              </p>
+            </div>
 
-                  <div className="bg-white rounded-xl border border-gray-100 p-6 mb-8 relative z-10">
-                    {step === 1 && (
-                      <>
-                        <h3 className="text-xl font-semibold text-[#1A3A2E] mb-3">Аудит и анализ</h3>
-                        <p className="text-gray-600">
-                          Я провожу полный анализ текущей ситуации: видимость в картах, отзывы, позиции в поиске, конкуренция в районе.
-                          Я фиксирую точки роста и риски.
-                        </p>
-                      </>
-                    )}
-                    {step === 2 && (
-                      <>
-                        <h3 className="text-xl font-semibold text-[#1A3A2E] mb-3">Стратегия и план</h3>
-                        <p className="text-gray-600">
-                          Я собираю индивидуальную стратегию геомаркетинга с шагами, сроками и KPI.
-                          Я определяю приоритетные каналы и бюджет.
-                        </p>
-                      </>
-                    )}
-                    {step === 3 && (
-                      <>
-                        <h3 className="text-xl font-semibold text-[#1A3A2E] mb-3">Настройка и запуск</h3>
-                        <p className="text-gray-600">
-                          Я настраиваю Яндекс.Карты, Google Maps и 2ГИС, оптимизирую карточки под алгоритмы, подключаю аналитику и при необходимости запускаю рекламу.
-                        </p>
-                      </>
-                    )}
-                    {step === 4 && (
-                      <>
-                        <h3 className="text-xl font-semibold text-[#1A3A2E] mb-3">Аналитика и рост</h3>
-                        <p className="text-gray-600">
-                          Я регулярно анализирую результаты, оптимизирую настройки и веду работу с отзывами.
-                          В итоге растёт количество заявок и снижается стоимость привлечения клиента.
-                        </p>
-                      </>
-                    )}
-                  </div>
-                </div>
-              ))}
+            <div className={card}>
+              <div className="text-sm font-semibold tracking-widest text-[#1A3A2E]/60 mb-3">03</div>
+              <h3 className={h3}>Делаю тесты и выводы</h3>
+              <p className={pMuted}>
+                Проверяем гипотезы, смотрим цифры, отключаем лишнее, усиливаем рабочее.
+              </p>
+            </div>
+
+            <div className={card}>
+              <div className="text-sm font-semibold tracking-widest text-[#1A3A2E]/60 mb-3">04</div>
+              <h3 className={h3}>Масштабирую</h3>
+              <p className={pMuted}>
+                Когда видно, что работает — аккуратно наращиваем объём и защищаем качество (репутация/контент/контроль).
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Кейсы по геомаркетингу */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-4">
-              Кейсы по геомаркетингу
-            </h2>
+        {/* Кейсы */}
+        <section className={section}>
+          <div className={sectionHead}>
+            <h2 className={h2}>Кейсы</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Реальные примеры результатов работы с клиентами в сфере геомаркетинга
+              Реальные примеры, где видно “было → стало”.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {cases.map((caseItem, index) => (
-              <article key={index} className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="px-3 py-1 bg-[#F5C518]/20 text-[#1A3A2E] text-sm font-medium rounded-full">
-                      Кейс
-                    </span>
-                    <span className="text-[#E65C00] font-bold">{caseItem.result}</span>
-                  </div>
-                  <h3 className="text-xl font-semibold text-[#1A3A2E] mb-3">
-                    <Link href={caseItem.href} className="hover:text-[#E65C00] transition-colors">
-                      {caseItem.title}
-                    </Link>
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    {caseItem.description}
-                  </p>
-                  <Link
-                    href={caseItem.href}
-                    className="text-[#E65C00] font-medium hover:text-[#D65A31] transition-colors flex items-center gap-1"
-                  >
-                    Подробнее о кейсе →
-                  </Link>
-                </div>
+            {cases.map((c, i) => (
+              <article key={i} className="bg-white rounded-xl border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <div className="text-3xl font-bold text-[#E65C00] mb-2">{c.result}</div>
+                <h3 className="text-xl font-semibold text-[#1A3A2E] mb-2">{c.title}</h3>
+                <p className="text-gray-600 mb-4">{c.description}</p>
+                <Link href={c.href} className={linkAccent}>
+                  Посмотреть кейсы →
+                </Link>
               </article>
             ))}
           </div>
-
-          <div className="text-center mt-8">
-            <Link
-              href="/cases"
-              className="inline-block px-6 py-3 border-2 border-[#E65C00] text-[#1A3A2E] font-medium rounded-lg hover:bg-[#FFF5E1] transition-colors"
-            >
-              Все кейсы по геомаркетингу
-            </Link>
-          </div>
         </section>
 
-        {/* Призыв к действию */}
-        <section className="bg-gradient-to-r from-[#FFF9E6] to-[#FFF4D9] rounded-2xl p-8 mb-20 border border-[#E65C00]/20">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-4">
-              Хочу такой же результат для моего бизнеса
-            </h2>
-            <p className="text-gray-700 mb-6">
-              Я проведу бесплатный аудит вашего геомаркетинга и покажу конкретные точки роста для привлечения клиентов через карты.
-            </p>
-            <Link
-              href="/consultations"
-              className="inline-block px-8 py-4 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-xl text-lg hover:bg-[#F7D03A] transition-colors shadow-md hover:shadow-lg"
-            >
-              Бесплатный аудит геомаркетинга
-            </Link>
-            <p className="text-sm text-gray-600 mt-3">
-              [[НУЖЕН ФАКТ: длительность]] [[НУЖЕН ФАКТ: формулировка “без обязательств”]] [[НУЖЕН ФАКТ: что именно даю по итогам]]
+        {/* FAQ */}
+        <section className={section}>
+          <div className={sectionHead}>
+            <h2 className={h2}>Вопросы</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Коротко и по делу.
             </p>
           </div>
-        </section>
-
-        {/* Часто задаваемые вопросы */}
-        <section className="mb-20">
-          <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-8 text-center">
-            Часто задаваемые вопросы о геомаркетинге
-          </h2>
 
           <div className="max-w-3xl mx-auto space-y-4">
-            <div className="border border-gray-100 rounded-xl overflow-hidden">
-              <button className="w-full text-left p-5 bg-white hover:bg-[#FFF9E6] transition-colors">
-                <div className="flex justify-between items-center">
-                  <span className="font-medium text-[#1A3A2E]">Сколько времени нужно для результатов?</span>
-                  <span className="text-[#E65C00]">+</span>
-                </div>
-              </button>
-            </div>
-
-            <div className="border border-gray-100 rounded-xl overflow-hidden">
-              <button className="w-full text-left p-5 bg-white hover:bg-[#FFF9E6] transition-colors">
-                <div className="flex justify-between items-center">
-                  <span className="font-medium text-[#1A3A2E]">Какой бюджет нужен для старта?</span>
-                  <span className="text-[#E65C00]">+</span>
-                </div>
-              </button>
-            </div>
-
-            <div className="border border-gray-100 rounded-xl overflow-hidden">
-              <button className="w-full text-left p-5 bg-white hover:bg-[#FFF9E6] transition-colors">
-                <div className="flex justify-between items-center">
-                  <span className="font-medium text-[#1A3A2E]">Можно ли настроить всё самому?</span>
-                  <span className="text-[#E65C00]">+</span>
-                </div>
-              </button>
-            </div>
-
-            <div className="border border-gray-100 rounded-xl overflow-hidden">
-              <button className="w-full text-left p-5 bg-white hover:bg-[#FFF9E6] transition-colors">
-                <div className="flex justify-between items-center">
-                  <span className="font-medium text-[#1A3A2E]">Как измерить эффективность геомаркетинга?</span>
-                  <span className="text-[#E65C00]">+</span>
-                </div>
-              </button>
-            </div>
+            {faq.map((item, i) => (
+              <div key={i} className="bg-white rounded-xl border border-gray-100 p-6">
+                <div className="font-semibold text-[#1A3A2E] mb-2">{item.q}</div>
+                <div className="text-gray-600">{item.a}</div>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Связанные услуги */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-8 text-center">
-            Связанные услуги
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <Link href="/services" className="block p-6 bg-white rounded-xl border border-gray-100 hover:border-[#E65C00] hover:shadow-md transition-all">
-              <h3 className="text-xl font-medium text-[#1A3A2E] mb-2">Все услуги и цены</h3>
-              <p className="text-gray-600 mb-3">Комплексное продвижение для офлайн-бизнеса: геомаркетинг, реклама, стратегия</p>
-              <span className="text-sm text-[#E65C00] font-medium flex items-center gap-1">
-                Подробнее →
-              </span>
-            </Link>
-
-            <Link href="/consultations" className="block p-6 bg-white rounded-xl border border-gray-100 hover:border-[#E65C00] hover:shadow-md transition-all">
-              <h3 className="text-xl font-medium text-[#1A3A2E] mb-2">Платные консультации</h3>
-              <p className="text-gray-600 mb-3">Глубокий анализ вашего бизнеса и разработка индивидуальной стратегии</p>
-              <span className="text-sm text-[#E65C00] font-medium flex items-center gap-1">
-                Подробнее →
-              </span>
-            </Link>
-
-            <Link href="/articles?category=geomarketing" className="block p-6 bg-white rounded-xl border border-gray-100 hover:border-[#E65C00] hover:shadow-md transition-all">
-              <h3 className="text-xl font-medium text-[#1A3A2E] mb-2">Статьи по геомаркетингу</h3>
-              <p className="text-gray-600 mb-3">Практические руководства и советы по настройке карт и локального поиска</p>
-              <span className="text-sm text-[#E65C00] font-medium flex items-center gap-1">
-                Читать статьи →
-              </span>
-            </Link>
-          </div>
-        </section>
-
-        {/* Финальный CTA */}
-        <section className="text-center">
-          <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-6">
-            Я готов увеличить поток клиентов с карт уже сегодня
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            Запишитесь на бесплатную консультацию, и я покажу стратегии роста, которые подойдут именно вашему бизнесу.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/consultations"
-              className="px-8 py-4 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-xl text-lg hover:bg-[#F7D03A] transition-colors shadow-md"
-            >
-              Бесплатный аудит бизнеса
-            </Link>
-            <Link
-              href="/contacts"
-              className="px-8 py-4 border-2 border-[#E65C00] text-[#1A3A2E] font-medium rounded-xl text-lg hover:bg-[#FFF5E1] transition-colors"
-            >
-              Связаться со мной
-            </Link>
+        {/* CTA */}
+        <section className="py-20 border-t border-gray-100 bg-gradient-to-r from-[#FFF9E6] to-[#FFF4D9] rounded-2xl p-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className={h2}>Начать можно с простого</h2>
+            <p className="text-gray-700 mb-8 max-w-2xl mx-auto">
+              Скиньте ссылку на карточку, статистики — я скажу, где теряются заявки и что сделать первым шагом.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="https://t.me/ponizovandrey" target="_blank" rel="noreferrer" className={btnPrimary}>
+                Написать в Telegram
+              </a>
+              <Link href="/consultations" className={btnSecondary}>
+                Консультации
+              </Link>
+            </div>
+            <p className="text-sm text-gray-600 mt-4">
+              Ответ в течение 24 часов. Без навязывания услуг — только по делу.
+            </p>
           </div>
         </section>
       </div>

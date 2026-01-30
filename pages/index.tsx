@@ -3,126 +3,126 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Breadcrumbs from '../components/Breadcrumbs';
 
-const breadcrumbsData = [
-  { label: 'Главная', href: '/' },
-];
+const breadcrumbsData = [{ label: 'Главная', href: '/' }];
 
 export default function HomePage() {
-  // Данные для кейсов
+  // Кейсы — только подтверждённые (Keisy.xlsx)
   const cases = [
     {
-      title: '[[НУЖЕН ФАКТ: название кейса 1]]',
-      result: '[[НУЖЕН ФАКТ: результат кейса 1]]',
-      description: '[[НУЖЕН ФАКТ: описание/срок/метрика кейса 1]]'
+      title: 'Beauty, Санкт‑Петербург',
+      result: '2–3 → 15–20 клиентов/мес',
+      description:
+        'Яндекс Бизнес: упаковка профиля, система запроса отзывов, рекламная подписка. Период: 2018–2026.',
     },
     {
-      title: '[[НУЖЕН ФАКТ: название кейса 2]]',
-      result: '[[НУЖЕН ФАКТ: результат кейса 2]]',
-      description: '[[НУЖЕН ФАКТ: описание/срок/метрика кейса 2]]'
+      title: 'Медицина, Санкт‑Петербург',
+      result: 'Окупаемость 358%',
+      description:
+        'Пересборка сайта и кампаний. До этого тратили 300 000 ₽/мес без окупаемости (по кейсу). Период: сен 2024 – апр 2025.',
     },
     {
-      title: '[[НУЖЕН ФАКТ: название кейса 3]]',
-      result: '[[НУЖЕН ФАКТ: результат кейса 3]]',
-      description: '[[НУЖЕН ФАКТ: описание/срок/метрика кейса 3]]'
-    }
+      title: 'HoReCa, Кострома',
+      result: '1300 подписчиков ВК',
+      description:
+        'Запуск: стратегия, исследование ЦА и конкурентов, сообщество ВК, профили в Картах и 2ГИС. Период: авг 2025 – дек 2025.',
+    },
   ];
 
-  // Данные для преимуществ
   const advantages = [
     {
-      title: '[[НУЖЕН ФАКТ: опыт в годах]]',
-      description: 'Работаю с геомаркетингом с 2015 года'
+      title: 'Прозрачность в цифрах',
+      description:
+        'Можно в любой момент спросить “как дела?” — и я покажу, что сделано, что это дало и что делаем дальше.',
     },
     {
-      title: '[[НУЖЕН ФАКТ: количество проектов]]',
-      description: '[[НУЖЕН ФАКТ: отрасли/ниши проектов (если нужно перечисление)]]'
+      title: 'Сначала измеримость',
+      description:
+        'Если цифр нет — наводим порядок (цели/метки/аналитика), и только потом масштабируем трафик.',
     },
     {
-      title: '[[НУЖЕН ФАКТ: доля клиентов в %]]',
-      description: '[[НУЖЕН ФАКТ: что означает % (повторные обращения/допродажи и т.д.)]]'
-    }
+      title: 'Взрослый отбор проектов',
+      description:
+        'Не берусь за задачи “давайте просто запустим рекламу”. Работаю там, где есть локальный спрос и понятная экономика.',
+    },
   ];
+
+  const btnPrimary =
+    'px-8 py-4 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-xl hover:bg-[#F7D03A] transition-colors shadow-md ' +
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E65C00] focus-visible:ring-offset-2';
+
+  const btnSecondary =
+    'px-8 py-4 border-2 border-[#E65C00] text-[#1A3A2E] font-medium rounded-xl hover:bg-[#FFF5E1] transition-colors ' +
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E65C00] focus-visible:ring-offset-2';
+
+  const linkAccent =
+    'text-[#E65C00] font-medium hover:text-[#D65A31] transition-colors inline-flex items-center gap-1';
+
+  const card =
+    'p-8 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow';
 
   return (
     <>
       <Head>
-        <title>Геомаркетинг для офлайн-бизнеса | Андрей Понизов</title>
+        <title>Геомаркетинг и заявки из карт | Андрей Понизов</title>
         <meta
           name="description"
-          content="Геомаркетинг и привлечение клиентов для офлайн-бизнеса: beauty, медицина, автосервисы. Андрей Понизов помогает увеличить поток клиентов через Яндекс.Карты, Google Maps и контекстную рекламу."
+          content="Помогаю локальному бизнесу получать заявки из карт и рекламы. Работаю по цифрам: измеримость, понятный план действий и прозрачная логика решений."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://ponizov-marketing.ru/" />
-        <meta property="og:title" content="Геомаркетинг и привлечение клиентов для офлайн-бизнеса" />
-        <meta
-          property="og:description"
-          content="Геомаркетинг и привлечение клиентов для офлайн-бизнеса: beauty, медицина, автосервисы. Увеличиваем поток клиентов через правильную настройку карт и рекламы."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ponizov-marketing.ru/" />
-        <meta property="og:image" content="/og-image.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Геомаркетинг и привлечение клиентов для офлайн-бизнеса" />
-        <meta name="twitter:description" content="Геомаркетинг и привлечение клиентов для офлайн-бизнеса: beauty, медицина, автосервисы. Увеличиваем поток клиентов через правильную настройку карт и рекламы." />
-        <meta name="twitter:image" content="/og-image.jpg" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Андрей Понизов",
-            "url": "https://ponizov.ru",
-            "image": "/og-image.jpg",
-            "sameAs": [
-              "https://t.me/ponizovandrey",
-              "https://vk.com/andrey_anatolyevich_marketing",
-              "https://rutube.ru/channel/73592687/",
-              "https://max.ru/u/f9LHodD0cOKv94u0uUQGsTH7c9Cibtp9qAEtmFpgYQ-QfGsVeYNyc7M34aU"
-            ],
-            "jobTitle": "Эксперт по геомаркетингу и привлечению клиентов для офлайн-бизнеса",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Андрей Понизов — геомаркетинг"
-            }
-          })}
-        </script>
       </Head>
 
-      <Breadcrumbs items={breadcrumbsData} />
+      {/* <Breadcrumbs items={breadcrumbsData} /> */}
 
       <main className="max-w-7xl mx-auto px-4">
-        {/* Первый экран */}
+        {/* Hero */}
         <section id="hero" className="py-24 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl font-semibold leading-tight mb-6 text-[#1A3A2E]">
-              Геомаркетинг и системное привлечение клиентов
+              Привожу клиентов в офлайн‑бизнес через карты и трафик
               <br />
-              для офлайн-бизнеса
+              так, чтобы по цифрам было понятно, что работает
             </h1>
+
             <p className="text-lg text-gray-600 mb-8 max-w-xl">
-              Помогаю владельцам beauty, медицины и сервисных компаний привлекать клиентов через Яндекс.Карты, Google Maps и контекстную рекламу.
+              Я в предпринимательстве более 10 лет. Работаю с beauty, медициной, косметологией и HoReCa.
+              Без “магии” и обещаний — только измеримость, логика и план работ.
             </p>
+
             <div className="flex gap-4 flex-wrap">
-              <Link
-                href="/consultations"
-                className="px-8 py-4 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-xl hover:bg-[#F7D03A] transition-colors shadow-md"
-              >
-                Бесплатный аудит бизнеса
+              <Link href="/consultations" className={btnPrimary}>
+                Разбор по цифрам (консультация)
               </Link>
-              <Link
-                href="/services"
-                className="px-8 py-4 border-2 border-[#E65C00] text-[#1A3A2E] font-medium rounded-xl hover:bg-[#FFF5E1] transition-colors"
-              >
+
+              <Link href="/services" className={btnSecondary}>
                 Услуги и цены
               </Link>
             </div>
+
+            <p className="mt-6 text-sm text-gray-600">
+              Можно начать с простого: скинь ссылку на карточку, скрины статистики/рекламы — я скажу, где уходят клиенты и что сделать первым шагом.
+              шагом.
+              <a
+                className="ml-2 text-[#E65C00] hover:text-[#D65A31] transition-colors"
+                href="https://t.me/ponizovandrey"
+                target="_blank"
+                rel="noreferrer"
+              >
+                https://t.me/ponizovandrey
+              </a>
+            </p>
           </div>
-          <div className="relative h-[360px] md:h-[480px] bg-gray-100 border-2 border-dashed rounded-2xl flex items-center justify-center text-[#1A3A2E]/50">
-            <div className="text-center p-4">
-              <div className="text-6xl font-bold text-[#E65C00] mb-2">[[НУЖЕН ФАКТ: число для hero]]</div>
-              <div className="text-2xl font-semibold text-[#1A3A2E] mb-1">[[НУЖЕН ФАКТ: метрика hero (что именно в день)]]</div>
-              <div className="text-gray-600">[[НУЖЕН ФАКТ: сравнение до/после (что было до начала работы)]]</div>
+
+          {/* Визуальный блок (без неподтверждённых обещаний) */}
+          <div className="relative h-[360px] md:h-[480px] bg-gray-100 border border-gray-200 rounded-2xl flex items-center justify-center">
+            <div className="text-center p-6 max-w-sm">
+              <div className="text-5xl md:text-6xl font-bold text-[#E65C00] mb-3">По цифрам</div>
+              <div className="text-xl md:text-2xl font-semibold text-[#1A3A2E] mb-2">
+                что сделано → что изменилось
+              </div>
+              <div className="text-gray-600">
+                Без тумана и “мы работаем над улучшением”. Понятная схема: гипотеза → тест → вывод.
+              </div>
             </div>
           </div>
         </section>
@@ -132,87 +132,102 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold mb-4 text-[#1A3A2E]">С чем я помогаю</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Комплексный подход к привлечению клиентов для вашего офлайн-бизнеса
+              Карты, трафик и стратегия — как части одной системы.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-8 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="text-4xl mb-4 text-[#E65C00]">📱</div>
+            <div className={card}>
+              <div className="text-sm font-semibold tracking-widest text-[#1A3A2E]/60 mb-4">
+                01
+              </div>
               <h3 className="text-xl font-semibold mb-2 text-[#1A3A2E]">Геомаркетинг</h3>
               <p className="text-gray-600 mb-4">
-                Настройка и продвижение в Яндекс.Картах, Google Maps, 2ГИС.
+                Упаковка и продвижение в картах: чтобы вас находили в локальном спросе и оставляли заявки.
               </p>
-              <Link href="/geomarketing" className="text-[#E65C00] font-medium hover:text-[#D65A31] transition-colors flex items-center gap-1">
+              <Link href="/geomarketing" className={linkAccent}>
                 Подробнее →
               </Link>
             </div>
-            <div className="p-8 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="text-4xl mb-4 text-[#E65C00]">🎯</div>
-              <h3 className="text-xl font-semibold mb-2 text-[#1A3A2E]">Реклама</h3>
+
+            <div className={card}>
+              <div className="text-sm font-semibold tracking-widest text-[#1A3A2E]/60 mb-4">
+                02
+              </div>
+              <h3 className="text-xl font-semibold mb-2 text-[#1A3A2E]">Трафик и заявки</h3>
               <p className="text-gray-600 mb-4">
-                Контекстные кампании с геотаргетингом для офлайн-конверсий.
+                Контекст и локальная реклама с контролем по понятным метрикам (не по “охватам”).
               </p>
-              <Link href="/services#kontekstnaya-reklama" className="text-[#E65C00] font-medium hover:text-[#D65A31] transition-colors flex items-center gap-1">
+              <Link href="/services#kontekstnaya-reklama" className={linkAccent}>
                 Подробнее →
               </Link>
             </div>
-            <div className="p-8 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="text-4xl mb-4 text-[#E65C00]">📊</div>
+
+            <div className={card}>
+              <div className="text-sm font-semibold tracking-widest text-[#1A3A2E]/60 mb-4">
+                03
+              </div>
               <h3 className="text-xl font-semibold mb-2 text-[#1A3A2E]">Стратегия</h3>
               <p className="text-gray-600 mb-4">
-                Разработка маркетинговых стратегий и воронок привлечения клиентов.
+                План работ и приоритеты: что даёт быстрый эффект, что строит рост, как контролируем результат.
               </p>
-              <Link href="/services#strategiya" className="text-[#E65C00] font-medium hover:text-[#D65A31] transition-colors flex items-center gap-1">
+              <Link href="/services#strategiya" className={linkAccent}>
                 Подробнее →
               </Link>
             </div>
           </div>
         </section>
 
-        {/* Кейсы клиентов */}
+        {/* Кейсы */}
         <section className="py-20 border-t border-gray-100 bg-gradient-to-b from-[#FFF9E6] to-white">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-semibold mb-4 text-[#1A3A2E]">Результаты клиентов</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Реальные примеры работы с разными бизнесами
+              Только реальные кейсы: “было → стало” и контекст, без украшательства.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {cases.map((item, index) => (
-              <article key={index} className="bg-white rounded-xl border border-gray-100 p-6 hover:border-[#E65C00] transition-colors">
-                <div className="text-4xl font-bold text-[#E65C00] mb-2">{item.result}</div>
-                <h3 className="text-xl font-semibold text-[#1A3A2E] mb-2">{item.title}</h3>
+              <article
+                key={index}
+                className="bg-white rounded-xl border border-gray-100 p-6 hover:border-[#E65C00] transition-colors"
+              >
+                <div className="text-3xl font-bold text-[#E65C00] mb-2">
+                  {item.result}
+                </div>
+                <h3 className="text-xl font-semibold text-[#1A3A2E] mb-2">
+                  {item.title}
+                </h3>
                 <p className="text-gray-600">{item.description}</p>
               </article>
             ))}
           </div>
-          
+
           <div className="text-center">
-            <Link
-              href="/cases"
-              className="inline-block px-8 py-4 border-2 border-[#E65C00] text-[#1A3A2E] font-medium rounded-xl hover:bg-[#FFF5E1] transition-colors"
-            >
+            <Link href="/cases" className={btnSecondary}>
               Все кейсы
             </Link>
           </div>
         </section>
 
-        {/* Преимущества */}
+        {/* Почему выбирают */}
         <section className="py-20 border-t border-gray-100">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-semibold mb-4 text-[#1A3A2E]">Почему клиенты выбирают меня</h2>
+            <h2 className="text-3xl font-semibold mb-4 text-[#1A3A2E]">Почему со мной спокойно</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Опыт и подход, которые дают измеримые результаты для вашего бизнеса
+              Я не усложняю — делаю так, чтобы бизнес понимал, что происходит.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {advantages.map((item, index) => (
-              <div key={index} className="text-center p-6 bg-white rounded-xl border border-gray-100 hover:shadow-md transition-shadow">
-                <div className="text-4xl font-bold text-[#E65C00] mb-3">{item.title}</div>
-                <p className="text-gray-600 max-w-xs mx-auto">{item.description}</p>
+              <div
+                key={index}
+                className="p-6 bg-white rounded-xl border border-gray-100 hover:shadow-md transition-shadow"
+              >
+                <div className="text-xl font-semibold text-[#1A3A2E] mb-3">{item.title}</div>
+                <p className="text-gray-600">{item.description}</p>
               </div>
             ))}
           </div>
@@ -221,123 +236,69 @@ export default function HomePage() {
         {/* Формат работы */}
         <section className="py-20 border-t border-gray-100">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-semibold mb-4 text-[#1A3A2E]">Формат работы</h2>
+            <h2 className="text-3xl font-semibold mb-4 text-[#1A3A2E]">Формат старта</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Выберите наиболее подходящий вариант для старта
+              Можно начать с короткого ориентира или сразу сделать глубокий разбор.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             <div className="p-8 bg-white rounded-2xl border border-gray-100 hover:shadow-md transition-shadow">
               <span className="px-4 py-1 bg-[#F5C518]/20 text-[#1A3A2E] rounded-full font-medium mb-4 inline-block">
-                15-20 минут
+                15–20 минут
               </span>
+
               <h3 className="text-2xl font-semibold mb-4 text-[#1A3A2E]">Бесплатный аудит</h3>
+
               <p className="text-gray-700 mb-6">
-                Быстрый анализ текущей ситуации в вашем бизнесе. Выявление основных точек роста и конкретных рекомендаций по улучшению.
+                Быстро смотрю текущую ситуацию и называю 2–3 приоритета: что мешает заявкам прямо сейчас.
               </p>
+
               <ul className="space-y-3 mb-8 text-gray-600">
-                <li className="flex items-start">
-                  <span className="text-[#E65C00] mr-2 mt-1">•</span>
-                  <span>Анализ видимости в картах и поиске</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#E65C00] mr-2 mt-1">•</span>
-                  <span>Оценка текущих рекламных каналов</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#E65C00] mr-2 mt-1">•</span>
-                  <span>Рекомендации по первым шагам</span>
-                </li>
+                <li className="flex items-start"><span className="text-[#E65C00] mr-2 mt-1">•</span>Карты/видимость/карточка.</li>
+                <li className="flex items-start"><span className="text-[#E65C00] mr-2 mt-1">•</span>Реклама: где “съедает” бюджет.</li>
+                <li className="flex items-start"><span className="text-[#E65C00] mr-2 mt-1">•</span>Сайт/обработка: где теряются заявки.</li>
               </ul>
+
               <Link
                 href="/consultations"
                 className="inline-block px-6 py-3 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-lg hover:bg-[#F7D03A] transition-colors shadow-md"
               >
-                Записаться на бесплатный аудит
+                Записаться на аудит
               </Link>
             </div>
+
             <div className="p-8 bg-gradient-to-r from-[#1A3A2E] to-[#255A40] text-white rounded-2xl">
               <span className="px-4 py-1 bg-[#E65C00]/20 text-white rounded-full font-medium mb-4 inline-block">
-                1,5 - 2 часа
+                1,5–2 часа
               </span>
+
               <h3 className="text-2xl font-semibold mb-4">Платная консультация</h3>
+
               <p className="text-gray-100 mb-6">
-                Глубокий разбор вашего бизнеса с разработкой индивидуальной стратегии привлечения клиентов. Получите готовый план действий с конкретными шагами.
+                Глубокий разбор по цифрам: экономика, спрос, воронка, точки роста.
+                На выходе — понятный план действий и приоритеты.
               </p>
+
               <ul className="space-y-3 mb-8 text-gray-200">
-                <li className="flex items-start">
-                  <span className="text-[#F5C518] mr-2 mt-1">•</span>
-                  <span>Детальный анализ конкурентов и рынка</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#F5C518] mr-2 mt-1">•</span>
-                  <span>[[НУЖЕН ФАКТ: срок стратегии (например 3-4 месяца)]]</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#F5C518] mr-2 mt-1">•</span>
-                  <span>Создание системы отслеживания результатов</span>
-                </li>
+                <li className="flex items-start"><span className="text-[#F5C518] mr-2 mt-1">•</span>Что менять в первую очередь (быстрый эффект).</li>
+                <li className="flex items-start"><span className="text-[#F5C518] mr-2 mt-1">•</span>Какие гипотезы тестировать и как мерить.</li>
+                <li className="flex items-start"><span className="text-[#F5C518] mr-2 mt-1">•</span>План на 1–3 месяца (без воды).</li>
               </ul>
-              <div className="text-2xl font-bold mb-2">[[НУЖЕН ФАКТ: стоимость консультации]]</div>
+
               <Link
                 href="/consultations"
                 className="inline-block px-6 py-3 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-lg hover:bg-[#F7D03A] transition-colors"
               >
-                Записаться на платную консультацию
+                Записаться на консультацию
               </Link>
-            </div>
-          </div>
-        </section>
 
-        {/* Отзывы */}
-        <section className="py-20 border-t border-gray-100">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-semibold mb-4 text-[#1A3A2E]">Отзывы клиентов</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Что говорят владельцы бизнеса о работе со мной
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white p-6 rounded-xl border border-gray-100">
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-[#E65C00]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.898a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.898a1 1 0 00-1.176 0l-3.976 2.898c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.898c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.95-.69l1.519-4.674z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-600 italic mb-4">
-                "За месяц работы с Андреем количество заявок выросло со средних 5-7 в день до 25-30. Отлично разбирается в геомаркетинге и рекламе."
+              <p className="text-sm text-gray-200 mt-4">
+                Если сомневаешься — напиши в Telegram и пришли скрин:
+                <a className="ml-2 text-[#F5C518] hover:underline" href="https://t.me/ponizovandrey" target="_blank" rel="noreferrer">
+                  t.me/ponizovandrey
+                </a>
               </p>
-              <p className="font-medium text-[#1A3A2E]">Имя, ниша в каком городе?</p>
-            </div>
-            <div className="bg-white p-6 rounded-xl border border-gray-100">
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-[#E65C00]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.898a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.898a1 1 0 00-1.176 0l-3.976 2.898c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.898c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.95-.69l1.519-4.674z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-600 italic mb-4">
-                "Фактический отзыв"
-              </p>
-              <p className="font-medium text-[#1A3A2E]">Имя, ниша в каком городе?</p>
-            </div>
-            <div className="bg-white p-6 rounded-xl border border-gray-100">
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-[#E65C00]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.898a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.898a1 1 0 00-1.176 0l-3.976 2.898c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.898c-.784-.57-.38-1.81.588-1.81h4.914a 1 1 0 00.95-.69l1.519-4.674z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-600 italic mb-4">
-                "Профессиональный подход и конкретные результаты. [[НУЖЕН ФАКТ: отзыв (цифры/сроки/результаты)]]"
-              </p>
-              <p className="font-medium text-[#1A3A2E]">Имя, ниша в каком городе?</p>
             </div>
           </div>
         </section>
@@ -346,27 +307,33 @@ export default function HomePage() {
         <section className="py-20 border-t border-gray-100 bg-gradient-to-r from-[#FFF9E6] to-[#FFF4D9] rounded-2xl p-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-semibold mb-6 text-[#1A3A2E]">
-              Готов помочь и вашему бизнесу расти
+              Начать можно с простого
             </h2>
+
             <p className="text-gray-700 mb-8 max-w-2xl mx-auto">
-              Запишитесь на бесплатную консультацию, и я помогу вам определить самые перспективные точки роста для привлечения клиентов.
+              Скиньте ссылку на карточку, скрины статистики/рекламы — я скажу, где уходят клиенты и что сделать первым шагом.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/consultations"
+              <a
+                href="https://t.me/ponizovandrey"
+                target="_blank"
+                rel="noreferrer"
                 className="px-8 py-4 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-xl text-lg hover:bg-[#F7D03A] transition-colors shadow-md"
               >
-                Бесплатный аудит бизнеса
-              </Link>
+                Написать в Telegram
+              </a>
+
               <Link
-                href="/contacts"
+                href="/services"
                 className="px-8 py-4 border-2 border-[#1A3A2E] text-[#1A3A2E] font-medium rounded-xl text-lg hover:bg-white transition-colors"
               >
-                Связаться со мной
+                Посмотреть услуги
               </Link>
             </div>
+
             <p className="text-sm text-gray-600 mt-4">
-              [[НУЖЕН ФАКТ: SLA ответа]] [[НУЖЕН ФАКТ: условия/обязательства консультации]]
+              Ответ в течение 24 часов. Без “продаж по скрипту” — только по делу.
             </p>
           </div>
         </section>

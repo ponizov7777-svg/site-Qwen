@@ -9,7 +9,7 @@ const navLinks = [
   { href: '/articles', label: 'Полезные статьи' },
   { href: '/consultations', label: 'Консультации' },
   { href: '/about', label: 'Обо мне' },
-  { href: '/contacts', label: 'Контакты' },
+  // { href: '/contacts', label: 'Контакты' }, // убрали
 ];
 
 const socialLinks = [
@@ -55,10 +55,10 @@ export default function Footer() {
             Разделы сайта
           </h3>
           <ul className="grid grid-cols-2 gap-y-3 text-[#1A3A2E]">
-            {navLinks.map(link => (
+            {navLinks.map((link) => (
               <li key={link.href}>
-                <Link 
-                  href={link.href} 
+                <Link
+                  href={link.href}
                   className="text-sm hover:text-[#E65C00] transition-colors duration-200"
                 >
                   {link.label}
@@ -75,16 +75,16 @@ export default function Footer() {
           <div className="space-y-3">
             <div>
               <p className="text-sm font-medium text-[#1A3A2E]">Телефон</p>
-              <p className="text-sm text-[#1A3A2E]/70">+7 (999) 123-45-67</p>
+              <p className="text-sm text-[#1A3A2E]/70">+7 (995) 525-34-61</p>
             </div>
             <div>
               <p className="text-sm font-medium text-[#1A3A2E]">Email</p>
-              <p className="text-sm text-[#1A3A2E]/70">andrey@ponizov-marketing.ru</p>
+              <p className="text-sm text-[#1A3A2E]/70">Ponizov_Andrey@mail.ru</p>
             </div>
             <div>
               <p className="text-sm font-medium text-[#1A3A2E] mb-2">Социальные сети</p>
               <ul className="flex flex-wrap gap-3">
-                {socialLinks.map(link => (
+                {socialLinks.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
@@ -102,12 +102,11 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      
+
       <div className="border-t border-[#E65C00]/20 py-6 px-4 text-center text-sm text-[#1A3A2E]/60 bg-white/70 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between items-center gap-4">
-          <p>
-            © {new Date().getFullYear()} Понизов Андрей. Все права защищены.
-          </p>
+          <p>© {new Date().getFullYear()} Понизов Андрей. Все права защищены.</p>
+
           <div className="flex flex-wrap justify-center gap-6">
             <Link href="/privacy" className="hover:text-[#E65C00] transition-colors">
               Политика конфиденциальности
@@ -115,9 +114,9 @@ export default function Footer() {
             <Link href="/sitemap.xml" className="hover:text-[#E65C00] transition-colors">
               Карта сайта
             </Link>
-            <Link href="/contacts" className="hover:text-[#E65C00] transition-colors">
+            {/* <Link href="/contacts" className="hover:text-[#E65C00] transition-colors">
               Контакты
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

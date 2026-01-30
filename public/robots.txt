@@ -1,9 +1,8 @@
-$robots = @'
 User-agent: *
 Allow: /
 
-Sitemap: https://ponizov-marketing.ru/sitemap.xml
-'@
+# Разрешаем Googlebot рендерить Next.js
+Allow: /_next/static/
+Allow: /_next/image/
 
-New-Item -ItemType Directory -Force public | Out-Null
-Set-Content -Path public\robots.txt -Value $robots -Encoding UTF8
+Sitemap: https://ponizov-marketing.ru/sitemap.xml

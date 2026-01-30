@@ -48,7 +48,7 @@ export default function Header({ pathname = '/' }) {
 
         {/* Навигация (десктоп) */}
         <nav
-          className="hidden md:flex gap-6"
+          className="hidden md:flex items-center gap-2 flex-nowrap"
           aria-label="Основная навигация"
         >
           {navLinks.map((link) => {
@@ -58,10 +58,10 @@ export default function Header({ pathname = '/' }) {
                 key={link.href}
                 href={link.href}
                 aria-current={isActive ? 'page' : undefined}
-                className={`text-sm font-medium transition-colors ${
-                  isActive 
-                    ? 'text-[#E65C00]' 
-                    : 'text-[#1A3A2E] hover:text-[#E65C00]'
+                className={`text-sm font-medium transition-colors whitespace-nowrap px-3 py-2 rounded-lg border 
+                  ${isActive 
+                    ? 'text-[#E65C00] border-[#E65C00] bg-[#FFF5E1]' 
+                    : 'text-[#1A3A2E] border-gray-200 hover:text-[#E65C00] hover:border-[#E65C00] hover:bg-[#FFF5E1]'
                 }`}
               >
                 {link.label}

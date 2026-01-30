@@ -5,56 +5,56 @@ import Breadcrumbs from '../components/Breadcrumbs';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
-  { label: 'Полезные статьи', href: '/articles' }
+  { label: 'Аналитика и разборы', href: '/articles' }
 ];
 
 export default function ArticlesPage() {
   const articles = [
     {
       id: 1,
-      title: 'Как настроить Яндекс.Карты для привлечения клиентов',
-      excerpt: 'Пошаговая инструкция по настройке организации в Яндекс.Картах для максимального притока клиентов.',
-      date: 'дата выхода',
+      title: 'Как на самом деле работают Яндекс.Карты для привлечения клиентов',
+      excerpt: 'Разбор логики ранжирования, факторов видимости и ошибок, из-за которых бизнес не получает заявки.',
+      date: '2026',
       href: '/articles/yandex-karty-nastroika',
       category: 'Геомаркетинг'
     },
     {
       id: 2,
-      title: 'Контекстная реклама для офлайн-бизнеса: стратегия 2026',
-      excerpt: 'Как правильно настроить контекстную рекламу для привлечения клиентов в реальный магазин или салон.',
-      date: 'дата выхода',
+      title: 'Контекстная реклама для офлайн-бизнеса: что масштабировать, а что отключать',
+      excerpt: 'Стратегия работы с рекламой, если важны заявки, а не отчёты и клики.',
+      date: '2026',
       href: '/articles/kontekstnaya-reklama-offline',
       category: 'Реклама'
     },
     {
       id: 3,
-      title: 'Анализ конкурентов в локальном маркетинге',
-      excerpt: 'Как провести анализ конкурентов в вашем районе и использовать полученные данные для роста бизнеса.',
-      date: 'дата выхода',
+      title: 'Как анализировать локальных конкурентов и находить точки роста',
+      excerpt: 'Практический подход к анализу спроса, а не копированию чужих решений.',
+      date: '2026',
       href: '/articles/analiz-konkurentov-lokalnyy',
       category: 'Стратегия'
     },
     {
       id: 4,
-      title: '5 ошибок в настройке Google Maps для бизнеса',
-      excerpt: 'Распространенные ошибки при настройке Google Maps и как их избежать для привлечения клиентов.',
-      date: 'дата выхода',
+      title: 'Типовые ошибки в Google Maps, которые стоят бизнесу денег',
+      excerpt: 'Почему карточка есть, а заявок нет — и как это исправлять системно.',
+      date: '2026',
       href: '/articles/oshibki-google-maps',
       category: 'Геомаркетинг'
     },
     {
       id: 5,
-      title: 'Как измерить ROI от геомаркетинга',
-      excerpt: 'Практические методы оценки эффективности инвестиций в геомаркетинг для офлайн-бизнеса.',
-      date: 'дата выхода',
+      title: 'Как считать реальную окупаемость геомаркетинга',
+      excerpt: 'Методика оценки ROI для офлайн-бизнеса без самообмана.',
+      date: '2026',
       href: '/articles/roi-geomarketing',
       category: 'Аналитика'
     },
     {
       id: 6,
-      title: 'Сезонные стратегии продвижения для beauty-бизнеса',
-      excerpt: 'Как адаптировать маркетинговую стратегию под разные сезоны для салонов красоты и спа.',
-      date: 'дата выхода',
+      title: 'Сезонные стратегии для beauty-бизнеса: где зарабатываются деньги',
+      excerpt: 'Как планировать маркетинг, а не реагировать на спад постфактум.',
+      date: '2026',
       href: '/articles/seasonnye-strategii-beauty',
       category: 'Beauty'
     }
@@ -63,233 +63,107 @@ export default function ArticlesPage() {
   return (
     <>
       <Head>
-        <title>Полезные статьи по маркетингу | Андрей Понизов</title>
+        <title>Аналитика и разборы по привлечению клиентов | Андрей Понизов</title>
         <meta
           name="description"
-          content="Практические статьи по геомаркетингу, привлечению клиентов и развитию офлайн-бизнеса. Советы эксперта с 8-летним опытом."
+          content="Разборы, аналитика и стратегии привлечения клиентов для локального бизнеса. Без воды, шаблонов и теории ради теории."
         />
         <link rel="canonical" href="https://ponizov-marketing.ru/articles" />
       </Head>
 
       <div className="max-w-7xl mx-auto px-4 py-12">
-        {/* Хлебные крошки */}
         <Breadcrumbs items={breadcrumbsData} />
 
-        {/* Заголовок секции */}
-        <section className="mb-12">
-          <h1 className="text-3xl md:text-4xl font-semibold text-[#1A3A2E] mb-4">
-            Полезные статьи по маркетингу
+        {/* INTRO */}
+        <section className="mb-14 max-w-4xl">
+          <h1 className="text-4xl font-semibold text-[#1A3A2E] mb-6 leading-tight">
+            Аналитика, разборы и логика
+            <br />
+            привлечения клиентов для офлайн-бизнеса
           </h1>
-          <p className="text-lg text-gray-600 max-w-3xl">
-            Я пишу практические руководства, разборы и стратегии для владельцев офлайн-бизнеса.
-            Только методы, которые реально работают в 2026 году.
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Здесь я разбираю не инструменты, а решения.
+            Почему одни бизнесы получают стабильный поток заявок из карт и рекламы,
+            а другие — нет, несмотря на бюджеты.
           </p>
         </section>
 
-        {/* Фильтры и сортировка */}
-        <div className="mb-12">
-          <div className="flex flex-wrap gap-3 mb-6">
-            <span className="px-4 py-2 bg-[#F5C518]/20 text-[#1A3A2E] rounded-full font-medium">
-              Все статьи
-            </span>
-            <button className="px-4 py-2 text-[#1A3A2E]/70 hover:text-[#1A3A2E] rounded-full hover:bg-gray-100">
-              Геомаркетинг
-            </button>
-            <button className="px-4 py-2 text-[#1A3A2E]/70 hover:text-[#1A3A2E] rounded-full hover:bg-gray-100">
-              Реклама
-            </button>
-            <button className="px-4 py-2 text-[#1A3A2E]/70 hover:text-[#1A3A2E] rounded-full hover:bg-gray-100">
-              Стратегия
-            </button>
-            <button className="px-4 py-2 text-[#1A3A2E]/70 hover:text-[#1A3A2E] rounded-full hover:bg-gray-100">
-              Аналитика
-            </button>
-            <button className="px-4 py-2 text-[#1A3A2E]/70 hover:text-[#1A3A2E] rounded-full hover:bg-gray-100">
-              Beauty
-            </button>
-          </div>
+        {/* WHO THIS IS FOR */}
+        <section className="mb-16 max-w-3xl border-l-4 border-[#E65C00] pl-6">
+          <p className="text-gray-700 leading-relaxed">
+            Материалы будут полезны владельцам бизнеса и руководителям,
+            которые готовы разбираться в цифрах, ограничениях и экономике.
+            Если вы ищете «быстрые фишки» — эта библиотека не для вас.
+          </p>
+        </section>
 
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
-            <p className="text-gray-600">Найдено {articles.length} статей</p>
-            <div className="flex items-center gap-2 text-sm text-[#1A3A2E]">
-              <span>Сортировать:</span>
-              <select className="border border-gray-300 rounded-md px-3 py-1 bg-white focus:outline-none focus:ring-2 focus:ring-[#E65C00]">
-                <option>Сначала новые</option>
-                <option>Сначала старые</option>
-                <option>Популярные</option>
-              </select>
-            </div>
+        {/* FILTERS */}
+        <div className="mb-12">
+          <div className="flex flex-wrap gap-3">
+            <span className="px-4 py-2 bg-[#F5C518]/20 text-[#1A3A2E] rounded-full font-medium">
+              Все материалы
+            </span>
+            {['Геомаркетинг', 'Реклама', 'Стратегия', 'Аналитика', 'Beauty'].map(item => (
+              <span
+                key={item}
+                className="px-4 py-2 text-[#1A3A2E]/70 rounded-full hover:bg-gray-100 cursor-pointer"
+              >
+                {item}
+              </span>
+            ))}
           </div>
         </div>
 
-        {/* Список статей */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {articles.map((article) => (
+        {/* ARTICLES */}
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
+          {articles.map(article => (
             <article
               key={article.id}
-              className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow"
+              className="bg-white rounded-xl border border-gray-100 p-8 hover:shadow-md transition-shadow"
             >
-              <div className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="px-3 py-1 bg-[#F5C518]/20 text-[#1A3A2E] text-sm font-medium rounded-full">
-                    {article.category}
-                  </span>
-                  <time className="text-sm text-gray-500">{article.date}</time>
-                </div>
-
-                <h2 className="text-xl font-semibold text-[#1A3A2E] mb-3 hover:text-[#E65C00] transition-colors">
-                  <Link href={article.href}>{article.title}</Link>
-                </h2>
-
-                <p className="text-gray-600 mb-4">{article.excerpt}</p>
-
-                <div className="flex items-center justify-between">
-                  <Link
-                    href={article.href}
-                    className="text-[#E65C00] font-medium hover:text-[#D65A31] transition-colors flex items-center gap-1"
-                  >
-                    Читать статью →
-                  </Link>
-                  <button
-                    className="text-gray-400 hover:text-[#E65C00] transition-colors"
-                    aria-label="Добавить в избранное"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.898a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.898a1 1 0 00-1.176 0l-3.976 2.898c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.898c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.95-.69l1.519-4.674z" />
-                    </svg>
-                  </button>
-                </div>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="px-3 py-1 bg-[#F5C518]/20 text-sm rounded-full">
+                  {article.category}
+                </span>
+                <span className="text-sm text-gray-400">{article.date}</span>
               </div>
+
+              <h2 className="text-xl font-semibold text-[#1A3A2E] mb-4 leading-snug">
+                <Link href={article.href} className="hover:text-[#E65C00] transition-colors">
+                  {article.title}
+                </Link>
+              </h2>
+
+              <p className="text-gray-600 leading-relaxed mb-6">
+                {article.excerpt}
+              </p>
+
+              <Link
+                href={article.href}
+                className="text-[#E65C00] font-medium"
+              >
+                Читать разбор →
+              </Link>
             </article>
           ))}
         </div>
 
-        {/* Пагинация */}
-        <div className="flex justify-center mb-16">
-          <div className="flex items-center gap-2">
-            <button className="px-4 py-2 border border-gray-300 rounded-lg text-gray-500 hover:bg-gray-50 disabled:opacity-50">
-              Назад
-            </button>
-            <button className="px-4 py-2 border border-[#E65C00] bg-[#FFF9E6] text-[#1A3A2E] rounded-lg font-medium hover:bg-[#F7D03A]">
-              1
-            </button>
-            <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-              2
-            </button>
-            <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-              3
-            </button>
-            <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-              ...
-            </button>
-            <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-              12
-            </button>
-            <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
-              Вперед
-            </button>
-          </div>
-        </div>
-
-        {/* Подписка на новые статьи */}
-        <section className="bg-gradient-to-r from-[#FFF9E6] to-[#FFF4D9] rounded-2xl p-8 mb-16 border border-[#E65C00]/20">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-4">
-              Получайте новые статьи первыми
-            </h2>
-            <p className="text-gray-700 mb-6">
-              Подпишитесь на мое сообщество и получайте практические советы по маркетингу для вашего бизнеса.
-            </p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Ваш email"
-                className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#E65C00]"
-                required
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-lg hover:bg-[#F7D03A] transition-colors whitespace-nowrap"
-              >
-                Подписаться
-              </button>
-            </form>
-            <p className="text-sm text-gray-600 mt-2">
-              Никакого спама. Только полезный контент.
-            </p>
-          </div>
-        </section>
-
-        {/* Темы для изучения */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-8 text-center">
-            Популярные темы для изучения
+        {/* CTA */}
+        <section className="py-20 border-t border-gray-100 text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl font-semibold text-[#1A3A2E] mb-6">
+            Если вам близка такая логика мышления
           </h2>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <Link
-              href="/geomarketing"
-              className="block p-6 bg-white rounded-xl border border-gray-100 hover:border-[#E65C00] hover:shadow-md transition-all"
-            >
-              <h3 className="text-xl font-medium text-[#1A3A2E] mb-2">Геомаркетинг</h3>
-              <p className="text-gray-600 mb-3">
-                Настройка и продвижение в Яндекс.Картах, Google Maps, 2ГИС
-              </p>
-              <span className="text-sm text-[#E65C00] font-medium flex items-center gap-1">
-                Узнать больше →
-              </span>
-            </Link>
-
-            <Link
-              href="/services"
-              className="block p-6 bg-white rounded-xl border border-gray-100 hover:border-[#E65C00] hover:shadow-md transition-all"
-            >
-              <h3 className="text-xl font-medium text-[#1A3A2E] mb-2">Реклама</h3>
-              <p className="text-gray-600 mb-3">
-                Контекстная и таргетированная реклама для офлайн-бизнеса
-              </p>
-              <span className="text-sm text-[#E65C00] font-medium flex items-center gap-1">
-                Узнать больше →
-              </span>
-            </Link>
-
-            <Link
-              href="/consultations"
-              className="block p-6 bg-white rounded-xl border border-gray-100 hover:border-[#E65C00] hover:shadow-md transition-all"
-            >
-              <h3 className="text-xl font-medium text-[#1A3A2E] mb-2">Стратегия</h3>
-              <p className="text-gray-600 mb-3">
-                Маркетинговые стратегии и воронки привлечения
-              </p>
-              <span className="text-sm text-[#E65C00] font-medium flex items-center gap-1">
-                Узнать больше →
-              </span>
-            </Link>
-          </div>
-        </section>
-
-        {/* Призыв к действию */}
-        <section className="text-center">
-          <h2 className="text-2xl font-semibold text-[#1A3A2E] mb-6">
-            Готовы развивать свой бизнес?
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-            Запишитесь на бесплатную консультацию, и я помогу определить самые эффективные точки роста для вашего бизнеса.
+          <p className="text-gray-700 leading-relaxed mb-10">
+            На бесплатном аудите я разберу,
+            есть ли у вашего бизнеса потенциал для роста через карты и рекламу
+            и имеет ли смысл работать дальше.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/consultations"
-              className="px-8 py-4 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-xl text-lg hover:bg-[#F7D03A] transition-colors shadow-md"
-            >
-              Бесплатный аудит бизнеса
-            </Link>
-            <Link
-              href="/contacts"
-              className="px-8 py-4 border-2 border-[#E65C00] text-[#1A3A2E] font-medium rounded-xl text-lg hover:bg-[#FFF5E1] transition-colors"
-            >
-              Связаться со мной
-            </Link>
-          </div>
+          <Link
+            href="/consultations"
+            className="inline-block px-8 py-4 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-xl text-lg hover:bg-[#F7D03A] transition shadow-md"
+          >
+            Записаться на бесплатный аудит
+          </Link>
         </section>
       </div>
     </>
