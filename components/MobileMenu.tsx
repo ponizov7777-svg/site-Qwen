@@ -1,113 +1,158 @@
 // components/MobileMenu.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { navLinks, socialLinks, MOBILE_MENU_CONFIG } from '@/utils/mobileMenuConfig';
 
-// Импортируем ссылки из Header.tsx или определим их здесь
-// ВАЖНО: Эти данные дублируются из Header.tsx.
-// В идеале, их стоит вынести в общий файл (например, utils/links.ts) и импортировать оттуда в Header и MobileMenu.
-const navLinks = [
-  { href: '/services', label: 'УСЛУГИ И ЦЕНЫ' },
-  { href: '/geomarketing', label: 'ГЕОМАРКЕТИНГ' },
-  { href: '/cases', label: 'КЕЙСЫ' },
-  { href: '/articles', label: 'СТАТЬИ' },
-  { href: '/consultations', label: 'КОНСУЛЬТАЦИИ' },
-  { href: '/about', label: 'ОБО МНЕ' },
-  { href: '/contacts', label: 'КОНТАКТЫ' },
-];
-
-const socialLinks = [
-  {
-    href: 'https://max.ru/u/f9LHodD0cOKv94u0uUQGsTH7c9Cibtp9qAEtmFpgYQ-QfGsVeYNyc7M34aU', // Убраны пробелы
-    label: 'Max',
-  },
-  {
-    href: 'https://t.me/ponizovandrey', // Убраны пробелы
-    label: 'Telegram',
-  },
-  {
-    href: 'https://vk.com/andrey_anatolyevich_marketing', // Убраны пробелы
-    label: 'VK',
-  },
-  {
-    href: 'https://rutube.ru/channel/73592687/', // Убраны пробелы
-    label: 'RuTube',
-  },
-];
+// Стили кнопки: минималистичный вариант
+const btnPrimary =
+  "inline-flex items-center justify-center px-6 py-2.5 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-lg text-sm md:text-base border border-[#E0B800] hover:bg-[#F7D03A] hover:border-[#F0C000] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C518]/60 focus-visible:ring-offset-2";
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const lastScrollYRef = useRef(0);
 
-  // Слушаем кастомное событие для открытия/закрытия
+  const closeMenu = () => setIsOpen(false);
+
   useEffect(() => {
-    const handleToggleMenu = () => {
-      setIsOpen(prev => !prev);
-    };
-
-    window.addEventListener('toggleMobileMenu', handleToggleMenu);
-
-    return () => {
-      window.removeEventListener('toggleMobileMenu', handleToggleMenu);
-    };
+    const handleToggleMenu = () => setIsOpen((prev) => !prev);
+    window.addEventListener('toggleMobileMenu', handleToggleMenu as EventListener);
+    return () => window.removeEventListener('toggleMobileMenu', handleToggleMenu as EventListener);
   }, []);
 
-  // Дополнительно: закрытие меню при изменении размера экрана (если пользователь увеличил окно)
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) { // md breakpoint
-        setIsOpen(false);
+    window.dispatchEvent(new CustomEvent('mobileMenuState', { detail: { isOpen } }));
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => e.key === 'Escape' && closeMenu();
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!isOpen) {
+        lastScrollYRef.current = window.scrollY;
+        return;
       }
+      const currentScrollY = window.scrollY;
+      const isScrollingDown = currentScrollY > lastScrollYRef.current;
+      const pastThreshold = currentScrollY > MOBILE_MENU_CONFIG.headerHeight * 2;
+      if (isScrollingDown && pastThreshold) closeMenu();
+      lastScrollYRef.current = currentScrollY;
     };
 
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleResize = () => window.innerWidth >= 768 && closeMenu();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Не рендерим меню, если оно закрыто
-  if (!isOpen) {
-    return null;
-  }
+  if (!isOpen) return null;
+
+  const headerH = MOBILE_MENU_CONFIG.headerHeight;
+
+  // Соц-кнопки в стиле вторичной кнопки из hero-блока
+  const socialBtn =
+    'inline-flex items-center justify-center px-4 py-2 bg-white/10 text-white font-medium rounded-lg text-xs ' +
+    'border border-white/30 hover:bg-white/15 transition-colors duration-200 ' +
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black/40';
 
   return (
-    <div className="md:hidden border-t border-gray-200 bg-white">
-      <nav className="px-4 py-6 flex flex-col gap-4" aria-label="Мобильная навигация">
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="text-gray-800 py-2 border-b border-gray-100 last:border-0"
-            onClick={() => setIsOpen(false)} // Закрываем меню при клике на ссылку
-          >
-            {link.label}
-          </Link>
-        ))}
-      </nav>
-      <div className="px-4 py-4 border-t border-gray-200 flex flex-wrap gap-4">
-        {/* Кнопка "Бесплатный аудит" для мобильных */}
-        <Link
-          href="/consultations"
-          className="px-4 py-2 bg-[#D65A31] text-white font-bold rounded-lg text-sm shadow-[3px_3px_0px_0px_#1E3A2F] hover:shadow-[4px_4px_0px_0px_#1E3A2F] transform hover:-translate-y-0.5 transition-all duration-200 relative overflow-hidden"
-          onClick={() => setIsOpen(false)} // Закрываем меню при клике
-        >
-          <span className="relative z-10">БЕСПЛАТНЫЙ АУДИТ</span>
-          <span className="absolute inset-0 bg-gradient-to-r from-[#1E3A2F] to-transparent opacity-20"></span>
-        </Link>
+    <>
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 z-[9998] md:hidden bg-black/60 backdrop-blur-sm"
+        style={{ opacity: MOBILE_MENU_CONFIG.backdropOpacity }}
+        onClick={closeMenu}
+        role="presentation"
+      />
 
-        {socialLinks.map((link) => (
+      {/* Menu */}
+      <motion.div
+        id="mobile-menu"
+        className="fixed right-0 z-[9999] md:hidden w-1/2 max-w-xs min-w-[260px]
+                  rounded-l-3xl rounded-b-3xl
+                  border-b border-gray-200
+                  shadow-[0_20px_40px_rgba(0,0,0,0.12)]
+                  bg-[#FFF9E6]/80"
+        style={{
+          top: headerH,
+          maxHeight: `calc(100vh - ${headerH}px)`,
+        }}
+        initial={{ x: '100%', opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: '100%', opacity: 0 }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+        aria-label="Мобильное меню"
+      >
+        {/* Навигация */}
+        <nav className="px-4 py-6" aria-label="Мобильная навигация">
+          <div className="flex flex-col">
+            {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="py-3 text-lg font-semibold text-[#1A3A2E]
+                            border-b border-white/60 last:border-0
+                            hover:text-[#E65C00]
+                            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E65C00]
+                            rounded-lg px-2 -mx-2"
+                >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </nav>
+
+        {/* CTA + соцсети */}
+        <div className="px-4 pb-8 pt-2 border-t border-white/60">
           <a
-            key={link.label}
-            href={link.href}
+            href="https://t.me/ponizovandrey"
             target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-[#1E3A2F] font-bold text-xs w-8 h-8 rounded-full border-2 border-[#1E3A2F] flex items-center justify-center hover:bg-[#1E3A2F] hover:text-[#FFD700] transition-all duration-200"
-            onClick={() => setIsOpen(false)} // Закрываем меню при клике (опционально для внешних ссылок)
-            aria-label={`Ссылка на ${link.label}`}
+            rel="nofollow noopener noreferrer"
+            onClick={closeMenu}
+            className={`block w-full text-center ${btnPrimary}`}
           >
-            {link.label.substring(0, 2).toUpperCase()}
+            Бесплатный аудит
           </a>
-        ))}
-      </div>
-    </div>
+
+          {/* соцсети */}
+          <div className="mt-6 flex flex-wrap gap-3 justify-center">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                onClick={closeMenu}
+                className={socialBtn}
+                aria-label={`Ссылка на ${link.label}`}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </>
   );
 }

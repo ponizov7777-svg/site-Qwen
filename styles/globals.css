@@ -1,8 +1,10 @@
 /* styles/globals.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-/* Подключение Tailwind CSS v4 */
+/* Подключение Tailwind CSS v4 + DaisyUI */
 @import "tailwindcss";
+@plugin "daisyui";
 
 /* Стили по умолчанию (опционально) */
 *,
@@ -16,8 +18,10 @@ html {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+  background-color: #ffffff;
+  /* Базовый шрифт в стиле Яндекса */
+  font-family: "YS Text", "YS Display", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -47,4 +51,69 @@ button {
   cursor: pointer;
   font-family: inherit;
   font-size: 100%;
+}
+
+.stats-number {
+  font-family: inherit;
+  font-size: clamp(3rem, 8vw, 7rem);
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  color: #1A3A2E;
+  line-height: 1;
+}
+
+.location-text {
+  font-family: inherit;
+  font-size: 1.125rem;
+  letter-spacing: 0.05em;
+  color: #1A3A2E;
+  font-weight: 400;
+}
+
+/* Bebas Neue для других заголовков (если нужно) */
+.bebas-title {
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+/* Glassmorphism для карточек 01 02 03 */
+.glass-card {
+  background: #f4f7fa; /* Единый цвет плашек */
+  backdrop-filter: blur(10px); /* Размытие фона */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(148, 163, 184, 0.4); /* Более выраженная рамка */
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px 0 rgba(26, 58, 46, 0.2); /* Тень под стеклом */
+}
+
+.glass-card::before {
+  content: none; /* убираем градиентную подложку, чтобы сохранить чистый цвет */
+}
+
+.glass-card:hover {
+  background: #edf2f7;
+}
+
+.glass-card > * {
+  position: relative; /* Чтобы текст был поверх ::before */
+  z-index: 1;
+}
+
+/* Более жёсткие границы блоков на мобильных */
+@media (max-width: 768px) {
+  .glass-card {
+    border-color: rgba(15, 23, 42, 0.28); /* ещё темнее контур */
+    border-width: 2px;
+  }
+
+  /* Усиленные рамки для крупных блоков с подложкой */
+  .backdrop-blur-xl.rounded-3xl,
+  .backdrop-blur-xl.rounded-2xl {
+    border-width: 2px;
+    border-color: rgba(15, 23, 42, 0.25);
+  }
 }

@@ -1,10 +1,10 @@
 // utils/links.ts
 
 export const navLinks = [
-  { href: '/services', label: 'Услуги и цены' },
+  { href: '/uslugi', label: 'Услуги и цены' },
   { href: '/geomarketing', label: 'Геомаркетинг' },
   { href: '/cases', label: 'Кейсы' },
-  { href: '/articles', label: 'Полезные статьи' },
+  { href: '/blog', label: 'Полезные статьи' },
   { href: '/consultations', label: 'Консультации' },
   { href: '/about', label: 'Обо мне' },
   { href: '/contacts', label: 'Контакты' },

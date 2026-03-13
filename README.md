@@ -31,12 +31,12 @@ ponizov-pages-project/
 ├── pages/ # Страницы приложения (Pages Router)
 │ ├── index.tsx
 │ ├── about.tsx
-│ ├── articles.tsx
+│ ├── blog.tsx
 │ ├── cases.tsx
 │ ├── consultations.tsx
 │ ├── contacts.tsx
 │ ├── geomarketing.tsx
-│ ├── services.tsx
+│ ├── uslugi.tsx
 │ └── _app.tsx
 ├── public/ # Статические файлы (изображения, иконки, etc.)
 ├── styles/ # Глобальные стили

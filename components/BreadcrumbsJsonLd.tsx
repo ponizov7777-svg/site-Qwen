@@ -2,7 +2,7 @@
 import { useRouter } from 'next/router';
 import { buildBreadcrumbs, createBreadcrumbJsonLd } from '../utils/breadcrumbs';
 
-const SITE_URL = 'https://ponizov-marketing.ru'; 
+const SITE_URL = 'https://ponizov-marketing.ru';
 
 export default function BreadcrumbsJsonLd() {
   const router = useRouter();

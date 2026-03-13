@@ -2,50 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ponizov-marketing.ru/</loc>
-    <lastmod>2026-01-19</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ponizov-marketing.ru/services</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://ponizov-marketing.ru/uslugi</loc>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ponizov-marketing.ru/geomarketing</loc>
-    <lastmod>2026-01-19</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponizov-marketing.ru/cases</loc>
-    <lastmod>2026-01-19</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ponizov-marketing.ru/articles</loc>
-    <lastmod>2026-01-19</lastmod>
+    <loc>https://ponizov-marketing.ru/blog</loc>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ponizov-marketing.ru/consultations</loc>
-    <lastmod>2026-01-19</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ponizov-marketing.ru/about</loc>
-    <lastmod>2026-01-19</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ponizov-marketing.ru/contacts</loc>
-    <lastmod>2026-01-19</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <!-- Новые страницы блога -->
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/beauty-seasons</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/context-offline</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/geomarketing-roi</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/oshibki-maps</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/yandex-karty</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/analiz-lokalnyh-konkurentov</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

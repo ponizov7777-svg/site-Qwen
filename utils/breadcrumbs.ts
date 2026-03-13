@@ -9,10 +9,10 @@ type PageConfig = {
 };
 
 const PAGE_CONFIG: { [key: string]: PageConfig } = {
-  services: { label: 'Услуги и цены' },
+  uslugi: { label: 'Услуги и цены' },
   geomarketing: { label: 'Геомаркетинг' },
   cases: { label: 'Кейсы' },
-  articles: { label: 'Полезные статьи' },
+  blog: { label: 'Полезные статьи' },
   consultations: { label: 'Консультации' },
   about: { label: 'Обо мне' },
   contacts: { label: 'Контакты' },
