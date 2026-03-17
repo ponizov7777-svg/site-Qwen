@@ -48,10 +48,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           __html: `
             (function() {
               function log() {
-                if (process.env.NODE_ENV !== 'production') {
+                try {
                   // eslint-disable-next-line no-console
                   console.log.apply(console, arguments);
-                }
+                } catch (e) {}
               }
 
               function safeReachGoal(goalId) {
