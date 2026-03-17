@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         {/* Основной формат для Яндекса и современных браузеров */}
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/favicons/Favicon.svg" />
         
         {/* Фолбэки для старых браузеров */}
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -47,16 +47,59 @@ function MyApp({ Component, pageProps }: AppProps) {
         dangerouslySetInnerHTML={{
           __html: `
             (function() {
+              function log() {
+                if (process.env.NODE_ENV !== 'production') {
+                  // eslint-disable-next-line no-console
+                  console.log.apply(console, arguments);
+                }
+              }
+
+              function safeReachGoal(goalId) {
+                try {
+                  if (typeof window.ym === 'function') {
+                    window.ym(106276548, 'reachGoal', goalId);
+                    log('[VK widget] reachGoal', goalId);
+                  } else {
+                    log('[VK widget] ym is not a function yet, skip goal', goalId);
+                  }
+                } catch (e) {
+                  log('[VK widget] reachGoal error', goalId, e);
+                }
+              }
+
               function run() {
                 if (typeof VK === 'undefined' || !VK.Widgets) {
+                  log('[VK widget] VK.Widgets is not ready yet, retry...');
                   setTimeout(run, 200);
                   return;
                 }
                 setTimeout(function() {
                   try {
+                    log('[VK widget] init CommunityMessages');
                     VK.Widgets.CommunityMessages('vk_community_messages', 225365151);
+
+                    // Отслеживание действий с виджетом ВК через Яндекс.Метрику
+                    try {
+                      if (typeof VK.Observer !== 'undefined' && typeof window.ym === 'function') {
+                        log('[VK widget] init VK.Observer subscriptions');
+                        // Открытие/разворачивание виджета — микрособытие
+                        VK.Observer.subscribe('widgets.communityMessages.opened', function() {
+                          log('[VK widget] event: widgets.communityMessages.opened');
+                          safeReachGoal('micro_vk_widget_open');
+                        });
+                        // Отправка нового сообщения
+                        VK.Observer.subscribe('widgets.communityMessages.newItem', function() {
+                          log('[VK widget] event: widgets.communityMessages.newItem');
+                          safeReachGoal('macro_vk_widget_message');
+                        });
+                      } else {
+                        log('[VK widget] VK.Observer or ym is not available, skip subscriptions');
+                      }
+                    } catch (e) {
+                      log('VK widget observer init error:', e);
+                    }
                   } catch (e) {
-                    console.warn('VK widget init:', e);
+                    log('VK widget init error:', e);
                   }
                 }, 1500);
               }
