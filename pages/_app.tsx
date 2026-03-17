@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MobileMenu from '../components/MobileMenu';
 import Cookie from '../components/Cookie';
+import VkChatButton from '../components/VkChatButton';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -38,6 +39,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Footer />
       <Cookie />
       <MobileMenu />
+      <VkChatButton />
 
       {/* Виджет «Сообщения сообщества» ВКонтакте — ID сообщества 225365151 */}
       <div id="vk_community_messages" />
@@ -47,61 +49,23 @@ function MyApp({ Component, pageProps }: AppProps) {
         dangerouslySetInnerHTML={{
           __html: `
             (function() {
-              function log() {
-                try {
-                  // eslint-disable-next-line no-console
-                  console.log.apply(console, arguments);
-                } catch (e) {}
-              }
-
-              function safeReachGoal(goalId) {
-                try {
-                  if (typeof window.ym === 'function') {
-                    window.ym(106276548, 'reachGoal', goalId);
-                    log('[VK widget] reachGoal', goalId);
-                  } else {
-                    log('[VK widget] ym is not a function yet, skip goal', goalId);
-                  }
-                } catch (e) {
-                  log('[VK widget] reachGoal error', goalId, e);
-                }
-              }
-
               function run() {
                 if (typeof VK === 'undefined' || !VK.Widgets) {
-                  log('[VK widget] VK.Widgets is not ready yet, retry...');
                   setTimeout(run, 200);
                   return;
                 }
-                setTimeout(function() {
+                window.__initVkChatWidget = function initVkChatWidget() {
                   try {
-                    log('[VK widget] init CommunityMessages');
-                    VK.Widgets.CommunityMessages('vk_community_messages', 225365151);
-
-                    // Отслеживание действий с виджетом ВК через Яндекс.Метрику
-                    try {
-                      if (typeof VK.Observer !== 'undefined' && typeof window.ym === 'function') {
-                        log('[VK widget] init VK.Observer subscriptions');
-                        // Открытие/разворачивание виджета — микрособытие
-                        VK.Observer.subscribe('widgets.communityMessages.opened', function() {
-                          log('[VK widget] event: widgets.communityMessages.opened');
-                          safeReachGoal('micro_vk_widget_open');
-                        });
-                        // Отправка нового сообщения
-                        VK.Observer.subscribe('widgets.communityMessages.newItem', function() {
-                          log('[VK widget] event: widgets.communityMessages.newItem');
-                          safeReachGoal('macro_vk_widget_message');
-                        });
-                      } else {
-                        log('[VK widget] VK.Observer or ym is not available, skip subscriptions');
-                      }
-                    } catch (e) {
-                      log('VK widget observer init error:', e);
+                    if (window.__vkChatWidgetInitialized) {
+                      return;
                     }
+                    window.__vkChatWidgetInitialized = true;
+                    VK.Widgets.CommunityMessages('vk_community_messages', 225365151);
                   } catch (e) {
-                    log('VK widget init error:', e);
+                    // eslint-disable-next-line no-console
+                    console.warn('VK widget init error:', e);
                   }
-                }, 1500);
+                };
               }
               if (document.readyState === 'complete') run();
               else window.addEventListener('load', run);
