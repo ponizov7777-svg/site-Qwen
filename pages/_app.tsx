@@ -16,8 +16,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
-        {/* Основной формат для Яндекса и современных браузеров */}
-        <link rel="icon" type="image/svg+xml" href="/favicons/Favicon.svg" />
+        {/* SVG 120×120 — для Вебмастера и совместимости с рекомендациями по favicon */}
+        <link rel="icon" type="image/svg+xml" href="/favicons/favicon-120.svg" sizes="120x120" />
+        {/* Дополнительный векторный favicon произвольного масштаба */}
+        <link rel="icon" type="image/svg+xml" href="/favicons/Favicon.svg" sizes="any" />
         
         {/* Фолбэки для старых браузеров */}
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
