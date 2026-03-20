@@ -189,7 +189,7 @@ export default function HomePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://ponizov-marketing.ru/" />
         
-        {/* ✅ WebSite schema (глобальный для сайта) */}
+        {/* WebSite: без SearchAction — нет /search; query-input давало предупреждение в Вебмастере */}
         <script 
           type="application/ld+json" 
           dangerouslySetInnerHTML={{ 
@@ -198,12 +198,7 @@ export default function HomePage() {
               "@type": "WebSite",
               "name": "Понизов Маркетинг",
               "description": "Геомаркетинг и заявки из карт для локального бизнеса",
-              "url": "https://ponizov-marketing.ru/",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://ponizov-marketing.ru/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-              }
+              "url": "https://ponizov-marketing.ru/"
             })
           }}
         />
