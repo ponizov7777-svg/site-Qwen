@@ -5,7 +5,6 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { useEffect } from 'react';
 import Breadcrumbs from '../components/Breadcrumbs';
-import JsonLd from '../components/JsonLd';
 import AdFormatsFilter from '../components/AdFormatsFilter';
 import CardLinkCTA from '../components/CardLinkCTA';
 import { trackMetrikaGoal, trackTelegramClick, type PageType } from '../lib/metrics';
@@ -115,39 +114,61 @@ export default function HomePage() {
     },
   ];
 
-  // ✅ Исправленный SEO JSON-LD для главной страницы
-  const jsonLdData = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Геомаркетинг и заявки из карт | Андрей Понизов",
-    "description": "Помогаю локальному бизнесу получать заявки из карт и рекламы. Работаю по цифрам: измеримость, понятный план действий и прозрачная логика решений.",
-    "url": "https://ponizov-marketing.ru/",
-    "datePublished": "2026-02-10",
-    "author": { "@type": "Person", "name": "Андрей Понизов" },
-    "mainEntity": {
-      "@type": "ItemList",
-      "name": "Услуги геомаркетинга",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Геомаркетинг",
-          "url": "https://ponizov-marketing.ru/geomarketing"
+  const SITE_URL = 'https://ponizov-marketing.ru';
+  const ORG_ID = `${SITE_URL}/#organization`;
+  const WEBSITE_ID = `${SITE_URL}/#website`;
+  const WEBPAGE_ID = `${SITE_URL}/#webpage`;
+
+  /** Один @graph: WebSite + WebPage со ссылками на Organization из _document.tsx (@id совпадает) */
+  const homeJsonLdGraph = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': WEBSITE_ID,
+        name: 'Понизов Маркетинг',
+        description: 'Геомаркетинг и заявки из карт для локального бизнеса',
+        url: SITE_URL,
+        publisher: { '@id': ORG_ID },
+      },
+      {
+        '@type': 'WebPage',
+        '@id': WEBPAGE_ID,
+        name: 'Геомаркетинг и заявки из карт | Андрей Понизов',
+        description:
+          'Помогаю локальному бизнесу получать заявки из карт и рекламы. Работаю по цифрам: измеримость, понятный план действий и прозрачная логика решений.',
+        url: `${SITE_URL}/`,
+        datePublished: '2026-02-10',
+        dateModified: '2026-03-17',
+        author: { '@type': 'Person', name: 'Андрей Понизов' },
+        isPartOf: { '@id': WEBSITE_ID },
+        publisher: { '@id': ORG_ID },
+        mainEntity: {
+          '@type': 'ItemList',
+          name: 'Услуги геомаркетинга',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Геомаркетинг',
+              url: `${SITE_URL}/geomarketing`,
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Трафик и заявки',
+              url: `${SITE_URL}/uslugi#kontekst`,
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: 'Аналитика',
+              url: `${SITE_URL}/uslugi#strategiya`,
+            },
+          ],
         },
-        {
-          "@type": "ListItem", 
-          "position": 2,
-          "name": "Трафик и заявки",
-          "url": "https://ponizov-marketing.ru/uslugi#kontekst"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Аналитика",
-          "url": "https://ponizov-marketing.ru/uslugi#strategiya"
-        }
-      ]
-    }
+      },
+    ],
   };
 
   const pageType: PageType = 'home';
@@ -189,22 +210,11 @@ export default function HomePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://ponizov-marketing.ru/" />
         
-        {/* WebSite: без SearchAction — нет /search; query-input давало предупреждение в Вебмастере */}
-        <script 
-          type="application/ld+json" 
-          dangerouslySetInnerHTML={{ 
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "Понизов Маркетинг",
-              "description": "Геомаркетинг и заявки из карт для локального бизнеса",
-              "url": "https://ponizov-marketing.ru/"
-            })
-          }}
+        {/* JSON-LD: WebSite + WebPage в одном @graph, publisher → Organization из _document */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLdGraph) }}
         />
-        
-        {/* ✅ WebPage schema (для этой страницы) */}
-        <JsonLd data={jsonLdData} />
       </Head>
 
       <div className={container}>

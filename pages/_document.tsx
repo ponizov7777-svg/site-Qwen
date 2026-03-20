@@ -12,7 +12,10 @@ export default function Document() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "Понизов Маркетинг"
+              "@id": "https://ponizov-marketing.ru/#organization",
+              "name": "Понизов Маркетинг",
+              "url": "https://ponizov-marketing.ru/",
+              "logo": "https://ponizov-marketing.ru/images/logo.png"
             })
           }}
         />
