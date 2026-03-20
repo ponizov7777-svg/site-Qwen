@@ -7,6 +7,7 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import FaqAccordion from '../components/FaqAccordion';
 import { trackLinkSubmit, trackTelegramClick, type PageType } from '../lib/metrics';
 import { initScrollDepthTracking } from '../lib/metrics-content';
+import { buildFaqPageJsonLd } from '../lib/structured-data';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -187,6 +188,12 @@ export default function ContactsPage() {
             }
           })}}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(buildFaqPageJsonLd(faq)),
+          }}
+        />
       </Head>
 
       <div className={container}>
@@ -258,6 +265,17 @@ export default function ContactsPage() {
                       target="_blank"
                       rel="nofollow noopener noreferrer"
                       className="flex items-center gap-4 p-4 border-2 border-[#E65C00] rounded-xl hover:bg-white/80 transition-all duration-300 group"
+                      onClick={
+                        s.title === 'Telegram'
+                          ? () =>
+                              trackTelegramClick({
+                                page_type: pageType,
+                                page_slug: '/contacts',
+                                block_id: 'socials',
+                                element_id: 'contacts_social_telegram',
+                              })
+                          : undefined
+                      }
                     >
                       <div className="w-12 h-12 rounded-full bg-[#E65C00]/10 flex items-center justify-center border border-[#E65C00]/30 group-hover:bg-[#E65C00]/20 transition-all duration-300">
                         <span className="text-sm font-bold text-[#E65C00]">{s.badge}</span>

@@ -1,5 +1,6 @@
 // pages/_document.tsx
 import { Html, Head, Main, NextScript } from 'next/document';
+import { getOrganizationJsonLd, getSiteNavigationJsonLd } from '../lib/structured-data';
 
 export default function Document() {
   return (
@@ -9,14 +10,13 @@ export default function Document() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "@id": "https://ponizov-marketing.ru/#organization",
-              "name": "Понизов Маркетинг",
-              "url": "https://ponizov-marketing.ru/",
-              "logo": "https://ponizov-marketing.ru/images/logo.png"
-            })
+            __html: JSON.stringify(getOrganizationJsonLd()),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getSiteNavigationJsonLd()),
           }}
         />
         <link rel="icon" type="image/svg+xml" href="/favicons/favicon-120.svg" sizes="120x120" />

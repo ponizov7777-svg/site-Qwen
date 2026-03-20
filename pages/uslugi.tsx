@@ -8,6 +8,7 @@ import FaqAccordion from '../components/FaqAccordion';
 import CardLinkCTA from '../components/CardLinkCTA';
 import { trackMetrikaGoal, trackTelegramClick, type PageType } from '../lib/metrics';
 import { observeBlockDwell, initScrollDepthTracking } from '../lib/metrics-content';
+import { buildFaqPageJsonLd } from '../lib/structured-data';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -309,6 +310,12 @@ export default function uslugiPage() {
             "description": "Маркетинговые услуги для локального бизнеса",
             "url": "https://ponizov-marketing.ru/uslugi"
           })}}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(buildFaqPageJsonLd(faq)),
+          }}
         />
       </Head>
 

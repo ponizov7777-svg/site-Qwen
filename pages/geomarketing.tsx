@@ -8,6 +8,7 @@ import FaqAccordion from '../components/FaqAccordion';
 import CardLinkCTA from '../components/CardLinkCTA';
 import { trackTelegramClick, type PageType } from '../lib/metrics';
 import { initScrollDepthTracking } from '../lib/metrics-content';
+import { buildFaqPageJsonLd } from '../lib/structured-data';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -316,6 +317,12 @@ export default function GeomarketingPage() {
             },
             "description": "Упаковка карточек в Яндекс.Картах, Google Maps, 2ГИС для локального бизнеса"
           })}}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(buildFaqPageJsonLd(faqGeomarketing)),
+          }}
         />
       </Head>
 

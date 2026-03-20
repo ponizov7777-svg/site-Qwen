@@ -7,6 +7,7 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import FaqAccordion from '../components/FaqAccordion';
 import { trackLinkSubmit, trackTelegramClick, type PageType } from '../lib/metrics';
 import { initScrollDepthTracking } from '../lib/metrics-content';
+import { buildFaqPageJsonLd } from '../lib/structured-data';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -184,6 +185,12 @@ export default function ConsultationsPage() {
               }
             ]
           })}}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(buildFaqPageJsonLd(faq)),
+          }}
         />
       </Head>
 
