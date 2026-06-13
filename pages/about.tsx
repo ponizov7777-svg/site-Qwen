@@ -123,14 +123,14 @@ export default function AboutPage() {
             <div className="flex flex-col h-full gap-8">
               {/* Фото */}
               <div className={`${glassCard} flex-shrink-0 flex flex-col`}>
-                <div className="relative h-64 w-full overflow-hidden rounded-2xl">
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
                   <Image
-                    src="/images/Ponizov.png"
+                    src="/images/about.jpg"
                     alt="Андрей Понизов"
                     fill
-                    className="object-cover"
+                    className="object-cover object-[center_20%]"
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    loading="lazy"
+                    priority
                   />
                 </div>
               </div>

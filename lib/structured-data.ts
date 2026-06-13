@@ -75,7 +75,7 @@ export function buildArticleJsonLd({
   const base = siteBase();
   const url = `${base}/blog/${slug}`;
   const orgId = `${base}/#organization`;
-  const imageUrl = image ?? `${base}/images/hero.jpg`;
+  const imageUrl = image ?? `${base}/images/about.jpg`;
 
   return {
     '@context': 'https://schema.org',
