@@ -99,7 +99,7 @@ const uslugiTariffs = [
   {
     id: 1,
     title: "Размещение компании на картах / оптимизация",
-    kicker: "Базовый старт",
+    kicker: "Старт",
     ctaLabel: "Заказать размещение",
     description: (
       <>
@@ -123,7 +123,7 @@ const uslugiTariffs = [
   {
     id: 2,
     title: "Настройка карт под ключ",
-    kicker: "Оптимальный вариант",
+    kicker: "Стандарт",
     ctaLabel: "Заказать настройку под ключ",
     description: (
       <>
@@ -150,8 +150,8 @@ const uslugiTariffs = [
   },
   {
     id: 3,
-    title: "Ваш бизнес — мой бизнес",
-    kicker: "Максимальное включение",
+    title: "Запуск с сопровождением",
+    kicker: "Тариф Бизнес",
     ctaLabel: "Заказать сопровождение",
     description: (
       <>
