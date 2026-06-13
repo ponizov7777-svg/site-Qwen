@@ -55,10 +55,14 @@ export default function FaqAccordion({
               aria-expanded={isOpen}
               aria-controls={contentId}
               onClick={() => setOpenIndex(isOpen ? null : index)}
-              className={`flex w-full items-start justify-between gap-4 px-6 py-5 text-left transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C518]/40 focus-visible:ring-inset md:px-8 ${
-                isOpen ? 'border-l-[3px] border-l-[#F5C518]' : 'border-l-[3px] border-l-transparent'
-              }`}
+              className={`relative flex w-full items-start justify-between gap-4 px-6 py-5 text-left transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C518]/40 focus-visible:ring-offset-2 md:px-8`}
             >
+              {isOpen ? (
+                <span
+                  className="absolute bottom-4 left-0 top-4 w-[3px] rounded-full bg-[#F5C518]"
+                  aria-hidden="true"
+                />
+              ) : null}
               <h3 className="pr-4 text-base font-semibold leading-relaxed text-[#1A3A2E] md:text-lg">
                 {item.q}
               </h3>
