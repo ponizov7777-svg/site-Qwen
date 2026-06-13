@@ -112,14 +112,14 @@ export function buildArticleJsonLd({
   };
 }
 
-export type FaqLdItem = { q: string; a: string | string[] };
+export type FaqLdItem = { q: string; a: string | readonly string[] };
 
-function faqAnswerToText(a: string | string[]): string {
-  return Array.isArray(a) ? a.join(' ') : a;
+function faqAnswerToText(a: string | readonly string[]): string {
+  return typeof a === 'string' ? a : a.join(' ');
 }
 
 /** FAQPage — для блоков вопрос–ответ (быстрый ответ / расширенные сниппеты при релевантности) */
-export function buildFaqPageJsonLd(items: FaqLdItem[]): Record<string, unknown> {
+export function buildFaqPageJsonLd(items: readonly FaqLdItem[]): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',

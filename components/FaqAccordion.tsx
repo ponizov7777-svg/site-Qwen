@@ -4,11 +4,11 @@ import { useState } from 'react';
 
 type FaqItem = {
   q: string;
-  a: string | string[];
+  a: string | readonly string[];
 };
 
 type FaqAccordionProps = {
-  items: FaqItem[];
+  items: readonly FaqItem[];
   className?: string;
 };
 
