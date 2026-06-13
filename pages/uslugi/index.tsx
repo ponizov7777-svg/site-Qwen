@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import FaqAccordion from '../../components/FaqAccordion';
-import CardLinkCTA from '../../components/CardLinkCTA';
 import { maxUrlWithPrefilledText } from '../../constants/links';
 import { trackMetrikaGoal, trackMAXClick, type PageType } from '../../lib/metrics';
 import { observeBlockDwell, initScrollDepthTracking } from '../../lib/metrics-content';
@@ -210,15 +209,6 @@ export default function UslugiHubPage() {
           <FaqAccordion items={SERVICE_FAQ} className="space-y-4 max-w-4xl mx-auto" />
         </section>
 
-        <section className="py-24">
-          <div className="mb-10 md:mb-12">
-            <div
-              className="h-px w-full bg-gradient-to-r from-transparent via-[#DCCFB4] to-transparent"
-              aria-hidden="true"
-            />
-          </div>
-          <CardLinkCTA pageType={pageType} pageSlug="/uslugi" blockId="card_link_cta" formId="card_link_cta" />
-        </section>
       </div>
     </>
   );
