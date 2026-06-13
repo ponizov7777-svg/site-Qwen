@@ -374,7 +374,7 @@ export default function ConsultationsPage() {
           
           {/* Аккордеон с вопросами о работе */}
           <div className="mb-16">
-            <FaqAccordion items={faq} className="space-y-4 max-w-4xl mx-auto" />
+            <FaqAccordion items={faq} className="max-w-4xl mx-auto" />
           </div>
 
           <h3 className="text-2xl font-semibold mb-6 text-[#1A3A2E]">Вопросы по консультациям</h3>

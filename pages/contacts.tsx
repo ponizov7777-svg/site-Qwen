@@ -306,7 +306,7 @@ export default function ContactsPage() {
                   <div className="h-px w-full bg-gradient-to-r from-transparent via-[#DCCFB4] to-transparent" aria-hidden="true" />
                 </div>
                 <h2 className={h2}>Вопросы</h2>
-                <FaqAccordion items={faq} className="space-y-4" />
+                <FaqAccordion items={faq} />
               </div>
               <div className="mt-auto pt-6 border-t border-white/50">
                 <Link href="/consultations" className={linkAccent}>

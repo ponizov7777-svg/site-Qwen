@@ -592,7 +592,7 @@ export default function GeomarketingPage() {
           
           {/* Аккордеон с основными вопросами о геомаркетинге */}
           <div className="py-20">
-            <FaqAccordion items={faqGeomarketing} className="space-y-4 max-w-4xl mx-auto" />
+            <FaqAccordion items={faqGeomarketing} className="max-w-4xl mx-auto" />
           </div>
         </section>
 

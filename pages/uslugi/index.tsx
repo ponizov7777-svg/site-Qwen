@@ -179,7 +179,7 @@ export default function UslugiHubPage() {
           <p className="text-xl text-gray-700 mb-8 max-w-3xl">
             Подробные ответы на самые частые вопросы о формате работы.
           </p>
-          <FaqAccordion items={SERVICE_FAQ} className="space-y-4 max-w-4xl mx-auto" />
+          <FaqAccordion items={SERVICE_FAQ} className="max-w-4xl mx-auto" />
         </section>
 
         <section className="py-24">
