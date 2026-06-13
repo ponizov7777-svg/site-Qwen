@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import BlogArticleJsonLd from '../../components/blog/BlogArticleJsonLd';
+import { listItem, listBullet } from '../../constants/styles';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -23,7 +24,8 @@ export default function YandexMapsErrorsArticle() {
   const glassCard = 
     "glass-card backdrop-blur-xl bg-white/70 border-white/50 shadow-xl hover:shadow-black/10 transition-all duration-300 p-8 rounded-2xl overflow-hidden"
   const glassHero = 
-    "backdrop-blur-xl bg-white/90 border border-white/60 rounded-3xl shadow-2xl p-12 md:p-16"
+    "backdrop-blur-xl bg-white/90 border border-white/60 rounded-3xl shadow-2xl p-8 md:p-10"
+  const section = "mt-10 md:mt-12"
   const glassCTA = 
     "backdrop-blur-xl bg-gradient-to-r from-white/70 to-white/40 rounded-3xl p-12 border border-white/50 shadow-2xl border-t border-white/30"
   // ===== КЛАССЫ ДЛЯ СИММЕТРИЧНОГО РАСПОЛОЖЕНИЯ =====
@@ -41,9 +43,6 @@ export default function YandexMapsErrorsArticle() {
   // ===== ССЫЛКИ =====
   const linkAccent = 
     "text-[#E65C00] font-semibold hover:text-[#D65A31] transition-all duration-300 inline-flex items-center gap-2 group-hover:translate-x-1"
-  // ===== СПИСКИ =====
-  const listItem = "flex items-start text-gray-700"
-  const listBullet = "text-[#E65C00] mr-3 mt-1 text-xl font-bold shrink-0"
 
   return (
     <>
@@ -64,10 +63,10 @@ export default function YandexMapsErrorsArticle() {
       <div className={container}>
         <Breadcrumbs items={breadcrumbsData} />
 
-        <article className="py-20">
+        <article className="pb-12 pt-4">
 
           {/* INTRO */}
-          <section className="py-12 md:py-16">
+          <section>
             <div className={glassHero}>
               <h1 className={h1}>
                 Типовые ошибки в Yandex Maps и 2Gis, которые стоят бизнесу денег
@@ -80,7 +79,7 @@ export default function YandexMapsErrorsArticle() {
           </section>
 
           {/* SECTION 1 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Ошибка 1. Карточка не заполнена или заполнена «для галочки»
             </h2>
@@ -123,7 +122,7 @@ export default function YandexMapsErrorsArticle() {
           </section>
 
           {/* SECTION 2 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Ошибка 2. Неправильная или слишком общая категория
             </h2>
@@ -166,7 +165,7 @@ export default function YandexMapsErrorsArticle() {
           </section>
 
           {/* SECTION 3 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Ошибка 3. Несовпадение данных на картах, сайте и в других каталогах
             </h2>
@@ -209,7 +208,7 @@ export default function YandexMapsErrorsArticle() {
           </section>
 
           {/* SECTION 4 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Ошибка 4. Пустой профиль без фото, работ и атмосферы
             </h2>
@@ -252,7 +251,7 @@ export default function YandexMapsErrorsArticle() {
           </section>
 
           {/* SECTION 5 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Ошибка 5. Заброшенные отзывы или полное игнорирование обратной связи
             </h2>
@@ -295,7 +294,7 @@ export default function YandexMapsErrorsArticle() {
           </section>
 
           {/* SECTION 6 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Ошибка 6. Неправильный адрес и зона обслуживания
             </h2>
@@ -338,7 +337,7 @@ export default function YandexMapsErrorsArticle() {
           </section>
 
           {/* SECTION 7 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Ошибка 7. Игнорирование ключевых слов и особенностей в описании
             </h2>
@@ -381,7 +380,7 @@ export default function YandexMapsErrorsArticle() {
           </section>
 
           {/* SECTION 8 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Ошибка 8. Один раз заполнили — и забыли
             </h2>
@@ -424,13 +423,13 @@ export default function YandexMapsErrorsArticle() {
           </section>
 
           {/* SECTION 9 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Ошибка 9. Игнорирование других платформ и цитирований
             </h2>
 
             <p className="text-gray-700 leading-relaxed mb-6">
-              Часть бизнеса ограничивается одной площадкой (например, только Яндекс.Карты), игнорируя 2ГИС, Google Maps и локальные каталоги. В материалах по локальному SEO отмечается, что присутствие только на одной платформе уменьшает общее количество точек входа для клиентов и число «цитирований» бренда.
+              Часть бизнеса ограничивается одной площадкой (например, только Яндекс Карты), игнорируя 2ГИС, Google Maps и локальные каталоги. В материалах по локальному SEO отмечается, что присутствие только на одной платформе уменьшает общее количество точек входа для клиентов и число «цитирований» бренда.
             </p>
 
             <div className={glassCard}>
@@ -467,7 +466,7 @@ export default function YandexMapsErrorsArticle() {
           </section>
 
           {/* SECTION 10 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Ошибка 10. Неиспользование «витрины» и дополнительных возможностей
             </h2>
@@ -510,7 +509,7 @@ export default function YandexMapsErrorsArticle() {
           </section>
 
           {/* SECTION 11 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Что делать дальше: быстрая ревизия карт, чтобы перестать терять деньги
             </h2>
@@ -558,7 +557,7 @@ export default function YandexMapsErrorsArticle() {
           </section>
 
           {/* FINAL CTA */}
-          <section className="py-24">
+          <section className="mt-12 md:mt-16">
             <div className={`${glassCTA} max-w-3xl mx-auto text-center`}>
               <h2 className={h2}>Готовы исправить ошибки и начать получать больше клиентов из карт?</h2>
               <p className="text-xl text-gray-700 mb-10 leading-relaxed max-w-2xl mx-auto">
@@ -575,7 +574,7 @@ export default function YandexMapsErrorsArticle() {
           </section>
 
           {/* Кнопка "На главную" */}
-          <div className="text-center mt-12 mb-8">
+          <div className="text-center mt-8 mb-6">
             <Link href="/" className={btnSecondary}>
               ← На главную
             </Link>

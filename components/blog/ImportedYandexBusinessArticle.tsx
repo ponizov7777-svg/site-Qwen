@@ -75,7 +75,7 @@ export default function ImportedYandexBusinessArticle({
       <div className={container}>
         <Breadcrumbs items={breadcrumbsData} />
 
-        <article className="py-12 md:py-16">
+        <article className="pb-12 pt-4">
           <div className="overflow-x-auto">
             <div className={glassCard}>
               <div
@@ -92,7 +92,7 @@ export default function ImportedYandexBusinessArticle({
           </div>
 
           {relatedPosts.length > 0 && (
-            <section className="mt-16 md:mt-20" aria-labelledby="related-posts-heading">
+            <section className="mt-12 md:mt-16" aria-labelledby="related-posts-heading">
               <h2
                 id="related-posts-heading"
                 className="text-2xl md:text-3xl font-semibold text-[#1A3A2E] mb-8 text-center md:text-left"
@@ -114,7 +114,7 @@ export default function ImportedYandexBusinessArticle({
             </section>
           )}
 
-          <div className="mt-12 flex flex-wrap gap-4 justify-center">
+          <div className="mt-8 flex flex-wrap gap-4 justify-center">
             <Link href="/" className={btnSecondary}>
               На главную
             </Link>

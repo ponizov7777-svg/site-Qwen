@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import BlogArticleJsonLd from '../../components/blog/BlogArticleJsonLd';
+import { listItem, listBullet } from '../../constants/styles';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -25,7 +26,8 @@ export default function BeautySeasonsArticle() {
   const glassCardWithButton = 
     "glass-card backdrop-blur-xl bg-white/70 border-white/50 shadow-xl hover:shadow-black/10 transition-all duration-300 p-8 rounded-2xl overflow-hidden flex flex-col h-full"
   const glassHero = 
-    "backdrop-blur-xl bg-white/90 border border-white/60 rounded-3xl shadow-2xl p-12 md:p-16"
+    "backdrop-blur-xl bg-white/90 border border-white/60 rounded-3xl shadow-2xl p-8 md:p-10"
+  const section = "mt-10 md:mt-12"
   const glassCTA = 
     "backdrop-blur-xl bg-gradient-to-r from-white/70 to-white/40 rounded-3xl p-12 border border-white/50 shadow-2xl border-t border-white/30"
   // ===== КЛАССЫ ДЛЯ СИММЕТРИЧНОГО РАСПОЛОЖЕНИЯ =====
@@ -43,9 +45,6 @@ export default function BeautySeasonsArticle() {
   // ===== ССЫЛКИ =====
   const linkAccent = 
     "text-[#E65C00] font-semibold hover:text-[#D65A31] transition-all duration-300 inline-flex items-center gap-2 group-hover:translate-x-1"
-  // ===== СПИСКИ =====
-  const listItem = "flex items-start text-gray-700"
-  const listBullet = "text-[#E65C00] mr-3 mt-1 text-xl font-bold shrink-0"
 
   return (
     <>
@@ -66,10 +65,10 @@ export default function BeautySeasonsArticle() {
       <div className={container}>
         <Breadcrumbs items={breadcrumbsData} />
 
-        <article className="py-20">
+        <article className="pb-12 pt-4">
 
           {/* INTRO */}
-          <section className="py-12 md:py-16">
+          <section>
             <div className={glassHero}>
               <h1 className={h1}>
                 Сезонные стратегии для beauty-бизнеса: где зарабатываются деньги
@@ -82,7 +81,7 @@ export default function BeautySeasonsArticle() {
           </section>
 
           {/* SECTION 1 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Как устроена сезонность в beauty-бизнесе
             </h2>
@@ -122,7 +121,7 @@ export default function BeautySeasonsArticle() {
           </section>
 
           {/* SECTION 2 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Весна: подготовка к лету и разогрев выручки
             </h2>
@@ -177,7 +176,7 @@ export default function BeautySeasonsArticle() {
           </section>
 
           {/* SECTION 3 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Лето: экспресс-услуги и работа с оттоком
             </h2>
@@ -232,7 +231,7 @@ export default function BeautySeasonsArticle() {
           </section>
 
           {/* SECTION 4 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Осень: восстановление и курсы, а не разовые визиты
             </h2>
@@ -287,7 +286,7 @@ export default function BeautySeasonsArticle() {
           </section>
 
           {/* SECTION 5 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Зима и праздники: высокие чеки и подарочные форматы
             </h2>
@@ -342,7 +341,7 @@ export default function BeautySeasonsArticle() {
           </section>
 
           {/* SECTION 6 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Стратегии, которые помогают зарабатывать круглый год
             </h2>
@@ -382,7 +381,7 @@ export default function BeautySeasonsArticle() {
           </section>
 
           {/* SECTION 7 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Как начать: короткий план действий для владельца салона
             </h2>
@@ -422,7 +421,7 @@ export default function BeautySeasonsArticle() {
           </section>
 
           {/* FINAL CTA */}
-          <section className="py-24">
+          <section className="mt-12 md:mt-16">
             <div className={`${glassCTA} max-w-3xl mx-auto text-center`}>
               <h2 className={h2}>Хотите внедрить сезонные стратегии в свой салон?</h2>
               <p className="text-xl text-gray-700 mb-10 leading-relaxed max-w-2xl mx-auto">
@@ -439,7 +438,7 @@ export default function BeautySeasonsArticle() {
           </section>
 
           {/* Кнопка "На главную" */}
-          <div className="text-center mt-12 mb-8">
+          <div className="text-center mt-8 mb-6">
             <Link href="/" className={btnSecondary}>
               ← На главную
             </Link>

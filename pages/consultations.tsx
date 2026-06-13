@@ -10,6 +10,7 @@ import { trackLinkSubmit, trackMAXClick, type PageType } from '../lib/metrics';
 import { initScrollDepthTracking } from '../lib/metrics-content';
 import { buildFaqPageJsonLd } from '../lib/structured-data';
 import { MAX_PROFILE_URL, maxUrlWithPrefilledText } from '../constants/links';
+import { listItem, listBullet } from '../constants/styles';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -42,9 +43,6 @@ const btnSecondary =
 
 const linkAccent = 
   "text-[#E65C00] font-semibold hover:text-[#D65A31] transition-all duration-300 inline-flex items-center gap-2 group-hover:translate-x-1"
-
-const listItem = "flex items-start text-gray-700"
-const listBullet = "text-[#E65C00] mr-3 mt-1 text-xl font-bold shrink-0"
 
 export default function ConsultationsPage() {
   const pageType: PageType = 'consultations';

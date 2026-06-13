@@ -5,11 +5,12 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import BlogArticleJsonLd from '../../components/blog/BlogArticleJsonLd';
+import { listItem, listBullet } from '../../constants/styles';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
   { label: 'Аналитика и Разборы', href: '/blog' },
-  { label: 'Яндекс.Карты', href: '/blog/yandex-karty' },
+  { label: 'Яндекс Карты', href: '/blog/yandex-karty' },
 ];
 
 export default function YandexKartyArticle() {
@@ -23,7 +24,8 @@ export default function YandexKartyArticle() {
   const glassCard = 
     "glass-card backdrop-blur-xl bg-white/70 border-white/50 shadow-xl hover:shadow-black/10 transition-all duration-300 p-8 rounded-2xl overflow-hidden"
   const glassHero = 
-    "backdrop-blur-xl bg-white/90 border border-white/60 rounded-3xl shadow-2xl p-12 md:p-16"
+    "backdrop-blur-xl bg-white/90 border border-white/60 rounded-3xl shadow-2xl p-8 md:p-10"
+  const section = "mt-10 md:mt-12"
   const glassCTA = 
     "backdrop-blur-xl bg-gradient-to-r from-white/70 to-white/40 rounded-3xl p-12 border border-white/50 shadow-2xl border-t border-white/30"
   // ===== КЛАССЫ ДЛЯ СИММЕТРИЧНОГО РАСПОЛОЖЕНИЯ =====
@@ -41,14 +43,11 @@ export default function YandexKartyArticle() {
   // ===== ССЫЛКИ =====
   const linkAccent = 
     "text-[#E65C00] font-semibold hover:text-[#D65A31] transition-all duration-300 inline-flex items-center gap-2 group-hover:translate-x-1"
-  // ===== СПИСКИ =====
-  const listItem = "flex items-start text-gray-700"
-  const listBullet = "text-[#E65C00] mr-3 mt-1 text-xl font-bold shrink-0"
 
   return (
     <>
       <Head>
-        <title>Яндекс.Карты | Андрей Понизов</title>
+        <title>Яндекс Карты | Андрей Понизов</title>
         <meta
           name="description"
           content="Подробный разбор Яндекс.Карт как канала привлечения клиентов: ранжирование, конверсии, платное продвижение и ограничения."
@@ -56,7 +55,7 @@ export default function YandexKartyArticle() {
         <link rel="canonical" href="https://ponizov-marketing.ru/blog/yandex-karty" />
         <BlogArticleJsonLd
           slug="yandex-karty"
-          headline="Как на самом деле работают Яндекс.Карты для привлечения клиентов"
+          headline="Как на самом деле работают Яндекс Карты для привлечения клиентов"
           description="Подробный разбор Яндекс.Карт как канала привлечения клиентов: ранжирование, конверсии, платное продвижение и ограничения."
         />
       </Head>
@@ -64,23 +63,23 @@ export default function YandexKartyArticle() {
       <div className={container}>
         <Breadcrumbs items={breadcrumbsData} />
 
-        <article className="py-20">
+        <article className="pb-12 pt-4">
 
           {/* INTRO */}
-          <section className="py-12 md:py-16">
+          <section>
             <div className={glassHero}>
               <h1 className={h1}>
-                Как на самом деле работают Яндекс.Карты для привлечения клиентов
+                Как на самом деле работают Яндекс Карты для привлечения клиентов
               </h1>
 
               <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                Яндекс.Карты давно перестали быть просто навигатором: это витрина локального бизнеса, через которую к вам приходят люди, уже готовые покупать «здесь и сейчас». Каждый месяц сервисом пользуются десятки миллионов человек, и большая часть из них не только строит маршрут, но и выбирает, в какой салон, клинику или кафе пойти, сравнивая карточки организаций. Ниже — как на самом деле устроен этот канал, от чего зависят заявки и что нужно сделать, чтобы Яндекс.Карты начали приносить живых клиентов, а не только «показы».
+                Яндекс Карты давно перестали быть просто навигатором: это витрина локального бизнеса, через которую к вам приходят люди, уже готовые покупать «здесь и сейчас». Каждый месяц сервисом пользуются десятки миллионов человек, и большая часть из них не только строит маршрут, но и выбирает, в какой салон, клинику или кафе пойти, сравнивая карточки организаций. Ниже — как на самом деле устроен этот канал, от чего зависят заявки и что нужно сделать, чтобы Яндекс Карты начали приносить живых клиентов, а не только «показы».
               </p>
             </div>
           </section>
 
           {/* SECTION 1 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Как клиент видит ваш бизнес в Яндекс.Картах
             </h2>
@@ -120,7 +119,7 @@ export default function YandexKartyArticle() {
           </section>
 
           {/* SECTION 2 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Что влияет на позиции карточки в локальной выдаче
             </h2>
@@ -164,9 +163,9 @@ export default function YandexKartyArticle() {
           </section>
 
           {/* SECTION 3 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
-              Как Яндекс.Карты превращают просмотры в живых клиентов
+              Как Яндекс Карты превращают просмотры в живых клиентов
             </h2>
 
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -204,7 +203,7 @@ export default function YandexKartyArticle() {
           </section>
 
           {/* SECTION 4 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
               Роль платного продвижения и Яндекс.Бизнес
             </h2>
@@ -240,13 +239,13 @@ export default function YandexKartyArticle() {
           </section>
 
           {/* SECTION 5 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
-              Чего Яндекс.Карты не делают сами по себе
+              Чего Яндекс Карты не делают сами по себе
             </h2>
 
             <p className="text-gray-700 leading-relaxed mb-6">
-              Важно трезво понимать ограничения: Яндекс.Карты не являются «волшебной кнопкой», которая сама наполняет салон клиентами.
+              Важно трезво понимать ограничения: Яндекс Карты не являются «волшебной кнопкой», которая сама наполняет салон клиентами.
             </p>
 
             <div className={glassCard}>
@@ -276,9 +275,9 @@ export default function YandexKartyArticle() {
           </section>
 
           {/* SECTION 6 */}
-          <section className="py-20">
+          <section className={section}>
             <h2 className={h2}>
-              Что нужно сделать, чтобы Яндекс.Карты реально привлекали клиентов
+              Что нужно сделать, чтобы Яндекс Карты реально привлекали клиентов
             </h2>
 
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -311,12 +310,12 @@ export default function YandexKartyArticle() {
             </div>
 
             <p className="text-gray-700 leading-relaxed mt-6">
-              В таком формате Яндекс.Карты перестают быть «просто точкой на карте» и превращаются в стабильный канал привлечения локальных клиентов: человек ищет «рядом», видит понятную карточку, убеждается отзывами и фото — и доходит до вашей двери.
+              В таком формате Яндекс Карты перестают быть «просто точкой на карте» и превращаются в стабильный канал привлечения локальных клиентов: человек ищет «рядом», видит понятную карточку, убеждается отзывами и фото — и доходит до вашей двери.
             </p>
           </section>
 
           {/* FINAL CTA */}
-          <section className="py-24">
+          <section className="mt-12 md:mt-16">
             <div className={`${glassCTA} max-w-3xl mx-auto text-center`}>
               <h2 className={h2}>Нужен разбор вашей карточки?</h2>
               <p className="text-xl text-gray-700 mb-10 leading-relaxed max-w-2xl mx-auto">
@@ -333,7 +332,7 @@ export default function YandexKartyArticle() {
           </section>
 
           {/* Кнопка "На главную" */}
-          <div className="text-center mt-12 mb-8">
+          <div className="text-center mt-8 mb-6">
             <Link href="/" className={btnSecondary}>
               ← На главную
             </Link>

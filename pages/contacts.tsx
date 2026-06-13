@@ -49,9 +49,6 @@ const btnSecondary =
 const linkAccent = 
   "text-[#E65C00] font-semibold hover:text-[#D65A31] inline-flex items-center gap-2"
 
-const listItem = "flex items-start text-gray-700"
-const listBullet = "text-[#E65C00] mr-3 mt-1 text-xl font-bold shrink-0"
-
 export default function ContactsPage() {
   const pageType: PageType = 'contacts';
   useEffect(() => {

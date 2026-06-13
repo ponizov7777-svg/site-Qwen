@@ -7,6 +7,7 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import { trackLinkSubmit, trackMAXClick, type PageType } from '../lib/metrics';
 import { initScrollDepthTracking } from '../lib/metrics-content';
 import { MAX_PROFILE_URL, maxUrlWithPrefilledText } from '../constants/links';
+import { listItem, listBullet } from '../constants/styles';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -38,8 +39,6 @@ export default function AboutPage() {
   // ===== ССЫЛКИ =====
   
   // ===== СПИСКИ =====
-  const listItem = "flex items-start text-gray-700"
-  const listBullet = "text-[#E65C00] mr-3 mt-1 text-xl font-bold shrink-0"
 
   const pageType: PageType = 'other';
 
@@ -292,7 +291,7 @@ export default function AboutPage() {
                   Локальный спрос и карты: делаю так, чтобы вас чаще находили рядом — и это видно в кассе.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {['Яндекс.Карты', 'Google Maps', '2ГИС', 'Локальный поиск'].map((skill, i) => (
+                  {['Яндекс Карты', 'Google Maps', '2ГИС', 'Локальный поиск'].map((skill, i) => (
                     <span key={i} className={badgePrimary}>{skill}</span>
                   ))}
                 </div>

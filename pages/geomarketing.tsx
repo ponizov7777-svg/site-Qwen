@@ -12,6 +12,7 @@ import { trackMAXClick, type PageType } from '../lib/metrics';
 import { initScrollDepthTracking } from '../lib/metrics-content';
 import { buildFaqPageJsonLd } from '../lib/structured-data';
 import { maxUrlWithPrefilledText } from '../constants/links';
+import { listItem, listBullet } from '../constants/styles';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -41,9 +42,6 @@ const btnPrimary =
 
 const btnSecondary = 
   "px-8 py-4 bg-white/90 backdrop-blur-xl border-2 border-[#E65C00]/50 text-[#1A3A2E] font-semibold rounded-2xl hover:bg-white hover:shadow-2xl hover:shadow-black/10 hover:-translate-y-0.5 transition-all duration-300"
-
-const listItem = "flex items-start text-gray-700"
-const listBullet = "text-[#E65C00] mr-3 mt-1 text-xl font-bold shrink-0"
 
 // Тот же набор задач, что и на странице «Услуги и цены»
 const coreTasks = [
@@ -264,7 +262,7 @@ export default function GeomarketingPage() {
   const faqGeomarketing = [
     {
       q: "Что такое геомаркетинг и почему он работает?",
-      a: "Геомаркетинг — это привлечение клиентов через Яндекс.Карты, 2ГИС, Google Карты. Когда человек ищет 'салон красоты рядом', он уже готов записаться. Не нужно убеждать — нужно быть первым в списке. 65% клиентов выбирают из топ-3 карточек, и мы ставим вас в этот топ.",
+      a: "Геомаркетинг — это привлечение клиентов через Яндекс Карты, 2ГИС, Google Карты. Когда человек ищет 'салон красоты рядом', он уже готов записаться. Не нужно убеждать — нужно быть первым в списке. 65% клиентов выбирают из топ-3 карточек, и мы ставим вас в этот топ.",
     },
     
     {
@@ -352,7 +350,7 @@ export default function GeomarketingPage() {
                   Геомаркетинг для офлайн‑бизнеса
                 </h1>
                 <p className="text-base md:text-lg text-white/85 leading-relaxed">
-                  Помогаю получать заявки из карт и локального поиска: Яндекс.Карты, 2ГИС, Google Maps.
+                  Помогаю получать заявки из карт и локального поиска: Яндекс Карты, 2ГИС, Google Maps.
                   Фокус на видимость, отзывы и понятную аналитику.
                 </p>
                 

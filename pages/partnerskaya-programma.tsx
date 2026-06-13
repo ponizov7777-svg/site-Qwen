@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 import Breadcrumbs from '../components/Breadcrumbs';
 import { maxUrlWithPrefilledText } from '../constants/links';
+import { listItem, listBullet } from '../constants/styles';
 import { trackMAXClick, type PageType } from '../lib/metrics';
 import { initScrollDepthTracking } from '../lib/metrics-content';
 
@@ -25,8 +26,6 @@ const btnPrimary =
   'inline-flex items-center justify-center px-6 py-2.5 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-lg text-sm md:text-base border border-[#E0B800] hover:bg-[#F7D03A] hover:border-[#F0C000] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C518]/60 focus-visible:ring-offset-2';
 const btnSecondary =
   'inline-flex items-center justify-center px-6 py-2.5 bg-black text-white font-semibold rounded-lg text-sm md:text-base border border-black shadow-lg shadow-black/20 hover:bg-[#1A3A2E] hover:border-[#E65C00] hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C518] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A3A2E]';
-const listItem = 'flex items-start text-gray-700';
-const listBullet = 'text-[#E65C00] mr-3 mt-1 text-xl font-bold shrink-0';
 
 const steps = [
   {

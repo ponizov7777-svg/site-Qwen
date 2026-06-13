@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import Breadcrumbs from '../components/Breadcrumbs';
 import { trackLinkSubmit, trackMAXClick, type PageType } from '../lib/metrics';
 import { initScrollDepthTracking } from '../lib/metrics-content';
+import { listItem, listBullet } from '../constants/styles';
 import { maxUrlWithPrefilledText } from '../constants/links';
 
 const breadcrumbsData = [
@@ -40,9 +41,6 @@ const btnSecondary =
 
 const linkAccent = 
   "text-[#E65C00] font-semibold hover:text-[#D65A31] transition-all duration-300 inline-flex items-center gap-2 group-hover:translate-x-1"
-
-const listItem = "flex items-center text-gray-700"
-const listBullet = "text-[#E65C00] mr-3 text-lg font-bold shrink-0"
 
 export default function CasesPage() {
   const pageType: PageType = 'cases';
