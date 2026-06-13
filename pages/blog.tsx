@@ -32,57 +32,7 @@ export default function BlogPage() {
   const pageType: PageType = 'blog';
   const [activeFilter, setActiveFilter] = useState('Все материалы');
   
-  const blog = [
-    {
-      id: 1,
-      title: 'Как на самом деле работают Яндекс Карты для привлечения клиентов',
-      excerpt: 'Разбор логики ранжирования, факторов видимости и ошибок, из-за которых бизнес не получает заявки.',
-      date: '25.12.2025',
-      href: '/blog/yandex-karty',
-      category: 'Геомаркетинг'
-    },
-    {
-      id: 2,
-      title: 'Контекстная реклама для офлайн-бизнеса: что масштабировать, а что отключать',
-      excerpt: 'Веб-аналитика работы с рекламой, если важны заявки, а не отчёты и клики.',
-      date: '23.01.2026',
-      href: '/blog/context-offline',
-      category: 'Реклама'
-    },
-    {
-      id: 3,
-      title: 'Как анализировать локальных конкурентов и находить точки роста',
-      excerpt: 'Практический подход к анализу спроса, а не копированию чужих решений.',
-      date: '02.02.2026',
-      href: '/blog/analiz-lokalnyh-konkurentov',
-      category: 'Веб-аналитика'
-    },
-    {
-      id: 4,
-      title: 'Типовые ошибки в Yandex Maps и 2Gis, которые стоят бизнесу денег',
-      excerpt: 'Почему карточка есть, а заявок нет — и как это исправлять системно.',
-      date: '10.02.2026',
-      href: '/blog/oshibki-maps',
-      category: 'Геомаркетинг'
-    },
-    {
-      id: 5,
-      title: 'Как считать реальную окупаемость геомаркетинга',
-      excerpt: 'Методика оценки ROI для офлайн-бизнеса без самообмана.',
-      date: '14.02.2026',
-      href: '/blog/geomarketing-roi',
-      category: 'Аналитика'
-    },
-    {
-      id: 6,
-      title: 'Сезонные стратегии для beauty-бизнеса: где зарабатываются деньги',
-      excerpt: 'Как планировать маркетинг, а не реагировать на спад постфактум.',
-      date: '10.01.2026',
-      href: '/blog/beauty-seasons',
-      category: 'Beauty'
-    },
-    ...getYandexBusinessBlogListItems(),
-  ];
+  const blog = getYandexBusinessBlogListItems();
 
   useEffect(() => {
     const cleanup = initScrollDepthTracking({

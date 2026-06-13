@@ -6,6 +6,10 @@ import { getYandexBusinessBlogListItems } from "../../lib/yandexBusinessBlog";
 import type { ArticleEntry } from "../../lib/yandexBusinessBlogTypes";
 import BlogPostCard from "./BlogPostCard";
 import BlogArticleJsonLd from "./BlogArticleJsonLd";
+import {
+  BlogArticleServicesMobileBar,
+  BlogArticleServicesSidebar,
+} from "./BlogArticleServicesAside";
 
 const container = "max-w-7xl mx-auto px-4";
 const glassCard =
@@ -75,21 +79,26 @@ export default function ImportedYandexBusinessArticle({
       <div className={container}>
         <Breadcrumbs items={breadcrumbsData} />
 
-        <article className="pb-12 pt-4">
-          <div className="overflow-x-auto">
-            <div className={glassCard}>
-              <div
-                className="blog-imported-html max-w-4xl mx-auto"
-                dangerouslySetInnerHTML={{ __html: renderedBodyHtml }}
-              />
-              {shouldAddInstagramFootnote && (
-                <p className="instagram-legal-note max-w-4xl mx-auto mt-5">
-                  <span className="instagram-footnote-mark">†</span>{" "}
-                  {instagramLegalNoteText}
-                </p>
-              )}
+        <article className="pb-24 pt-4 lg:pb-12">
+          <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(240px,300px)] lg:items-start lg:gap-8 xl:gap-10">
+            <div className="min-w-0 overflow-x-auto">
+              <div className={glassCard}>
+                <div
+                  className="blog-imported-html"
+                  dangerouslySetInnerHTML={{ __html: renderedBodyHtml }}
+                />
+                {shouldAddInstagramFootnote && (
+                  <p className="instagram-legal-note mt-5">
+                    <span className="instagram-footnote-mark">†</span>{" "}
+                    {instagramLegalNoteText}
+                  </p>
+                )}
+              </div>
             </div>
+            <BlogArticleServicesSidebar />
           </div>
+
+          <BlogArticleServicesMobileBar />
 
           {relatedPosts.length > 0 && (
             <section className="mt-12 md:mt-16" aria-labelledby="related-posts-heading">

@@ -220,3 +220,10 @@ export const SERVICE_FAQ = [
 export function getServiceBySlug(slug: string) {
   return SERVICES.find((service) => service.slug === slug) ?? null;
 }
+
+/** Три услуги в нижней панели на мобильных страницах блога */
+export const BLOG_MOBILE_SERVICE_SLUGS = [
+  'razmeshchenie-na-kartah',
+  'nastroyka-kart-pod-klyuch',
+  'ezhemesyachnoe-vedenie',
+] as const;
