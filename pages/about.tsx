@@ -17,7 +17,6 @@ export default function AboutPage() {
   // ===== КОНТЕЙНЕРЫ =====
   const container = "max-w-7xl mx-auto px-4"
   // ===== ТИПОГРАФИКА =====
-  const h1 = "text-2xl md:text-4xl lg:text-5xl font-semibold mb-6 text-[#1E2837] leading-[64px] drop-shadow-sm lc-styled-text__text lc-styled-text__text_align_left"
   const h2 = "text-2xl md:text-4xl lg:text-5xl font-semibold mb-6 text-[#1E2837] leading-[64px] lc-styled-text__text lc-styled-text__text_align_left"
   const h3 = "text-xl font-semibold text-[#1A3A2E] mb-4 leading-tight"
   // ===== GLASSMORPHISM КАРТОЧКИ =====
@@ -25,25 +24,19 @@ export default function AboutPage() {
     "glass-card backdrop-blur-xl bg:white/70 border-white/50 shadow-xl hover:shadow-black/10 p-8 rounded-2xl overflow-hidden"
   const glassCardWithButton = 
     "glass-card backdrop-blur-xl bg:white/70 border-white/50 shadow-xl hover:shadow-black/10 p-8 rounded-2xl overflow-hidden flex flex-col h-full"
-  const glassHero = 
-    "backdrop-blur-xl bg-white/90 border border-white/60 rounded-3xl shadow-2xl p-12 md:p-16"
-  const glassCTA = 
-    "backdrop-blur-xl bg-gradient-to-r from-white/70 to-white/40 rounded-3xl p-12 border border-white/50 shadow-2xl border-t border-white/30"
+  
   // ===== КЛАССЫ ДЛЯ СИММЕТРИЧНОГО РАСПОЛОЖЕНИЯ =====
   const cardContent = "flex-grow"  // Для контента внутри карточки
   const cardButtonContainer = "mt-auto pt-6" // Для блока с кнопкой
-  const cardButton = "w-full text-center block" // Для кнопок в карточках
+  
   // ===== БЕЙДЖИ =====
   const badgePrimary = 
     "px-3 py-1 bg-[#F5C518]/40 text-[#1A3A2E] text-sm font-medium rounded-full backdrop-blur-sm border border-white/60"
   // ===== КНОПКИ =====
-  const btnPrimary =
-    "inline-flex items-center justify-center px-6 py-2.5 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-lg text-sm md:text-base border border-[#E0B800] hover:bg-[#F7D03A] hover:border-[#F0C000] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C518]/60 focus-visible:ring-offset-2"
   const btnSecondary =
     "inline-flex items-center justify-center px-6 py-2.5 bg-white text-[#1A3A2E] font-medium rounded-lg text-sm md:text-base border border-[#E5E7EB] hover:bg-gray-50 hover:border-[#D1D5DB] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E65C00]/40 focus-visible:ring-offset-2"
   // ===== ССЫЛКИ =====
-  const linkAccent = 
-    "text-[#E65C00] font-semibold hover:text-[#D65A31] inline-flex items-center gap-2"
+  
   // ===== СПИСКИ =====
   const listItem = "flex items-start text-gray-700"
   const listBullet = "text-[#E65C00] mr-3 mt-1 text-xl font-bold shrink-0"
@@ -165,7 +158,7 @@ export default function AboutPage() {
                     <div className={listItem}>
                       <span className={listBullet}>→</span>
                       <span className="text-gray-700">
-                        Взрослый подход: без обещаний "100 клиентов за неделю", только логика и тесты.
+                        Взрослый подход: без обещаний &quot;100 клиентов за неделю&quot;, только логика и тесты.
                       </span>
                     </div>
                     <div className={listItem}>

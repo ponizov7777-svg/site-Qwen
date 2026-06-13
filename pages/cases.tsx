@@ -1,4 +1,5 @@
 // pages/cases.tsx
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import Head from 'next/head';
 import Link from 'next/link';

@@ -76,14 +76,6 @@ export default function DeferredAnalytics() {
     };
   }, []);
 
-  useEffect(() => {
-    if (mountScripts || analyticsAllowed()) {
-      return;
-    }
-
-    setMountScripts(false);
-  }, [mountScripts]);
-
   if (!mountScripts || !analyticsAllowed()) {
     return null;
   }

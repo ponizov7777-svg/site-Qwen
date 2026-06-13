@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    ym?: (...args: any[]) => void;
+    ym?: (...args: unknown[]) => void;
   }
 }
 
@@ -15,7 +15,6 @@ export function trackMetrikaGoal(goalId: string, params?: MetrikaGoalParams) {
 
   if (typeof ym !== 'function') {
     if (process.env.NODE_ENV !== 'production') {
-      // eslint-disable-next-line no-console
       console.debug('[Metrika] ym is not available yet', { goalId, params });
     }
     return;
@@ -25,7 +24,6 @@ export function trackMetrikaGoal(goalId: string, params?: MetrikaGoalParams) {
     ym(METRIKA_ID, 'reachGoal', goalId, params);
   } catch (error) {
     if (process.env.NODE_ENV !== 'production') {
-      // eslint-disable-next-line no-console
       console.error('[Metrika] reachGoal error', error);
     }
   }

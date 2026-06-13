@@ -17,7 +17,6 @@ export default function VkChatButton() {
       await initVkCommunityMessages();
       setClicked(true);
     } catch (e) {
-      // eslint-disable-next-line no-console
       console.warn('[VK chat button] init error', e);
     }
   };

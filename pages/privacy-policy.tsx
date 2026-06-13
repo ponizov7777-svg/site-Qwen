@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import Breadcrumbs from '../components/Breadcrumbs';
 import { MAX_PROFILE_URL } from '../constants/links';
 

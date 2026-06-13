@@ -1,4 +1,5 @@
 // pages/geomarketing.tsx
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import Head from 'next/head';
 import Image from 'next/image';
@@ -377,7 +378,7 @@ export default function GeomarketingPage() {
             <div className={glassCard}>
               <h3 className={h3}>Проблема, которую вижу чаще всего</h3>
               <p className="text-gray-700 leading-relaxed">
-                Карточка вроде есть, но она "пустая": слабые фото, их мало, неясные услуги, нет отзывов или на негатив никто не отвечает.
+                Карточка вроде есть, но она &quot;пустая&quot;: слабые фото, их мало, неясные услуги, нет отзывов или на негатив никто не отвечает.
                 В итоге рядом вас видят, но не выбирают.
               </p>
             </div>

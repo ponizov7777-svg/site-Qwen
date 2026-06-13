@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 
 const COOKIE_KEY = 'cookieConsent';
@@ -12,14 +12,10 @@ const declineBtn =
   "px-6 py-3 border-2 border-[#E65C00] text-[#1A3A2E] font-medium rounded-xl hover:bg-[#FFF5E1] hover:shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E65C00] focus-visible:ring-offset-2 backdrop-blur-md";
 
 export default function Cookie() {
-  const [showBanner, setShowBanner] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const consent = localStorage.getItem(COOKIE_KEY);
-      if (!consent) setShowBanner(true);
-    }
-  }, []);
+  const [showBanner, setShowBanner] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return !localStorage.getItem(COOKIE_KEY);
+  });
 
   const handleAccept = () => {
     if (typeof window !== 'undefined') {

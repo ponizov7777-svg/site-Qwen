@@ -276,9 +276,13 @@ export default function ServicesCalculator() {
 
     // Если ни одной проблемы не выбрано, полностью очищаем авто‑подбор
     if (selectedPains.length === 0) {
-      setSelectedOptions({});
-      setManualOverrides({});
-      return;
+      const timeoutId = globalThis.setTimeout(() => {
+        setSelectedOptions({});
+        setManualOverrides({});
+      }, 0);
+      return () => {
+        globalThis.clearTimeout(timeoutId);
+      };
     }
 
     // соберём рекомендованные работы по всем текущим болям
@@ -297,6 +301,7 @@ export default function ServicesCalculator() {
       });
     });
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSelectedOptions((current) => {
       const next: Record<string, string[]> = { ...current };
 

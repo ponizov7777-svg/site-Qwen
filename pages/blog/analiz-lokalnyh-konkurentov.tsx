@@ -17,31 +17,26 @@ const container = "max-w-7xl mx-auto px-4"
 // ===== ТИПОГРАФИКА =====
 const h1 = "text-[28px] md:text-[32px] font-semibold leading-tight mb-6 text-[#1A3A2E] drop-shadow-sm"
 const h2 = "text-3xl md:text-4xl font-semibold mb-6 text-[#1A3A2E]"
-const h3 = "text-xl font-semibold text-[#1A3A2E] mb-4 leading-tight"
 // ===== GLASSMORPHISM КАРТОЧКИ =====
 const glassCard = 
   "glass-card backdrop-blur-xl bg-white/70 border-white/50 shadow-xl hover:shadow-black/10 transition-all duration-300 p-8 rounded-2xl overflow-hidden"
-const glassCardWithButton = 
-  "glass-card backdrop-blur-xl bg-white/70 border-white/50 shadow-xl hover:shadow-black/10 transition-all duration-300 p-8 rounded-2xl overflow-hidden flex flex-col h-full"
 const glassHero = 
   "backdrop-blur-xl bg-white/90 border border-white/60 rounded-3xl shadow-2xl p-12 md:p-16"
 const glassCTA = 
   "backdrop-blur-xl bg-gradient-to-r from-white/70 to-white/40 rounded-3xl p-12 border border-white/50 shadow-2xl border-t border-white/30"
 // ===== КЛАССЫ ДЛЯ СИММЕТРИЧНОГО РАСПОЛОЖЕНИЯ =====
-const cardContent = "flex-grow"  // Для контента внутри карточки
-const cardButtonContainer = "mt-auto pt-6" // Для блока с кнопкой
-const cardButton = "w-full text-center block" // Для кнопок в карточках
+// Для контента внутри карточки
+// Для блока с кнопкой
+// Для кнопок в карточках
 // ===== БЕЙДЖИ =====
-const badgePrimary = 
-  "px-3 py-1 bg-[#F5C518]/40 text-[#1A3A2E] text-sm font-medium rounded-full backdrop-blur-sm border border-white/60"
+ 
 // ===== КНОПКИ =====
 const btnPrimary = 
   "px-8 py-4 bg-[#F5C518]/90 text-[#1A3A2E] font-semibold rounded-2xl text-lg hover:bg-[#F7D03A]/90 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 backdrop-blur-md border border-white/50"
 const btnSecondary = 
   "px-8 py-4 bg-white/90 backdrop-blur-xl border-2 border-[#E65C00]/50 text-[#1A3A2E] font-semibold rounded-2xl hover:bg-white hover:shadow-2xl hover:shadow-black/10 hover:-translate-y-0.5 transition-all duration-300"
 // ===== ССЫЛКИ =====
-const linkAccent = 
-  "text-[#E65C00] font-semibold hover:text-[#D65A31] transition-all duration-300 inline-flex items-center gap-2 group-hover:translate-x-1"
+ 
 // ===== СПИСКИ =====
 const listItem = "flex items-start text-gray-700"
 const listBullet = "text-[#E65C00] mr-3 mt-1 text-xl font-bold shrink-0"

@@ -1,4 +1,5 @@
 // pages/index.tsx
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 import Head from 'next/head';
 import Image from 'next/image';

@@ -11,10 +11,12 @@ import { IconMax, IconPhone, IconMenu } from '@/components/Icons';
 export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.scrollY > 10;
+  });
 
   useEffect(() => {
-    setIsScrolled(window.scrollY > 10);
     let raf = 0;
     let ticking = false;
     const handleScroll = () => {
@@ -67,7 +69,8 @@ export default function Header() {
             {/* Десктопная навигация */}
             <nav className="hidden md:flex items-center gap-1">
               {NAV_LINKS.map((link) => {
-                const isActive = pathname === link.href;
+                const isActive =
+                  pathname === link.href || (link.href !== '/' && pathname.startsWith(`${link.href}/`));
                 return (
                   <Link
                     key={link.href}

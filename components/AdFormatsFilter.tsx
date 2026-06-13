@@ -2,7 +2,6 @@
 'use client';
 import { Fragment, useMemo, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import styles from './AdFormatsFilter.module.css';
 import { MAX_PROFILE_URL, maxUrlWithPrefilledText } from '@/constants/links';
@@ -11,12 +10,8 @@ import { MAX_PROFILE_URL, maxUrlWithPrefilledText } from '@/constants/links';
 const container = "max-w-7xl mx-auto px-4";
 const h2 = "text-3xl md:text-4xl font-semibold mb-6 text-[#1E2837] leading-[64px]";
 const h3 = "text-xl font-semibold text-[#1A3A2E] mb-4 leading-tight";
-const glassCard = "glass-card backdrop-blur-xl bg:white/70 border-white/50 shadow-xl hover:shadow-black/10 p-8 rounded-2xl overflow-hidden flex flex-col h-full";
-const badgePrimary = "px-3 py-1 bg-[#F5C518]/40 text-[#1A3A2E] text-sm font-medium rounded-full backdrop-blur-sm border border-white/60";
 const btnPrimary =
   "inline-flex items-center justify-center px-6 py-2.5 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-lg text-sm md:text-base border border-[#E0B800] hover:bg-[#F7D03A] hover:border-[#F0C000] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C518]/60 focus-visible:ring-offset-2";
-const btnSecondary =
-  "inline-flex items-center justify-center px-5 py-2.5 bg-white text-[#1A3A2E] font-medium rounded-lg text-xs md:text-sm border border-[#E5E7EB] hover:bg-gray-50 hover:border-[#D1D5DB] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E65C00]/30 focus-visible:ring-offset-2";
 
 const sharedSelectionBg = "bg-[#F3F4F6]";
 

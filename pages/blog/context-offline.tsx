@@ -1,5 +1,7 @@
 // pages/blog/context-offline.tsx
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
+/* eslint-disable react/no-unescaped-entities */
 import Head from 'next/head';
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';

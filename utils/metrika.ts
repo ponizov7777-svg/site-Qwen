@@ -26,7 +26,6 @@ export function trackGoal(goalId: string, params?: GoalParams) {
   const ymFn = window.ym;
   if (typeof ymFn !== 'function') {
     if (process.env.NODE_ENV === 'development') {
-      // eslint-disable-next-line no-console
       console.info('[metrika] ym is not available, skip goal', goalId, params);
     }
     return;
@@ -36,12 +35,10 @@ export function trackGoal(goalId: string, params?: GoalParams) {
     ymFn(METRIKA_ID, 'reachGoal', goalId, params);
 
     if (process.env.NODE_ENV === 'development') {
-      // eslint-disable-next-line no-console
       console.info('[metrika] reachGoal', goalId, params);
     }
   } catch (error) {
     if (process.env.NODE_ENV === 'development') {
-      // eslint-disable-next-line no-console
       console.warn('[metrika] reachGoal error', goalId, error);
     }
   }

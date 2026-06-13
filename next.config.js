@@ -132,5 +132,6 @@ const nextConfig = {
 
 module.exports =
   process.env.ANALYZE === 'true'
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     ? require('@next/bundle-analyzer')({ enabled: true })(nextConfig)
     : nextConfig;
