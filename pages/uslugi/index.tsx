@@ -10,7 +10,7 @@ import { maxUrlWithPrefilledText } from '../../constants/links';
 import { trackMetrikaGoal, trackMAXClick, type PageType } from '../../lib/metrics';
 import { observeBlockDwell, initScrollDepthTracking } from '../../lib/metrics-content';
 import { buildFaqPageJsonLd } from '../../lib/structured-data';
-import { CORE_TASKS, SERVICE_FAQ, SERVICES } from '../../lib/servicesCatalog';
+import { SERVICE_FAQ, SERVICES } from '../../lib/servicesCatalog';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -24,8 +24,6 @@ const btnPrimary =
   'inline-flex items-center justify-center px-6 py-2.5 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-lg text-sm md:text-base border border-[#E0B800] hover:bg-[#F7D03A] hover:border-[#F0C000] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C518]/60 focus-visible:ring-offset-2';
 const btnSecondary =
   'inline-flex items-center justify-center px-6 py-2.5 bg-white text-[#1A3A2E] font-medium rounded-lg text-sm md:text-base border border-[#E5E7EB] hover:bg-gray-50 hover:border-[#D1D5DB] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E65C00]/40 focus-visible:ring-offset-2';
-const listItem = 'flex items-start text-gray-700';
-const listBullet = 'text-[#E65C00] mr-3 mt-1 text-xl font-bold shrink-0';
 
 export default function UslugiHubPage() {
   const pageType: PageType = 'services';
@@ -160,28 +158,6 @@ export default function UslugiHubPage() {
 
                     <p className="mb-6 leading-relaxed text-gray-700">{service.teaser}</p>
 
-                    <p className="mb-3 text-sm font-semibold text-[#1A3A2E]">Что входит</p>
-                    <ul className="space-y-3 mb-6">
-                      {CORE_TASKS.map((task) => {
-                        const included = service.includedTasks.includes(task.id);
-                        return (
-                          <li key={task.id} className={listItem}>
-                            <span
-                              className={`${listBullet} ${
-                                included ? 'text-[#16A34A]' : 'text-gray-300'
-                              }`}
-                            >
-                              {included ? '✓' : '•'}
-                            </span>
-                            <span
-                              className={included ? 'text-gray-800' : 'text-gray-400 line-through'}
-                            >
-                              {task.label}
-                            </span>
-                          </li>
-                        );
-                      })}
-                    </ul>
                   </div>
 
                   <div
