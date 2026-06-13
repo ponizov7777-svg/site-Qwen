@@ -6,8 +6,7 @@ import { useEffect, useRef } from 'react';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import FaqAccordion from '../../components/FaqAccordion';
 import CardLinkCTA from '../../components/CardLinkCTA';
-import { maxUrlWithPrefilledText } from '../../constants/links';
-import { trackMetrikaGoal, trackMAXClick, type PageType } from '../../lib/metrics';
+import { type PageType } from '../../lib/metrics';
 import { observeBlockDwell, initScrollDepthTracking } from '../../lib/metrics-content';
 import { buildFaqPageJsonLd } from '../../lib/structured-data';
 import { SERVICE_FAQ, SERVICES } from '../../lib/servicesCatalog';
@@ -108,24 +107,6 @@ export default function UslugiHubPage() {
           <h2 className={h2}>Услуги</h2>
           <div className="grid md:grid-cols-2 gap-8 items-stretch">
             {SERVICES.map((service) => {
-              const telegramHref = maxUrlWithPrefilledText(service.maxText);
-
-              const handleCtaClick = () => {
-                trackMetrikaGoal('micro_interest_service_card_click', {
-                  page_type: pageType,
-                  page_slug: '/uslugi',
-                  block_id: 'tariffs',
-                  service_id: service.id,
-                });
-                trackMAXClick({
-                  page_type: pageType,
-                  page_slug: '/uslugi',
-                  block_id: 'tariffs',
-                  service_id: service.id,
-                  element_id: `tariff_${service.id}_cta`,
-                });
-              };
-
               return (
                 <div
                   key={service.slug}
@@ -179,15 +160,6 @@ export default function UslugiHubPage() {
                       <Link href={`/uslugi/${service.slug}`} className={`${btnSecondary} w-full`}>
                         Подробнее об услуге
                       </Link>
-                      <a
-                        href={telegramHref}
-                        target="_blank"
-                        rel="nofollow noopener noreferrer"
-                        className={`${btnPrimary} w-full text-center block`}
-                        onClick={handleCtaClick}
-                      >
-                        {service.ctaLabel}
-                      </a>
                     </div>
                   </div>
                 </div>
