@@ -2,6 +2,7 @@
 
 import { ReactNode, useEffect, useMemo, useState } from 'react';
 import styles from './AdFormatsFilter.module.css';
+import { maxUrlWithPrefilledText } from '@/constants/links';
 
 type CalculatorMode = 'pain' | 'manual';
 
@@ -430,7 +431,7 @@ export default function ServicesCalculator() {
   }, [selectedPains, selectedServicesDetailed, totalPrice]);
 
   const telegramUrl = useMemo(() => {
-    return `https://t.me/ponizovandrey?text=${encodeURIComponent(telegramMessage)}`;
+    return maxUrlWithPrefilledText(telegramMessage);
   }, [telegramMessage]);
 
   const togglePain = (painId: PainId) => {
@@ -775,7 +776,7 @@ export default function ServicesCalculator() {
                     rel="nofollow noopener noreferrer"
                     className="block w-full rounded-lg border border-[#E0B800] bg-[#F5C518] px-6 py-3 text-center text-sm font-semibold text-[#1A3A2E] transition-colors duration-200 hover:bg-[#F7D03A] hover:border-[#F0C000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C518]/60 focus-visible:ring-offset-2"
                   >
-                    Отправить расчёт в Telegram
+                    Отправить расчёт в MAX
                   </a>
                 </>
               ) : (
@@ -792,7 +793,7 @@ export default function ServicesCalculator() {
 
       {/* Минималистичный итоговый расчёт для мобильной версии */}
       {totalPrice > 0 && (
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-gray-200 bg-white/95 px-4 py-3 shadow-[0_-6px_18px_rgba(15,23,42,0.08)] backdrop-blur-md lg:hidden">
+        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-gray-200 bg-white/95 px-4 py-3 shadow-lg backdrop-blur-md lg:hidden">
           <div className="flex items-center justify-between gap-3">
             <div className="min-w-0">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6B7280]">
@@ -814,7 +815,7 @@ export default function ServicesCalculator() {
                 rel="nofollow noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-[#F5C518] px-4 py-2 text-xs font-semibold text-[#1A3A2E] shadow-sm transition-colors duration-200 hover:bg-[#F7D03A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C518]/60 focus-visible:ring-offset-1"
               >
-                Обсудить в Telegram
+                Обсудить в MAX
               </a>
               <button
                 type="button"

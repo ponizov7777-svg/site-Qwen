@@ -1,9 +1,11 @@
 // constants/siteConfig.ts
+import { MAX_PROFILE_URL, TELEGRAM_URL, VK_URL, RUTUBE_URL } from './links';
+
 export const SITE_CONFIG = {
   title: 'Геомаркетинг и привлечение клиентов для офлайн-бизнеса',
   description:
     'Помогаю офлайн-бизнесу стабильно привлекать клиентов через карты, рекламу и маркетинговые системы.',
-  url: 'https://ponizov-marketing.ru', 
+  url: 'https://ponizov-marketing.ru',
   author: 'Андрей Понизов',
   copyright: `© ${new Date().getFullYear()} Понизов Андрей. Все права защищены.`,
 };
@@ -18,21 +20,28 @@ export const NAV_LINKS = [
   { href: '/contacts', label: 'Контакты' },
 ];
 
-export const SOCIAL_LINKS = [
-  {
-    href: 'https://max.ru/u/f9LHodD0cOKv94u0uUQGsTH7c9Cibtp9qAEtmFpgYQ-QfGsVeYNyc7M34aU',
-    label: 'Max',
-  },
-  {
-    href: 'https://t.me/ponizovandrey',
-    label: 'Telegram',
-  },
-  {
-    href: 'https://vk.com/andrey_anatolyevich_marketing',
-    label: 'VK',
-  },
-  {
-    href: 'https://rutube.ru/channel/73592687/',
-    label: 'RuTube',
-  },
+/** Навигация в подвале: главная, основные разделы и служебные страницы */
+export const FOOTER_NAV_LINKS = [
+  { href: '/', label: 'Главная' },
+  ...NAV_LINKS,
+  { href: '/partnerskaya-programma', label: 'Партнерская программа' },
 ];
+
+export const SOCIAL_LINKS = [
+  { href: MAX_PROFILE_URL, label: 'MAX' },
+  { href: VK_URL, label: 'VK' },
+  { href: RUTUBE_URL, label: 'RuTube' },
+];
+
+export const FOOTER_SOCIAL_LINKS = [
+  { href: MAX_PROFILE_URL, label: 'MAX' },
+  { href: TELEGRAM_URL, label: 'Telegram' },
+  { href: VK_URL, label: 'VK' },
+  { href: RUTUBE_URL, label: 'RuTube' },
+];
+
+/** Мобильное меню: те же href, подписи капсом */
+export const MOBILE_NAV_LINKS = NAV_LINKS.map((link) => ({
+  ...link,
+  label: link.label.toUpperCase(),
+}));

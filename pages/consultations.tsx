@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 import Breadcrumbs from '../components/Breadcrumbs';
 import FaqAccordion from '../components/FaqAccordion';
-import { trackLinkSubmit, trackTelegramClick, type PageType } from '../lib/metrics';
+import { trackLinkSubmit, trackMAXClick, type PageType } from '../lib/metrics';
 import { initScrollDepthTracking } from '../lib/metrics-content';
 import { buildFaqPageJsonLd } from '../lib/structured-data';
+import { MAX_PROFILE_URL, maxUrlWithPrefilledText } from '../constants/links';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -221,14 +222,14 @@ export default function ConsultationsPage() {
                 </p>
                 
                 <p className="text-sm md:text-base text-white/80">
-                Можно начать с одного слова «консультация» в{" "}
+                  Можно начать с одного слова «консультация» в{" "}
                   <a
-                    href="https://t.me/ponizovandrey"
+                    href={maxUrlWithPrefilledText('Консультация')}
                     target="_blank"
                     rel="nofollow noopener noreferrer"
                     className="font-semibold text-[#F7D03A] hover:text-white transition-colors duration-200"
                     onClick={() =>
-                      trackTelegramClick({
+                      trackMAXClick({
                         page_type: pageType,
                         page_slug: '/consultations',
                         block_id: 'hero',
@@ -236,7 +237,7 @@ export default function ConsultationsPage() {
                       })
                     }
                   >
-                    t.me/ponizovandrey
+                    Max
                   </a>
                 </p>
               </div>
@@ -279,12 +280,12 @@ export default function ConsultationsPage() {
               </ul>
               
               <a
-                href="https://t.me/ponizovandrey"
+                href={MAX_PROFILE_URL}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
                 className={`${btnPrimary} w-full text-center mt-auto`}
                 onClick={() =>
-                  trackTelegramClick({
+                  trackMAXClick({
                     page_type: pageType,
                     page_slug: '/consultations',
                     block_id: 'formats',
@@ -292,7 +293,7 @@ export default function ConsultationsPage() {
                   })
                 }
               >
-                Отправить ссылку в Telegram
+                Отправить ссылку в MAX
               </a>
             </div>
 
@@ -320,12 +321,12 @@ export default function ConsultationsPage() {
               </ul>
               
               <a
-                href="https://t.me/ponizovandrey?text=Здравствуйте! Хочу Записаться на консультацию"
+                href={maxUrlWithPrefilledText('Здравствуйте! Хочу Записаться на консультацию')}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
                 className={`${btnPrimary} w-full text-center mt-auto`}
                 onClick={() =>
-                  trackTelegramClick({
+                  trackMAXClick({
                     page_type: pageType,
                     page_slug: '/consultations',
                     block_id: 'formats',

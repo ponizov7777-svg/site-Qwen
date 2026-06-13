@@ -1,7 +1,7 @@
-// pages/yridicheskie/privacy-policy.tsx
 import Head from 'next/head';
 import Link from 'next/link';
-import Breadcrumbs from '../../components/Breadcrumbs';
+import Breadcrumbs from '../components/Breadcrumbs';
+import { MAX_PROFILE_URL } from '../constants/links';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -194,7 +194,7 @@ export default function PrivacyPolicyPage() {
               <li>хостинг-провайдеру и иным лицам, обеспечивающим размещение и функционирование Сайта;</li>
               <li>сервисам веб-аналитики (в том числе Яндекс.Метрика, Google Analytics), которые обрабатывают обезличенные и/или персональные данные в рамках своих политик конфиденциальности;</li>
               <li>сервисам, используемым для обработки обращений и задач (Task Manager и аналогичные сервисы);</li>
-              <li>мессенджерам и платформам (например, Telegram), через которые вы самостоятельно вступаете в контакт с Оператором, в пределах функционала таких сервисов.</li>
+              <li>мессенджерам и платформам (например, MAX), через которые вы самостоятельно вступаете в контакт с Оператором, в пределах функционала таких сервисов.</li>
             </ul>
 
             <p className="text-gray-700 leading-relaxed">
@@ -242,7 +242,7 @@ export default function PrivacyPolicyPage() {
             <ul className="space-y-3 text-gray-700">
               <li>по e-mail: andrey-ponizovv@yandex.ru;</li>
               <li>через форму обратной связи на Сайте;</li>
-              <li>через мессенджер Telegram: https://t.me/ponizovandrey.</li>
+              <li>через мессенджер MAX: {MAX_PROFILE_URL}.</li>
             </ul>
           </section>
 
@@ -264,7 +264,7 @@ export default function PrivacyPolicyPage() {
             </h2>
 
             <p className="text-gray-700 leading-relaxed">
-              Политика вступает в силу с момента её размещения на Сайте и действует до замены новой редакцией. Актуальная версия Политики всегда доступна по адресу: https://ponizov-marketing.ru/yridicheskie/privacy-policy
+              Политика вступает в силу с момента её размещения на Сайте и действует до замены новой редакцией. Актуальная версия Политики всегда доступна по адресу: https://ponizov-marketing.ru/privacy-policy
             </p>
           </section>
 

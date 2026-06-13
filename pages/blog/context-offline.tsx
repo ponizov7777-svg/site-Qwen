@@ -3,6 +3,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
+import BlogArticleJsonLd from '../../components/blog/BlogArticleJsonLd';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -54,6 +55,11 @@ export default function ContextAdvertisingArticle() {
           content="Разбор типичных ошибок и пошаговый план оптимизации контекстной рекламы для офлайн-бизнеса: как масштабировать кампании и повысить ROI."
         />
         <link rel="canonical" href="https://ponizov-marketing.ru/blog/context-offline" />
+        <BlogArticleJsonLd
+          slug="context-offline"
+          headline="Контекстная реклама для офлайн-бизнеса: что масштабировать, а что отключать"
+          description="Разбор типичных ошибок и пошаговый план оптимизации контекстной рекламы для офлайн-бизнеса: как масштабировать кампании и повысить ROI."
+        />
       </Head>
 
       <div className={container}>

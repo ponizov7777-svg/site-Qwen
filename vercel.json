@@ -1,5 +1,19 @@
 {
   "version": 2,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-forwarded-proto",
+          "value": "http"
+        }
+      ],
+      "destination": "https://ponizov-marketing.ru/:path*",
+      "statusCode": 301
+    }
+  ],
   "headers": [
     {
       "source": "/_next/static/(.*)",
@@ -9,6 +23,12 @@
     },
     {
       "source": "/fonts/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]

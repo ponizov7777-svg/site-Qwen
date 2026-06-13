@@ -1,9 +1,11 @@
 // components/AdFormatsFilter.tsx
 'use client';
 import { Fragment, useMemo, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import styles from './AdFormatsFilter.module.css';
+import { MAX_PROFILE_URL, maxUrlWithPrefilledText } from '@/constants/links';
 
 // ===== КЛАССЫ ИЗ STYLE GUIDE =====
 const container = "max-w-7xl mx-auto px-4";
@@ -374,7 +376,7 @@ export default function AdFormatsFilter() {
 
   const telegramHref = useMemo(() => {
     if (!currentFormatData) {
-      return 'https://t.me/ponizovandrey';
+      return MAX_PROFILE_URL;
     }
 
     let message = `Здравствуйте! Интересует формат "${currentFormatData.title}".`;
@@ -387,8 +389,22 @@ export default function AdFormatsFilter() {
       message = `Здравствуйте! Хочу попробовать формат "${currentFormatData.title}". Подскажите, пожалуйста, по условиям размещения.`;
     }
 
-    return `https://t.me/ponizovandrey?text=${encodeURIComponent(message)}`;
+    return maxUrlWithPrefilledText(message);
   }, [currentFormatData]);
+
+  const previewMaxWidthClass =
+    currentFormatData?.id === 'premium-pin'
+      ? 'max-w-[330px] md:max-w-[390px]'
+      : currentFormatData?.id === 'subscription'
+      ? 'max-w-[744px] md:max-w-[876px]'
+      : 'max-w-[165px] md:max-w-[195px]';
+
+  const previewSizes =
+    currentFormatData?.id === 'premium-pin'
+      ? '(max-width: 768px) 330px, 390px'
+      : currentFormatData?.id === 'subscription'
+      ? '(max-width: 768px) 90vw, 876px'
+      : '(max-width: 768px) 165px, 195px';
 
   return (
     <section className="py-20 bg-gradient-to-b from-[#FFF9E6] to-white">
@@ -644,19 +660,15 @@ export default function AdFormatsFilter() {
 
                   <div className="mt-6 flex-1 min-h-0 flex items-center justify-center">
                     <div
-                      className={
-                        'relative w-full h-full ' +
-                        (currentFormatData.id === 'premium-pin'
-                          ? 'max-w-[330px] md:max-w-[390px]'
-                          : currentFormatData.id === 'subscription'
-                          ? 'max-w-[744px] md:max-w-[876px]'
-                          : 'max-w-[165px] md:max-w-[195px]')
-                      }
+                      className={`relative w-full h-full ${previewMaxWidthClass}`}
                     >
                       <div className="w-full h-full flex items-center justify-center overflow-hidden">
-                        <img
+                        <Image
                           src={currentFormatData.image || '/images/default-format.png'}
                           alt={currentFormatData.title}
+                          width={876}
+                          height={520}
+                          sizes={previewSizes}
                           className="max-w-full max-h-full w-auto h-auto object-contain"
                           loading="lazy"
                         />

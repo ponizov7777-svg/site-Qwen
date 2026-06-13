@@ -54,6 +54,64 @@ export function getSiteNavigationJsonLd(): Record<string, unknown> {
   };
 }
 
+export type ArticleJsonLdOptions = {
+  slug: string;
+  headline: string;
+  description: string;
+  datePublished?: string;
+  dateModified?: string;
+  image?: string;
+};
+
+/** Article — страницы блога */
+export function buildArticleJsonLd({
+  slug,
+  headline,
+  description,
+  datePublished,
+  dateModified,
+  image,
+}: ArticleJsonLdOptions): Record<string, unknown> {
+  const base = siteBase();
+  const url = `${base}/blog/${slug}`;
+  const orgId = `${base}/#organization`;
+  const imageUrl = image ?? `${base}/images/hero.jpg`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${url}#article`,
+    headline,
+    description,
+    url,
+    inLanguage: 'ru-RU',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+    image: {
+      '@type': 'ImageObject',
+      url: imageUrl,
+    },
+    author: {
+      '@type': 'Person',
+      name: SITE_CONFIG.author,
+      url: `${base}/about`,
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': orgId,
+      name: 'Понизов Маркетинг',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${base}/images/logo.png`,
+      },
+    },
+    ...(datePublished ? { datePublished } : {}),
+    ...(dateModified ? { dateModified } : {}),
+  };
+}
+
 export type FaqLdItem = { q: string; a: string | string[] };
 
 function faqAnswerToText(a: string | string[]): string {

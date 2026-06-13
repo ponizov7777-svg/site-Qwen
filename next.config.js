@@ -11,8 +11,6 @@ const prodCsp = (
     "https://*.yandex.tld " +
     "https://*.yandex.net " +
     "https://webvisor.com " +
-    "https://cdn.callibri.ru " +
-    "https://module.callibri.ru " +
     "https://vk.com; " +                // виджет «Сообщения сообщества» ВК
   "script-src-attr 'self' 'unsafe-inline';" +
   "script-src-elem 'self' 'unsafe-inline' " +
@@ -24,8 +22,6 @@ const prodCsp = (
     "https://*.yandex.tld " +
     "https://*.yandex.net " +
     "https://webvisor.com " +
-    "https://cdn.callibri.ru " +
-    "https://module.callibri.ru " +
     "https://vk.com; " +                // виджет «Сообщения сообщества» ВК
   "style-src 'self' 'unsafe-inline' " +
     "https://yastatic.net " +
@@ -41,9 +37,7 @@ const prodCsp = (
     "https://i.ytimg.com " +
     "https://*.yandex.tld " +
     "https://*.yandex.net " +
-    "https://webvisor.com " +
-    "https://cdn.callibri.ru " +
-    "https://module.callibri.ru; " +    // ✅ НА ВСЯКИЙ СЛУЧАЙ
+    "https://webvisor.com; " +
   "font-src 'self' data: https: " +
     "https://fonts.gstatic.com " +
     "https://*.yandex.tld " +
@@ -60,8 +54,6 @@ const prodCsp = (
     "https://*.yandex.tld " +
     "https://*.yandex.net " +
     "https://webvisor.com " +
-    "https://cdn.callibri.ru " +
-    "https://module.callibri.ru " +
     "https://vk.com " +
     "https://*.vk.com " +
     "https://stats.vk-portal.net " +
@@ -80,7 +72,6 @@ const prodCsp = (
     "https://*.yandex.tld " +
     "https://*.yandex.net " +
     "https://webvisor.com " +
-    "https://module.callibri.ru " +
     "https://vk.com " +
     "https://*.vk.com; " +              // виджет ВК — iframe
   "object-src 'none';" +
@@ -91,7 +82,38 @@ const prodCsp = (
   "upgrade-insecure-requests"
 ).replace(/\s+/g, ' ').trim();
 
-module.exports = {
+const yandexBusinessArticleRedirects = [
+  "kak-avtomatizirovat-rabotu-s-otzyvami-i-reytingom",
+  "kak-biznesu-zaschititsya-ot-feykovykh-otzyvov-v-yandekse",
+  "kak-konkurenty-mogut-meshat-vashemu-prodvizheniyu-i-kak-s-etim-borotsya",
+  "kak-motivirovat-kliyentov-ostavlyat-polozhitelnyye-otzyvy",
+  "kak-pravilno-sozdat-i-oformit-kartochku-kompanii-v-yandekse",
+  "kak-rabotat-s-foto-i-video-v-yandeks-biznese-dlya-povysheniya-konversii",
+  "kak-rabotayet-reklamnoye-prodvizheniye-v-yandeks-biznese",
+  "kakie-klyuchevye-metriki-vazhny-dlya-ocenki-effektivnosti-prodvizheniya",
+  "mozhno-li-udalyat-ili-ispravlyat-otzyvy-v-yandeks-kartakh",
+  "oshibki-pri-prodvizhenii-na-yandeks-kartah-kotorye-meshayut-biznesu",
+].map((slug) => ({
+  source: `/blog/s-instagram-${slug}`,
+  destination: `/blog/${slug}`,
+  statusCode: 301,
+}));
+
+const nextConfig = {
+  skipTrailingSlashRedirect: true,
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  },
+  async redirects() {
+    return [
+      {
+        source: '/yridicheskie/privacy-policy',
+        destination: '/privacy-policy',
+        statusCode: 301,
+      },
+      ...yandexBusinessArticleRedirects,
+    ];
+  },
   async headers() {
     if (process.env.NODE_ENV === 'production') {
       return [{
@@ -107,3 +129,8 @@ module.exports = {
     return [];
   },
 };
+
+module.exports =
+  process.env.ANALYZE === 'true'
+    ? require('@next/bundle-analyzer')({ enabled: true })(nextConfig)
+    : nextConfig;

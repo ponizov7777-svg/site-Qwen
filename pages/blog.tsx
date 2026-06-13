@@ -4,6 +4,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Breadcrumbs from '../components/Breadcrumbs';
+import BlogPostCard from '../components/blog/BlogPostCard';
+import { getYandexBusinessBlogListItems } from '../lib/yandexBusinessBlog';
 import { trackLinkSubmit, type PageType } from '../lib/metrics';
 import { initScrollDepthTracking } from '../lib/metrics-content';
 
@@ -16,8 +18,6 @@ const breadcrumbsData = [
 const container = "max-w-7xl mx-auto px-4"
 const h1 = "text-2xl md:text-4xl lg:text-5xl font-semibold mb-6 text-[#1E2837] leading-[64px] drop-shadow-sm lc-styled-text__text lc-styled-text__text_align_left"
 const h2 = "text-2xl md:text-4xl lg:text-5xl font-semibold mb-6 text-[#1E2837] leading-[64px] lc-styled-text__text lc-styled-text__text_align_left"
-const h3 = "text-xl font-semibold text-[#1A3A2E] mb-4 leading-tight"
-
 const glassCard = 
   "glass-card backdrop-blur-xl bg:white/70 border-white/50 shadow-xl hover:shadow-black/10 p-8 rounded-2xl overflow-hidden"
 
@@ -96,7 +96,8 @@ export default function blogPage() {
       date: '10.01.2026',
       href: '/blog/beauty-seasons',
       category: 'Beauty'
-    }
+    },
+    ...getYandexBusinessBlogListItems(),
   ];
 
   useEffect(() => {
@@ -213,31 +214,15 @@ export default function blogPage() {
 
           {/* Статьи */}
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {filteredblog.map(article => (
-              <article key={article.id} className={`${glassCard} flex flex-col h-full`}>
-                <div className="flex-grow">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className={badgePrimary}>
-                      {article.category}
-                    </span>
-                    <span className="text-sm text-gray-600 font-medium">
-                      {article.date}
-                    </span>
-                  </div>
-
-                  <h3 className={h3}>
-                    <Link href={article.href} className="hover:text-[#E65C00]">
-                      {article.title}
-                    </Link>
-                  </h3>
-
-                  <p className="text-gray-700 mb-6 leading-relaxed line-clamp-3">
-                    {article.excerpt}
-                  </p>
-                </div>
-                
-                
-              </article>
+            {filteredblog.map((article) => (
+              <BlogPostCard
+                key={article.id}
+                title={article.title}
+                excerpt={article.excerpt}
+                href={article.href}
+                date={article.date}
+                category={article.category}
+              />
             ))}
           </div>
 

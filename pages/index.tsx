@@ -1,14 +1,25 @@
 // pages/index.tsx
 'use client';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import type { ReactNode } from 'react';
 import { useEffect } from 'react';
 import Breadcrumbs from '../components/Breadcrumbs';
-import AdFormatsFilter from '../components/AdFormatsFilter';
 import CardLinkCTA from '../components/CardLinkCTA';
-import { trackMetrikaGoal, trackTelegramClick, type PageType } from '../lib/metrics';
+import { trackMetrikaGoal, trackMAXClick, type PageType } from '../lib/metrics';
 import { initScrollDepthTracking } from '../lib/metrics-content';
+import { MAX_PROFILE_URL, maxUrlWithPrefilledText } from '../constants/links';
+
+const AdFormatsFilter = dynamic(() => import('../components/AdFormatsFilter'), {
+  ssr: false,
+  loading: () => (
+    <section className="py-8" aria-busy="true" aria-label="Загрузка блока форматов">
+      <div className="min-h-[280px] w-full rounded-3xl bg-[#F2F4F8]" />
+    </section>
+  ),
+});
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -182,8 +193,8 @@ export default function HomePage() {
     return cleanup;
   }, [pageType]);
 
-  const handleTelegramHeroClick = () => {
-    trackTelegramClick({
+  const handleMAXHeroClick = () => {
+    trackMAXClick({
       page_type: pageType,
       page_slug: '/',
       block_id: 'hero',
@@ -223,13 +234,14 @@ export default function HomePage() {
         <section className="py-12 md:py-16">
           {/* HERO с фоновым изображением 16:9 и текстом слева */}
           <div className="relative overflow-hidden rounded-3xl shadow-2xl min-h-[320px] md:min-h-[420px]">
-            {/* Фоновое изображение. Замените src на свою фотографию 16:9 */}
-            <div
-              className="absolute inset-0 bg-cover bg-[80%_center] md:bg-[center_left]"
-              style={{
-                backgroundImage: "url('/images/univesal.png')",
-              }}
-              aria-hidden="true"
+            <Image
+              src="/images/univesal.png"
+              alt=""
+              role="presentation"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, min(1280px, 100vw)"
+              className="object-cover object-[80%_center] md:object-center md:object-left"
             />
 
             {/* Лёгкий затемнитель слева для читаемости текста */}
@@ -251,12 +263,12 @@ export default function HomePage() {
                   Можно начать с одного слова «консультация» в&nbsp;
                   <a
                     className="font-semibold text-[#F7D03A] hover:text-white transition-colors	duration-200"
-                    href="https://t.me/ponizovandrey?text=Консультация"
+                    href={maxUrlWithPrefilledText('Консультация')}
                     target="_blank"
                     rel="nofollow noopener noreferrer"
-                    onClick={handleTelegramHeroClick}
+                    onClick={handleMAXHeroClick}
                   >
-                    t.me/ponizovandrey
+                    Max
                   </a>
                 </p>
               </div>
@@ -301,11 +313,14 @@ export default function HomePage() {
                   <div className="mx-auto md:mx-0 w-24 shrink-0 self-start">
                     <div className="aspect-[9/18]">
                       {item.image ? (
-                        <div className="flex h-full items-center justify-center overflow-hidden">
-                          <img
+                        <div className="relative flex h-full min-h-[120px] w-full items-center justify-center overflow-hidden">
+                          <Image
                             src={item.image}
                             alt={item.title}
-                            className="max-w-full max-h-full w-auto h-auto object-contain"
+                            width={96}
+                            height={192}
+                            sizes="96px"
+                            className="object-contain"
                             loading="lazy"
                           />
                         </div>
@@ -393,12 +408,12 @@ export default function HomePage() {
               </ul>
               
               <a
-                href="https://t.me/ponizovandrey"
+                href={MAX_PROFILE_URL}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
                 className={`${btnPrimary} w-full text-center mt-10`}
                 onClick={() =>
-                  trackTelegramClick({
+                  trackMAXClick({
                     page_type: pageType,
                     page_slug: '/',
                     block_id: 'format_start',
@@ -446,12 +461,12 @@ export default function HomePage() {
               </ul>
               
               <a
-                href="https://t.me/ponizovandrey"
+                href={MAX_PROFILE_URL}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
                 className={`${btnPrimary} w-full text-center mt-10`}
                 onClick={() =>
-                  trackTelegramClick({
+                  trackMAXClick({
                     page_type: pageType,
                     page_slug: '/',
                     block_id: 'format_start',

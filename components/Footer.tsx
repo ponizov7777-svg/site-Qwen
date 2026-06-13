@@ -1,40 +1,7 @@
 // components/Footer.tsx
 import Link from 'next/link';
-
-// Стили кнопки: минималистичный вариант
-const btnPrimary =
-  "inline-flex items-center justify-center px-6 py-2.5 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-lg text-sm md:text-base border border-[#E0B800] hover:bg-[#F7D03A] hover:border-[#F0C000] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C518]/60 focus-visible:ring-offset-2";
-
-// Определяем ссылки прямо в этом файле
-const navLinks = [
-  { href: '/', label: 'Главная' },
-  { href: '/uslugi', label: 'Услуги и цены' },
-  { href: '/geomarketing', label: 'Геомаркетинг' },
-  { href: '/cases', label: 'Кейсы' },
-  { href: '/blog', label: 'Полезные статьи' },
-  { href: '/consultations', label: 'Консультации' },
-  { href: '/about', label: 'Обо мне' },
-  { href: '/contacts', label: 'Контакты' }, 
-];
-
-const socialLinks = [
-  {
-    href: 'https://max.ru/u/f9LHodD0cOKv94u0uUQGsTH7c9Cibtp9qAEtmFpgYQ-QfGsVeYNyc7M34aU',
-    label: 'Max',
-  },
-  {
-    href: 'https://t.me/ponizovandrey',
-    label: 'Telegram',
-  },
-  {
-    href: 'https://vk.com/andrey_anatolyevich_marketing',
-    label: 'VK',
-  },
-  {
-    href: 'https://rutube.ru/channel/73592687/',
-    label: 'RuTube',
-  },
-];
+import { FOOTER_NAV_LINKS, FOOTER_SOCIAL_LINKS } from '@/constants/siteConfig';
+import { MAX_PROFILE_URL } from '@/constants/links';
 
 export default function Footer() {
   return (
@@ -47,7 +14,7 @@ export default function Footer() {
           </p>
           <div className="mt-6">
             <a
-              href="https://t.me/ponizovandrey"
+              href={MAX_PROFILE_URL}
               target="_blank"
               rel="nofollow noopener noreferrer"
               className="hidden sm:inline-flex items-center justify-center px-4 py-2 bg-[#F5C518] text-[#1A3A2E] font-semibold text-sm rounded-lg hover:bg-[#F7D03A] transition-colors shadow-sm"
@@ -62,7 +29,7 @@ export default function Footer() {
             Разделы сайта
           </h3>
           <ul className="grid grid-cols-2 gap-y-3 text-[#1A3A2E]">
-            {navLinks.map((link) => (
+            {FOOTER_NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
@@ -91,7 +58,7 @@ export default function Footer() {
             <div>
               <p className="text-sm font-medium text-[#1A3A2E] mb-2">Социальные сети</p>
               <ul className="flex flex-wrap gap-3">
-                {socialLinks.map((link) => (
+                {FOOTER_SOCIAL_LINKS.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
@@ -115,7 +82,7 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} Понизов Андрей Анатольевич ИНН 250361983170 Все права защищены. Не является публичной офертой</p>
 
           <div className="flex flex-wrap justify-center gap-6">
-            <Link href="/yridicheskie/privacy-policy" className="hover:text-[#E65C00] transition-colors">
+            <Link href="/privacy-policy" className="hover:text-[#E65C00] transition-colors">
               Политика конфиденциальности
             </Link>
             <Link href="/sitemap.xml" className="hover:text-[#E65C00] transition-colors">

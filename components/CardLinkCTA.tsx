@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { trackLinkSubmit, type PageType } from '../lib/metrics';
+import { maxUrlWithPrefilledText } from '../constants/links';
 
 interface CardLinkCTAProps {
   pageType: PageType;
@@ -52,7 +53,7 @@ export default function CardLinkCTA({
     });
 
     const message = `Здравствуйте! Отправляю ссылку на карточку:\n${normalizedLink}`;
-    const telegramUrl = `https://t.me/ponizovandrey?text=${encodeURIComponent(message)}`;
+    const telegramUrl = maxUrlWithPrefilledText(message);
 
     window.open(telegramUrl, '_blank', 'noopener,noreferrer');
   };

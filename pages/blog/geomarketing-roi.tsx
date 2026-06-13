@@ -3,6 +3,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
+import BlogArticleJsonLd from '../../components/blog/BlogArticleJsonLd';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -54,6 +55,11 @@ export default function GeomarketingROIArticle() {
           content="Подробный разбор, как считать ROI для геомаркетинга: от сбора данных до оценки эффективности и оптимизации."
         />
         <link rel="canonical" href="https://ponizov-marketing.ru/blog/geomarketing-roi" />
+        <BlogArticleJsonLd
+          slug="geomarketing-roi"
+          headline="Как считать реальную окупаемость геомаркетинга"
+          description="Подробный разбор, как считать ROI для геомаркетинга: от сбора данных до оценки эффективности и оптимизации."
+        />
       </Head>
 
       <div className={container}>

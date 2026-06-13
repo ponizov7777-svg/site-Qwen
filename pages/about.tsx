@@ -1,10 +1,12 @@
 // pages/about.tsx
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import Breadcrumbs from '../components/Breadcrumbs';
-import { trackLinkSubmit, trackTelegramClick, type PageType } from '../lib/metrics';
+import { trackLinkSubmit, trackMAXClick, type PageType } from '../lib/metrics';
 import { initScrollDepthTracking } from '../lib/metrics-content';
+import { MAX_PROFILE_URL, maxUrlWithPrefilledText } from '../constants/links';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -94,22 +96,22 @@ export default function AboutPage() {
                   и выстраиваю продвижение так, чтобы вы получали больше качественных заявок.
                 </p>
                 <p className="text-sm md:text-base text-white/80">
-                Можно начать с одного слова «консультация» в{" "}
+                  Можно начать с одного слова «консультация» в{" "}
                   <a
-                    href="https://t.me/ponizovandrey"
+                    href={maxUrlWithPrefilledText('Консультация')}
                     target="_blank"
                     rel="nofollow noopener noreferrer"
-                    className="font-semibold text-[#F7D03A] hover:text-white transition-colors	duration-200"
+                    className="font-semibold text-[#F7D03A] hover:text-white transition-colors duration-200"
                     onClick={() =>
-                      trackTelegramClick({
+                      trackMAXClick({
                         page_type: pageType,
                         page_slug: '/about',
                         block_id: 'hero',
-                        element_id: 'hero_telegram_link',
+                        element_id: 'hero_max_link',
                       })
                     }
                   >
-                    t.me/ponizovandrey
+                    Max
                   </a>
                 </p>
               </div>
@@ -128,12 +130,16 @@ export default function AboutPage() {
             <div className="flex flex-col h-full gap-8">
               {/* Фото */}
               <div className={`${glassCard} flex-shrink-0 flex flex-col`}>
-                <img
-                  src="/images/about.jpg"
-                  alt="Андрей Понизов"
-                  className="w-full h-64 object-cover rounded-2xl"
-                  loading="lazy"
-                />
+                <div className="relative h-64 w-full overflow-hidden rounded-2xl">
+                  <Image
+                    src="/images/Ponizov.png"
+                    alt="Андрей Понизов"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    loading="lazy"
+                  />
+                </div>
               </div>
 
               {/* Ценности */}
@@ -245,21 +251,29 @@ export default function AboutPage() {
               {/* Сертификаты */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className={`${glassCard} flex flex-col items-center text-center`}>
-                  <img 
-                    src="/images/Сертификат-Директ-Про.webp" 
-                    alt="Сертификат Яндекс Директ Про"
-                    className="w-full max-w-xs h-44 object-contain rounded-2xl shadow-xl bg-gradient-to-br from-white/80 to-amber-50/50 p-4 mb-4"
-                    loading="lazy"
-                  />
+                  <div className="relative mb-4 h-44 w-full max-w-xs rounded-2xl bg-gradient-to-br from-white/80 to-amber-50/50 p-4 shadow-xl">
+                    <Image
+                      src="/images/Сертификат-Директ-Про.webp"
+                      alt="Сертификат Яндекс Директ Про"
+                      fill
+                      className="object-contain p-4"
+                      sizes="320px"
+                      loading="lazy"
+                    />
+                  </div>
                   <p className="text-sm font-semibold text-[#1A3A2E]">Директ Про</p>
                 </div>
                 <div className={`${glassCard} flex flex-col items-center text-center`}>
-                  <img 
-                    src="/images/Сертификат Яндекс Бизнес.webp" 
-                    alt="Сертификат Яндекс Бизнес"
-                    className="w-full max-w-xs h-44 object-contain rounded-2xl shadow-xl bg-gradient-to-br from-white/80 to-amber-50/50 p-4 mb-4"
-                    loading="lazy"
-                  />
+                  <div className="relative mb-4 h-44 w-full max-w-xs rounded-2xl bg-gradient-to-br from-white/80 to-amber-50/50 p-4 shadow-xl">
+                    <Image
+                      src="/images/Сертификат Яндекс Бизнес.webp"
+                      alt="Сертификат Яндекс Бизнес"
+                      fill
+                      className="object-contain p-4"
+                      sizes="320px"
+                      loading="lazy"
+                    />
+                  </div>
                   <p className="text-sm font-semibold text-[#1A3A2E]">Яндекс Бизнес</p>
                 </div>
               </div>
@@ -342,6 +356,73 @@ export default function AboutPage() {
               <blockquote className="text-xl text-gray-800 italic leading-relaxed border-l-4 border-[#E65C00]/50 pl-6 py-4">
                 Решения только по цифрам. Нет цифр — сначала их создаём.
               </blockquote>
+            </div>
+          </div>
+        </section>
+
+        {/* Где меня найти */}
+        <section className="py-20" aria-labelledby="about-where-heading">
+          <div className="mb-10 md:mb-12">
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-[#DCCFB4] to-transparent" aria-hidden="true" />
+          </div>
+          <div className={`${glassCard} max-w-2xl mx-auto`}>
+            <h2 id="about-where-heading" className={h2}>
+              Где меня найти
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Удобнее написать в MAX. В Telegram тоже можно — если так привычнее.
+            </p>
+            <div className="space-y-4">
+              <a
+                href={MAX_PROFILE_URL}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className="flex items-center gap-4 p-4 border-2 border-[#E65C00] rounded-xl hover:bg-white/80 transition-all duration-300 group"
+                onClick={() =>
+                  trackMAXClick({
+                    page_type: pageType,
+                    page_slug: '/about',
+                    block_id: 'where_to_find',
+                    element_id: 'about_social_max',
+                  })
+                }
+              >
+                <div className="w-12 h-12 rounded-full bg-[#E65C00]/10 flex items-center justify-center border border-[#E65C00]/30 group-hover:bg-[#E65C00]/20 transition-all duration-300">
+                  <span className="text-sm font-bold text-[#E65C00]">MAX</span>
+                </div>
+                <div className="min-w-0">
+                  <p className="font-medium text-[#1A3A2E]">MAX</p>
+                  <p className="text-gray-600 truncate">@ponizovandrey</p>
+                </div>
+                <span className="ml-auto text-[#E65C00] font-medium group-hover:translate-x-1 transition-all duration-300">
+                  →
+                </span>
+              </a>
+              <a
+                href="https://t.me/ponizovandrey"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className="flex items-center gap-4 p-4 border-2 border-[#E65C00] rounded-xl hover:bg-white/80 transition-all duration-300 group"
+                onClick={() =>
+                  trackMAXClick({
+                    page_type: pageType,
+                    page_slug: '/about',
+                    block_id: 'where_to_find',
+                    element_id: 'about_social_telegram',
+                  })
+                }
+              >
+                <div className="w-12 h-12 rounded-full bg-[#E65C00]/10 flex items-center justify-center border border-[#E65C00]/30 group-hover:bg-[#E65C00]/20 transition-all duration-300">
+                  <span className="text-sm font-bold text-[#E65C00]">TG</span>
+                </div>
+                <div className="min-w-0">
+                  <p className="font-medium text-[#1A3A2E]">Telegram</p>
+                  <p className="text-gray-600 truncate">@ponizovandrey</p>
+                </div>
+                <span className="ml-auto text-[#E65C00] font-medium group-hover:translate-x-1 transition-all duration-300">
+                  →
+                </span>
+              </a>
             </div>
           </div>
         </section>

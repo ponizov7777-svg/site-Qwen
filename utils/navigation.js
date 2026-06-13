@@ -1,4 +1,5 @@
 // utils/navigation.js
+import { MAX_PROFILE_URL, VK_URL, RUTUBE_URL } from '../constants/links';
 
 /**
  * Основные ссылки навигации
@@ -20,10 +21,9 @@ export const navLinks = [
  * Используются в компонентах Header, Footer, MobileMenu
  */
 export const socialLinks = [
-  { href: 'https://max.ru/u/f9LHodD0cOKv94u0uUQGsTH7c9Cibtp9qAEtmFpgYQ-QfGsVeYNyc7M34aU', label: 'Max' },
-  { href: 'https://t.me/ponizovandrey', label: 'Telegram' },
-  { href: 'https://vk.com/andrey_anatolyevich_marketing', label: 'VK' },
-  { href: 'https://rutube.ru/channel/73592687/', label: 'RuTube' },
+  { href: MAX_PROFILE_URL, label: 'MAX' },
+  { href: VK_URL, label: 'VK' },
+  { href: RUTUBE_URL, label: 'RuTube' },
 ];
 
 /**
@@ -83,7 +83,7 @@ export const getPageMetadata = (pathname) => {
     },
     '/contacts': {
       title: 'Контакты - Понизов Андрей',
-      description: 'Как связаться с Понизовым Андреем. Форма обратной связи, телефон, Telegram, VK, email.'
+      description: 'Как связаться с Понизовым Андреем. Форма обратной связи, телефон, MAX, VK, email.'
     },
   };
 

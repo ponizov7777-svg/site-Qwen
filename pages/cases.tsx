@@ -4,8 +4,9 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import Breadcrumbs from '../components/Breadcrumbs';
-import { trackLinkSubmit, trackTelegramClick, type PageType } from '../lib/metrics';
+import { trackLinkSubmit, trackMAXClick, type PageType } from '../lib/metrics';
 import { initScrollDepthTracking } from '../lib/metrics-content';
+import { maxUrlWithPrefilledText } from '../constants/links';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -209,14 +210,14 @@ export default function CasesPage() {
                   Если у результата нет опоры на факты — я такой кейс не публикую.
                 </p>
                 <p className="text-sm md:text-base text-white/80">
-                Можно начать с одного слова «консультация» в{" "}
+                  Можно начать с одного слова «консультация» в{" "}
                   <a
-                    href="https://t.me/ponizovandrey"
+                    href={maxUrlWithPrefilledText('Консультация')}
                     target="_blank"
                     rel="nofollow noopener noreferrer"
                     className="font-semibold text-[#F7D03A] hover:text-white transition-colors	duration-200"
                     onClick={() =>
-                      trackTelegramClick({
+                      trackMAXClick({
                         page_type: pageType,
                         page_slug: '/cases',
                         block_id: 'hero',
@@ -224,7 +225,7 @@ export default function CasesPage() {
                       })
                     }
                   >
-                    t.me/ponizovandrey
+                    Max
                   </a>
                 </p>
                 

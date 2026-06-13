@@ -3,6 +3,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
+import BlogArticleJsonLd from '../../components/blog/BlogArticleJsonLd';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -52,6 +53,11 @@ export default function YandexMapsErrorsArticle() {
           content="Разбор типовых ошибок в Яндекс.Картах и 2ГИС, которые мешают бизнесу получать заявки и клиентов из локальных карт."
         />
         <link rel="canonical" href="https://ponizov-marketing.ru/blog/oshibki-maps" />
+        <BlogArticleJsonLd
+          slug="oshibki-maps"
+          headline="Типовые ошибки в Yandex Maps и 2Gis, которые стоят бизнесу денег"
+          description="Разбор типовых ошибок в Яндекс.Картах и 2ГИС, которые мешают бизнесу получать заявки и клиентов из локальных карт."
+        />
       </Head>
 
       <div className={container}>

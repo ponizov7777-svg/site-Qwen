@@ -5,9 +5,16 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 import Breadcrumbs from '../components/Breadcrumbs';
 import FaqAccordion from '../components/FaqAccordion';
-import { trackLinkSubmit, trackTelegramClick, type PageType } from '../lib/metrics';
+import { trackLinkSubmit, trackMAXClick, type PageType } from '../lib/metrics';
 import { initScrollDepthTracking } from '../lib/metrics-content';
 import { buildFaqPageJsonLd } from '../lib/structured-data';
+import {
+  MAX_PROFILE_URL,
+  TELEGRAM_URL,
+  VK_URL,
+  RUTUBE_URL,
+  maxUrlWithPrefilledText,
+} from '../constants/links';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -57,28 +64,28 @@ export default function ContactsPage() {
 
   const socials = [
     {
-      title: "Telegram",
+      title: "MAX",
       subtitle: "@ponizovandrey",
-      href: "https://t.me/ponizovandrey",
-      badge: "TG",
+      href: MAX_PROFILE_URL,
+      badge: "MAX",
     },
     {
       title: "VK",
       subtitle: "andrey_anatolyevich_marketing",
-      href: "https://vk.com/andrey_anatolyevich_marketing",
+      href: VK_URL,
       badge: "VK",
     },
     {
       title: "RuTube",
       subtitle: "ponizov-marketing",
-      href: "https://rutube.ru/channel/73592687/",
+      href: RUTUBE_URL,
       badge: "RT",
     },
     {
-      title: "MAX",
-      subtitle: "ponizovandrey",
-      href: "https://max.ru/u/f9LHodD0cOKv94u0uUQGsTH7c9Cibtp9qAEtmFpgYQ-QfGsVeYNyc7M34aU",
-      badge: "MAX",
+      title: "Telegram",
+      subtitle: "@ponizovandrey",
+      href: TELEGRAM_URL,
+      badge: "TG",
     },
   ];
 
@@ -89,14 +96,6 @@ export default function ContactsPage() {
         "Первые заявки с карт — через 5–7 дней после доработки карточки и фото.",
         "Окупаемость — к концу первого месяца, если менеджер перезванивает за 10 минут и салон готов принимать 10–15 клиентов.",
         "Не обещаю тысячи сразу — но 8–12 стабильных записей ежемесячно реально."
-      ]
-    },
-    {
-      q: "Почему не дешевле? Другой берёт 15 000 ₽",
-      a: [
-        "За 15 000 ₽ настроят карточку и забудут — без анализа конкурентов, без фото, без работы с отзывами.",
-        "Через месяц потратите лишние 30 000 ₽ на бесполезный трафик.",
-        "Я беру 50 000 ₽, но даю 10+ заявок в месяц по цифрам — видно в статистике сразу."
       ]
     },
     {
@@ -169,7 +168,7 @@ export default function ContactsPage() {
         <title>Контакты | Андрей Понизов — геомаркетинг</title>
         <meta
           name="description"
-          content="Контакты: Telegram и соцсети, плюс форма для заявки. Напишите, что за бизнес и какая задача — подскажу, с чего начать."
+          content="Контакты: MAX и соцсети, плюс форма для заявки. Напишите, что за бизнес и какая задача — подскажу, с чего начать."
         />
         <link rel="canonical" href="https://ponizov-marketing.ru/contacts" />
         <script 
@@ -218,19 +217,19 @@ export default function ContactsPage() {
                   Связаться и обсудить задачу
                 </h1>
                 <p className="text-base md:text-lg text-white/85 leading-relaxed">
-                  Проще всего написать в Telegram и отправить ссылку на карточку или статистику.
+                  Проще всего написать в MAX и отправить ссылку на карточку или статистику.
                   Я скажу, где теряются клиенты и что сделать первым шагом.
                 </p>
                 
                 <p className="text-sm md:text-base text-white/80">
-                  Telegram:{" "}
+                  Можно начать с одного слова «консультация» в{" "}
                   <a
-                    href="https://t.me/ponizovandrey"
+                    href={maxUrlWithPrefilledText('Консультация')}
                     target="_blank"
                     rel="nofollow noopener noreferrer"
                     className="font-semibold text-[#F7D03A] hover:text-white transition-colors duration-200"
                     onClick={() =>
-                      trackTelegramClick({
+                      trackMAXClick({
                         page_type: pageType,
                         page_slug: '/contacts',
                         block_id: 'hero',
@@ -238,7 +237,7 @@ export default function ContactsPage() {
                       })
                     }
                   >
-                    t.me/ponizovandrey
+                    Max
                   </a>
                 </p>
               </div>
@@ -266,13 +265,16 @@ export default function ContactsPage() {
                       rel="nofollow noopener noreferrer"
                       className="flex items-center gap-4 p-4 border-2 border-[#E65C00] rounded-xl hover:bg-white/80 transition-all duration-300 group"
                       onClick={
-                        s.title === 'Telegram'
+                        s.title === 'MAX' || s.title === 'Telegram'
                           ? () =>
-                              trackTelegramClick({
+                              trackMAXClick({
                                 page_type: pageType,
                                 page_slug: '/contacts',
                                 block_id: 'socials',
-                                element_id: 'contacts_social_telegram',
+                                element_id:
+                                  s.title === 'MAX'
+                                    ? 'contacts_social_max'
+                                    : 'contacts_social_telegram',
                               })
                           : undefined
                       }

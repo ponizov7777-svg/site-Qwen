@@ -4,11 +4,10 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { navLinks, socialLinks, MOBILE_MENU_CONFIG } from '@/utils/mobileMenuConfig';
-
-// Стили кнопки: минималистичный вариант
-const btnPrimary =
-  "inline-flex items-center justify-center px-6 py-2.5 bg-[#F5C518] text-[#1A3A2E] font-medium rounded-lg text-sm md:text-base border border-[#E0B800] hover:bg-[#F7D03A] hover:border-[#F0C000] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5C518]/60 focus-visible:ring-offset-2";
+import { MOBILE_MENU_CONFIG } from '@/utils/mobileMenuConfig';
+import { MOBILE_NAV_LINKS, SOCIAL_LINKS } from '@/constants/siteConfig';
+import { MAX_PROFILE_URL } from '@/constants/links';
+import { btnPrimary } from '@/constants/styles';
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -91,7 +90,7 @@ export default function MobileMenu() {
         className="fixed right-0 z-[9999] md:hidden w-1/2 max-w-xs min-w-[260px]
                   rounded-l-3xl rounded-b-3xl
                   border-b border-gray-200
-                  shadow-[0_20px_40px_rgba(0,0,0,0.12)]
+                  shadow-xl
                   bg-[#FFF9E6]/80"
         style={{
           top: headerH,
@@ -106,7 +105,7 @@ export default function MobileMenu() {
         {/* Навигация */}
         <nav className="px-4 py-6" aria-label="Мобильная навигация">
           <div className="flex flex-col">
-            {navLinks.map((link) => (
+            {MOBILE_NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -126,7 +125,7 @@ export default function MobileMenu() {
         {/* CTA + соцсети */}
         <div className="px-4 pb-8 pt-2 border-t border-white/60">
           <a
-            href="https://t.me/ponizovandrey"
+            href={MAX_PROFILE_URL}
             target="_blank"
             rel="nofollow noopener noreferrer"
             onClick={closeMenu}
@@ -137,7 +136,7 @@ export default function MobileMenu() {
 
           {/* соцсети */}
           <div className="mt-6 flex flex-wrap gap-3 justify-center">
-            {socialLinks.map((link) => (
+            {SOCIAL_LINKS.map((link) => (
               <a
                 key={link.label}
                 href={link.href}

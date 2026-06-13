@@ -3,6 +3,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
+import { MAX_PROFILE_URL } from '../../constants/links';
+import BlogArticleJsonLd from '../../components/blog/BlogArticleJsonLd';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -62,6 +64,11 @@ export default function LocalCompetitorsAnalysis() {
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://ponizov-marketing.ru/blog/analiz-lokalnyh-konkurentov" />
         <link rel="canonical" href="https://ponizov-marketing.ru/blog/analiz-lokalnyh-konkurentov" />
+        <BlogArticleJsonLd
+          slug="analiz-lokalnyh-konkurentov"
+          headline="Как анализировать локальных конкурентов и находить точки роста"
+          description="Практический разбор анализа локальных конкурентов: как найти точки роста и не копировать чужие решения."
+        />
       </Head>
 
       <div className={container}>
@@ -150,12 +157,12 @@ export default function LocalCompetitorsAnalysis() {
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <a
-                  href="https://t.me/ponizov_marketing"
+                  href={MAX_PROFILE_URL}
                   target="_blank"
                   rel="nofollow noopener noreferrer"
                   className={btnPrimary}
                 >
-                  Написать в Telegram
+                  Написать в MAX
                 </a>
                 <Link
                   href="/consultations"

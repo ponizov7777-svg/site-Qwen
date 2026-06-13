@@ -3,6 +3,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
+import BlogArticleJsonLd from '../../components/blog/BlogArticleJsonLd';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -52,6 +53,11 @@ export default function YandexKartyArticle() {
           content="Подробный разбор Яндекс.Карт как канала привлечения клиентов: ранжирование, конверсии, платное продвижение и ограничения."
         />
         <link rel="canonical" href="https://ponizov-marketing.ru/blog/yandex-karty" />
+        <BlogArticleJsonLd
+          slug="yandex-karty"
+          headline="Как на самом деле работают Яндекс.Карты для привлечения клиентов"
+          description="Подробный разбор Яндекс.Карт как канала привлечения клиентов: ранжирование, конверсии, платное продвижение и ограничения."
+        />
       </Head>
 
       <div className={container}>

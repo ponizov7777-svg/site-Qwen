@@ -3,6 +3,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Breadcrumbs from '../../components/Breadcrumbs';
+import BlogArticleJsonLd from '../../components/blog/BlogArticleJsonLd';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -54,6 +55,11 @@ export default function BeautySeasonsArticle() {
           content="Разбор сезонных стратегий для beauty-бизнеса: как зарабатывать круглый год, подстраиваясь под спрос весной, летом, осенью и зимой."
         />
         <link rel="canonical" href="https://ponizov-marketing.ru/blog/beauty-seasons" />
+        <BlogArticleJsonLd
+          slug="beauty-seasons"
+          headline="Сезонные стратегии для beauty-бизнеса: где зарабатываются деньги"
+          description="Разбор сезонных стратегий для beauty-бизнеса: как зарабатывать круглый год, подстраиваясь под спрос весной, летом, осенью и зимой."
+        />
       </Head>
 
       <div className={container}>

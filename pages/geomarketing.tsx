@@ -1,14 +1,16 @@
 // pages/geomarketing.tsx
 "use client";
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import Breadcrumbs from '../components/Breadcrumbs';
 import FaqAccordion from '../components/FaqAccordion';
 import CardLinkCTA from '../components/CardLinkCTA';
-import { trackTelegramClick, type PageType } from '../lib/metrics';
+import { trackMAXClick, type PageType } from '../lib/metrics';
 import { initScrollDepthTracking } from '../lib/metrics-content';
 import { buildFaqPageJsonLd } from '../lib/structured-data';
+import { maxUrlWithPrefilledText } from '../constants/links';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -291,7 +293,7 @@ export default function GeomarketingPage() {
     
     {
       q: "Как начать?",
-      a: "Шаг 1: Отправьте ссылку на карточку в Telegram. Шаг 2: Я скажу 2–3 точки роста 0 ₽. Шаг 3: Если видите пользу — подписываем договор и начинаем. Без долгих созвонов — только конкретика по цифрам.",
+      a: "Шаг 1: Отправьте ссылку на карточку в MAX. Шаг 2: Я скажу 2–3 точки роста 0 ₽. Шаг 3: Если видите пользу — подписываем договор и начинаем. Без долгих созвонов — только конкретика по цифрам.",
     },
   ];
 
@@ -433,11 +435,14 @@ export default function GeomarketingPage() {
                   <div className="mx-auto md:mx-0 w-24 shrink-0 self-start">
                     <div className="aspect-[9/18]">
                       {item.image ? (
-                        <div className="flex h-full items-center justify-center overflow-hidden">
-                          <img
+                        <div className="relative flex h-full min-h-[120px] w-full items-center justify-center overflow-hidden">
+                          <Image
                             src={item.image}
                             alt={item.title}
-                            className="max-w-full max-h-full w-auto h-auto object-contain"
+                            width={96}
+                            height={192}
+                            sizes="96px"
+                            className="object-contain"
                             loading="lazy"
                           />
                         </div>
@@ -469,14 +474,14 @@ export default function GeomarketingPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {uslugiTariffs.map((service) => {
               const telegramText = `Здравствуйте. Хочу заказать тариф «${service.title}» (${service.kicker}) по Яндекс Картам. Напишите, пожалуйста, как лучше стартовать.`;
-              const telegramHref = `https://t.me/ponizovandrey?text=${encodeURIComponent(telegramText)}`;
+              const telegramHref = maxUrlWithPrefilledText(telegramText);
               
               return (
               <div
                 key={service.id}
                 className={`flex h-full flex-col rounded-2xl border p-8 overflow-hidden transition-all duration-300 ${
                   service.featured
-                    ? 'border-[#F5C518]/50 bg-gradient-to-br from-[#FFFDF2] to-[#FFF5CC] shadow-2xl shadow-[#F5C518]/10 ring-1 ring-[#F5C518]/35'
+                    ? 'border-[#F5C518]/50 bg-gradient-to-br from-[#FFFDF2] to-[#FFF5CC] shadow-2xl ring-1 ring-[#F5C518]/35'
                     : 'backdrop-blur-xl bg-white/70 border-white/50 shadow-xl hover:shadow-black/10'
                 }`}
               >
@@ -559,7 +564,7 @@ export default function GeomarketingPage() {
                     rel="nofollow noopener noreferrer"
                     className={`${btnPrimary} w-full text-center block`}
                     onClick={() =>
-                      trackTelegramClick({
+                      trackMAXClick({
                         page_type: pageType,
                         page_slug: '/geomarketing',
                         block_id: 'tariffs',

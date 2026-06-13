@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://ponizov-marketing.ru/blog</loc>
-    <lastmod>2026-02-15</lastmod>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -48,7 +48,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <!-- Новые страницы блога -->
+  <!-- Статьи блога -->
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/analiz-lokalnyh-konkurentov</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
   <url>
     <loc>https://ponizov-marketing.ru/blog/beauty-seasons</loc>
     <lastmod>2026-02-15</lastmod>
@@ -68,8 +74,158 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-dobavit-organizaciyu-v-yandeks-biznes</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-dobavit-neskolko-filialov-kompanii-v-yandeks-biznes</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-ispolzovat-akcii-i-specpredlozheniya-v-kartochke-kompanii</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-ispolzovat-geometki-i-heshtegi-dlya-rosta-trafika</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-otslezhivat-zvonki-i-obrashcheniya-iz-yandeks-kart</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-pravilno-zapolnyat-opisaniye-kompanii-dlya-maksimalnoy-vidimosti</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-rabotat-s-yandekskyu-dlya-dopolnitelnogo-privlecheniya-klientov</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-reagirovat-na-negativnyye-otzyvy-v-yandeks-biznese</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-vyvesti-kompaniyu-v-top-poiska-na-yandeks-kartah</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-yandeks-biznes-pomogaet-uvelichit-potok-klientov-bez-sajta</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kakiye-dannyye-vazhny-dlya-kartochki-kompanii-v-yandekse</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://ponizov-marketing.ru/blog/oshibki-maps</loc>
     <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/pochemu-vazhno-regulyarno-obnovlyat-informatsiyu-v-kartochke-kompanii</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/pochemu-vazhno-uchityvat-sezonnost-pri-prodvizhenii-na-yandeks-kartah</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/reyting-i-otzyvy-kak-oni-vliyayut-na-ranzhirovaniye-v-yandeks-kartakh</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-avtomatizirovat-rabotu-s-otzyvami-i-reytingom</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-biznesu-zaschititsya-ot-feykovykh-otzyvov-v-yandekse</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-konkurenty-mogut-meshat-vashemu-prodvizheniyu-i-kak-s-etim-borotsya</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-motivirovat-kliyentov-ostavlyat-polozhitelnyye-otzyvy</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-pravilno-sozdat-i-oformit-kartochku-kompanii-v-yandekse</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-rabotat-s-foto-i-video-v-yandeks-biznese-dlya-povysheniya-konversii</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kak-rabotayet-reklamnoye-prodvizheniye-v-yandeks-biznese</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/kakie-klyuchevye-metriki-vazhny-dlya-ocenki-effektivnosti-prodvizheniya</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/mozhno-li-udalyat-ili-ispravlyat-otzyvy-v-yandeks-kartakh</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/oshibki-pri-prodvizhenii-na-yandeks-kartah-kotorye-meshayut-biznesu</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ponizov-marketing.ru/blog/vliyanie-yandeks-kart-na-lokalnoe-seo-i-privlechenie-klientov</loc>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -80,8 +236,8 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ponizov-marketing.ru/blog/analiz-lokalnyh-konkurentov</loc>
-    <lastmod>2026-02-15</lastmod>
+    <loc>https://ponizov-marketing.ru/blog/yandeks-karty-kak-instrument-prodvizheniya-kak-vyvesti-biznesv-top</loc>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

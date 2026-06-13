@@ -49,7 +49,7 @@ export interface CommonGoalParams extends MetrikaGoalParams {
   element_id?: string;
 }
 
-export function trackTelegramClick(params: CommonGoalParams) {
+export function trackMAXClick(params: CommonGoalParams) {
   trackMetrikaGoal('macro_telegram_click', params);
 }
 

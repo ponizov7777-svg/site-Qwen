@@ -2,12 +2,12 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import Script from 'next/script';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MobileMenu from '../components/MobileMenu';
 import Cookie from '../components/Cookie';
 import VkChatButton from '../components/VkChatButton';
+import DeferredAnalytics from '../components/DeferredAnalytics';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -43,57 +43,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       <MobileMenu />
       <VkChatButton />
 
+      <DeferredAnalytics />
+
       {/* Виджет «Сообщения сообщества» ВКонтакте — ID сообщества 225365151 */}
       <div id="vk_community_messages" />
-      <Script
-        id="vk-community-messages-init"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function() {
-              function run() {
-                if (typeof VK === 'undefined' || !VK.Widgets) {
-                  setTimeout(run, 200);
-                  return;
-                }
-                window.__initVkChatWidget = function initVkChatWidget() {
-                  try {
-                    if (window.__vkChatWidgetInitialized) {
-                      return;
-                    }
-                    window.__vkChatWidgetInitialized = true;
-                    VK.Widgets.CommunityMessages('vk_community_messages', 225365151);
-                  } catch (e) {
-                    // eslint-disable-next-line no-console
-                    console.warn('VK widget init error:', e);
-                  }
-                };
-              }
-              if (document.readyState === 'complete') run();
-              else window.addEventListener('load', run);
-            })();
-          `
-        }}
-      />
-
-      {/* Скрипты */}
-      <Script
-        id="callibri-script"
-        src="//cdn.callibri.ru/callibri.js"
-        strategy="afterInteractive"
-        defer
-      />
-      <Script
-        id="callibri-init"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            // window.CallibriSettings = {
-            //   widgetId: 'ВАШ_ID_ВИДЖЕТА',
-            // };
-          `
-        }}
-      />
     </>
   );
 }

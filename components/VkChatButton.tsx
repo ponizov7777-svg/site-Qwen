@@ -2,28 +2,20 @@
 
 import { useState } from 'react';
 import { trackMetrikaGoal } from '../lib/metrics';
-
-declare global {
-  interface Window {
-    __initVkChatWidget?: () => void;
-  }
-}
+import { initVkCommunityMessages } from '../lib/vkOpenApi';
 
 export default function VkChatButton() {
   const [clicked, setClicked] = useState(false);
 
-  const handleClick = () => {
-    setClicked(true);
-
-    // Цель за клик по «чату»
+  const handleClick = async () => {
     trackMetrikaGoal('micro_vk_widget_open', {
       block_id: 'vk_chat_button',
       element_id: 'vk_chat_button_open',
     });
 
-    // Инициализация настоящего виджета ВК
     try {
-      window.__initVkChatWidget?.();
+      await initVkCommunityMessages();
+      setClicked(true);
     } catch (e) {
       // eslint-disable-next-line no-console
       console.warn('[VK chat button] init error', e);

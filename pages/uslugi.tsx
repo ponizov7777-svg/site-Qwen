@@ -6,9 +6,10 @@ import { useEffect, useRef } from 'react';
 import Breadcrumbs from '../components/Breadcrumbs';
 import FaqAccordion from '../components/FaqAccordion';
 import CardLinkCTA from '../components/CardLinkCTA';
-import { trackMetrikaGoal, trackTelegramClick, type PageType } from '../lib/metrics';
+import { trackMetrikaGoal, trackMAXClick, type PageType } from '../lib/metrics';
 import { observeBlockDwell, initScrollDepthTracking } from '../lib/metrics-content';
 import { buildFaqPageJsonLd } from '../lib/structured-data';
+import { maxUrlWithPrefilledText } from '../constants/links';
 
 const breadcrumbsData = [
   { label: 'Главная', href: '/' },
@@ -96,13 +97,21 @@ const coreTasks = [
   },
 ] as const;
 
+const monthlyManagementTasks = [
+  "Проверяю и обновляю данные карточки: услуги, цены, график, фото, акции и важные изменения.",
+  "Отвечаю на отзывы и вопросы клиентов, усиливаю доверие к компании и снижаю влияние негатива.",
+  "Слежу за позициями, конкурентами и статистикой: показы, клики, звонки, маршруты и заявки.",
+  "Регулярно добавляю точки роста: новые услуги, контент, спецпредложения и корректировки под спрос.",
+  "Беру на себя операционную работу в картах, чтобы вы не тратили время на ручной контроль и рутину.",
+] as const;
+
 export default function uslugiPage() {
   const pageType: PageType = 'services';
   const tariffsRef = useRef<HTMLElement | null>(null);
   const uslugi = [
     {
       id: 1,
-      title: "Размещение компании на картах / оптимизация",
+      title: "Размещение компании на картах / Упаковка карточки",
       kicker: "Базовый старт",
       ctaLabel: "Заказать размещение на картах",
       description: (
@@ -119,14 +128,14 @@ export default function uslugiPage() {
         "services_catalog",
         "visual",
       ],
-      price: "20 000 ₽",
-      oldPrice: "25 000 ₽",
+      price: "15 000 ₽",
+      oldPrice: "20 000 ₽",
       priceNote: "Ваш старт",
       featured: false,
     },
     {
       id: 2,
-      title: "Настройка карт под ключ",
+      title: "Настройка карт под ключ (упаковка + рекламная подписка)",
       kicker: "Оптимальный вариант",
       ctaLabel: "Заказать настройку карт под ключ",
       description: (
@@ -147,7 +156,8 @@ export default function uslugiPage() {
         "ads_setup",
         "funnel_analytics",
       ],
-      price: "33 000 ₽",
+      price: "20 000 ₽",
+      oldPrice: "33 000 ₽",
       priceNote: "Под ключ",
       featured: true,
       priceBadge: "Популярно",
@@ -179,12 +189,29 @@ export default function uslugiPage() {
         "reputation",
         "growth_plan",
       ],
-      price: "45 000 ₽",
-      oldPrice: "50 000 ₽",
+      price: "30 000 ₽",
+      oldPrice: "45 000 ₽",
       priceNote: "Запуск + 1 месяц сопровождения",
       featured: false,
     },
   ];
+
+  const monthlyManagementText = "Здравствуйте. Хочу обсудить ежемесячное ведение карточки на картах. Расскажите, пожалуйста, как вы будете вести карточку и что нужно для старта.";
+  const monthlyManagementHref = maxUrlWithPrefilledText(monthlyManagementText);
+
+  const handleMonthlyManagementClick = () => {
+    trackMetrikaGoal('micro_interest_monthly_maps_management_click', {
+      page_type: pageType,
+      page_slug: '/uslugi',
+      block_id: 'monthly_maps_management',
+    });
+    trackMAXClick({
+      page_type: pageType,
+      page_slug: '/uslugi',
+      block_id: 'monthly_maps_management',
+      element_id: 'monthly_maps_management_cta',
+    });
+  };
 
   const faq = [
     {
@@ -195,14 +222,7 @@ export default function uslugiPage() {
         "Не обещаю тысячи сразу — но 8–12 стабильных записей ежемесячно реально."
       ]
     },
-    {
-      q: "Почему не дешевле? Другой берёт 15 000 ₽",
-      a: [
-        "За 15 000 ₽ настроят карточку и забудут — без анализа конкурентов, без фото, без работы с отзывами.",
-        "Через месяц потратите лишние 30 000 ₽ на бесполезный трафик.",
-        "Я беру 50 000 ₽, но даю 10+ заявок в месяц по цифрам — видно в статистике сразу."
-      ]
-    },
+    
     {
       q: "Как знать, что бюджет не тратится впустую?",
       a: [
@@ -338,12 +358,11 @@ export default function uslugiPage() {
             <div className="relative z-10 px-6 py-10 md:px-12 md:py-14 max-w-3xl">
               <div className="space-y-6 max-w-xl text-white">
                 <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold leading-tight lc-styled-text__text lc-styled-text__text_align_left">
-                  Увеличиваю рост ваших заявок понятному плану
+                  Увеличиваю рост ваших заявок по понятному плану
                   <span className="block md:inline"> </span>
                 </h1>
                 <p className="text-base md:text-lg text-white/85 leading-relaxed">
-                  Работаю так, чтобы бизнес видел: <strong>действие → цифра → вывод → шаг</strong>.
-                  Начнём со ссылки — скажу, где уходят клиенты.
+                  Результат гарантирую.
                 </p>
                 
               </div>
@@ -363,7 +382,7 @@ export default function uslugiPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {uslugi.map((service) => {
               const telegramText = `Здравствуйте. Хочу заказать тариф «${service.title}» (${service.kicker}) по Яндекс Картам. Напишите, пожалуйста, как лучше стартовать.`;
-              const telegramHref = `https://t.me/ponizovandrey?text=${encodeURIComponent(telegramText)}`;
+              const telegramHref = maxUrlWithPrefilledText(telegramText);
 
               const handleTariffClick = () => {
                 trackMetrikaGoal('micro_interest_service_card_click', {
@@ -372,7 +391,7 @@ export default function uslugiPage() {
                   block_id: 'tariffs',
                   service_id: service.id,
                 });
-                trackTelegramClick({
+                trackMAXClick({
                   page_type: pageType,
                   page_slug: '/uslugi',
                   block_id: 'tariffs',
@@ -386,7 +405,7 @@ export default function uslugiPage() {
                 key={service.id}
                 className={`flex h-full flex-col rounded-2xl border p-8 overflow-hidden transition-all duration-300 ${
                   service.featured
-                    ? 'border-[#F5C518]/50 bg-gradient-to-br from-[#FFFDF2] to-[#FFF5CC] shadow-2xl shadow-[#F5C518]/10 ring-1 ring-[#F5C518]/35'
+                    ? 'border-[#F5C518]/50 bg-gradient-to-br from-[#FFFDF2] to-[#FFF5CC] shadow-2xl ring-1 ring-[#F5C518]/35'
                     : 'backdrop-blur-xl bg-white/70 border-white/50 shadow-xl hover:shadow-black/10'
                 }`}
               >
@@ -473,6 +492,77 @@ export default function uslugiPage() {
                 </div>
               </div>
             )})}
+          </div>
+        </section>
+
+        {/* MONTHLY MAPS MANAGEMENT */}
+        <section className="py-20">
+          <div className="mb-10 md:mb-12">
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-[#DCCFB4] to-transparent" aria-hidden="true" />
+          </div>
+
+          <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
+            <div className="rounded-3xl border border-[#F5C518]/35 bg-gradient-to-br from-[#FFFDF2] via-white to-[#FFF5CC] p-8 shadow-2xl md:p-10">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#B77900]">
+                Ежемесячное ведение
+              </p>
+              <h2 className="mb-6 text-2xl font-semibold leading-tight text-[#1E2837] md:text-4xl">
+                Ведение карточки на картах без вашей операционки
+              </h2>
+              <p className="mb-6 text-lg leading-relaxed text-gray-700">
+                Беру на себя регулярную работу с карточкой в Яндекс Картах: обновления, отзывы, вопросы,
+                статистику, контент и поиск точек роста. Вам не нужно каждый месяц держать это в голове,
+                проверять десятки мелочей и реагировать вручную.
+              </p>
+              <p className="mb-8 leading-relaxed text-gray-700">
+                Цель сопровождения — чтобы карточка выглядела живой, вызывала доверие, росла в репутации
+                и стабильно приводила больше звонков, переходов, маршрутов и заявок из карт.
+              </p>
+              <div className="mb-8 rounded-2xl border border-[#F5C518]/45 bg-white/75 p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#B77900]">
+                  Стоимость
+                </p>
+                <p className="mt-2 text-3xl font-bold text-[#1A3A2E]">
+                  10 000 ₽
+                </p>
+                <p className="mt-1 text-sm text-gray-600">
+                  в месяц
+                </p>
+              </div>
+              <a
+                href={monthlyManagementHref}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className={btnPrimary}
+                onClick={handleMonthlyManagementClick}
+              >
+                Обсудить ежемесячное ведение
+              </a>
+            </div>
+
+            <div className={`${glassCard} flex flex-col justify-between`}>
+              <div>
+                <h3 className={h3}>Что я делаю каждый месяц</h3>
+                <ul className="space-y-4">
+                  {monthlyManagementTasks.map((task) => (
+                    <li key={task} className={listItem}>
+                      <span className={`${listBullet} text-[#16A34A]`}>✓</span>
+                      <span>{task}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-8 rounded-2xl border border-[#E5E7EB] bg-white/70 p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#E65C00]">
+                  Итог для бизнеса
+                </p>
+                <p className="mt-3 text-gray-700">
+                  Меньше рутины для вас, сильнее репутация компании и понятная ежемесячная работа
+                  над ростом числа заявок с карт.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 

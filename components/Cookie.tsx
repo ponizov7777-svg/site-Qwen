@@ -43,7 +43,7 @@ export default function Cookie() {
         <div className="bg-gradient-to-r from-[#FFF9E6] to-[#FFF4D9] border border-[#E65C00]/20 backdrop-blur-sm rounded-2xl shadow-2xl p-6 md:p-8 mx-4 md:mx-0">
           <div className="text-sm md:text-base text-[#1A3A2E] mb-4 leading-relaxed">
             Я использую cookies для сбора обезличенных персональных данных. Они помогают настраивать рекламу и анализировать трафик. Оставаясь на сайте, вы соглашаетесь на сбор таких данных.{' '}
-            <Link href="/yridicheskie/privacy-policy" className="text-[#E65C00] hover:text-[#D65A31] font-medium underline">
+            <Link href="/privacy-policy" className="text-[#E65C00] hover:text-[#D65A31] font-medium underline">
               Подробнее
             </Link>
           </div>
