@@ -32,14 +32,15 @@ function ServiceSidebarCard({ service }: { service: ServiceCatalogItem }) {
       <h3 className="text-sm font-semibold leading-snug text-[#1A3A2E] group-hover:text-[#E65C00]">
         {service.title}
       </h3>
-      <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-gray-600">
-        {service.teaser}
-      </p>
-      <div className="mt-3 flex items-baseline gap-2">
+      <div className="mt-3 flex flex-wrap items-baseline gap-x-2 gap-y-1">
         {service.oldPrice ? (
-          <span className="text-xs text-gray-400 line-through">{service.oldPrice}</span>
+          <span className="whitespace-nowrap text-xs text-gray-400 line-through tabular-nums">
+            {service.oldPrice}
+          </span>
         ) : null}
-        <span className="text-sm font-bold text-[#1A3A2E]">{service.price}</span>
+        <span className="whitespace-nowrap text-sm font-bold text-[#1A3A2E] tabular-nums">
+          {service.price}
+        </span>
         <span className="text-xs text-gray-500">{service.priceNote}</span>
       </div>
     </Link>
@@ -91,7 +92,7 @@ function MobileServiceChip({ service }: { service: ServiceCatalogItem }) {
       <span className="truncate text-[0.65rem] font-semibold uppercase tracking-wide text-[#E65C00]">
         {service.kicker}
       </span>
-      <span className="mt-0.5 truncate text-xs font-semibold text-[#1A3A2E]">
+      <span className="mt-0.5 whitespace-nowrap text-xs font-semibold text-[#1A3A2E] tabular-nums">
         {service.price}
       </span>
     </Link>
