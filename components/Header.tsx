@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { NAV_LINKS } from '@/constants/siteConfig';
 import { MAX_PROFILE_URL } from '@/constants/links';
 import { IconMax, IconPhone, IconMenu } from '@/components/Icons';
+import { trackBlogNavToCasesIfApplicable } from '@/lib/metrics';
 
 export default function Header() {
   const pathname = usePathname();
@@ -75,6 +76,9 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={() =>
+                      trackBlogNavToCasesIfApplicable(link.href, pathname, 'header')
+                    }
                     className={`px-3 py-2 text-sm font-medium transition-colors rounded-lg ${
                       isActive
                         ? 'text-[#E65C00] bg-orange-50'

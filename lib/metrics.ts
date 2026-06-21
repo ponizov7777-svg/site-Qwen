@@ -63,3 +63,20 @@ export function trackNavToSection(goalId: string, params: CommonGoalParams) {
   trackMetrikaGoal(goalId, params);
 }
 
+const CASES_PATH = '/cases';
+
+/** Клик «Кейсы» с раздела блога — одна цель, slug статьи в page_slug. */
+export function trackBlogNavToCasesIfApplicable(
+  targetHref: string,
+  pathname: string,
+  blockId: string,
+) {
+  if (targetHref !== CASES_PATH || !pathname.startsWith('/blog')) return;
+
+  trackMetrikaGoal('micro_nav_blog_to_cases', {
+    page_type: 'blog',
+    page_slug: pathname,
+    block_id: blockId,
+  });
+}
+

@@ -3,13 +3,16 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { MOBILE_MENU_CONFIG } from '@/utils/mobileMenuConfig';
 import { MOBILE_NAV_LINKS, SOCIAL_LINKS } from '@/constants/siteConfig';
 import { MAX_PROFILE_URL } from '@/constants/links';
 import { btnPrimary } from '@/constants/styles';
+import { trackBlogNavToCasesIfApplicable } from '@/lib/metrics';
 
 export default function MobileMenu() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const lastScrollYRef = useRef(0);
 
@@ -109,7 +112,10 @@ export default function MobileMenu() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={closeMenu}
+                  onClick={() => {
+                    trackBlogNavToCasesIfApplicable(link.href, pathname, 'mobile_menu');
+                    closeMenu();
+                  }}
                   className="py-3 text-lg font-semibold text-[#1A3A2E]
                             border-b border-white/60 last:border-0
                             hover:text-[#E65C00]
